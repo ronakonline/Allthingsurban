@@ -1,0 +1,14 @@
+Update instructions from version 1.3 to 1.4 -
+PLEASE READ AND FOLLOW THE STEPS CAREFULLY.
+Before starting, keep a backup of files and database of your running 1.3 version. So that there will be no fear of losing data.
+1. Open the update_pack directory then move to assets folder. Copy all the files inside assets folder and paste those in your existing assets of backend directory. Which is located at assets > backend.
+2. Open the update_pack directory then move to controllers folder. Copy all the files of "controllers" directory and paste those files inside your existing controllers directory. Which is located at application > controllers.
+3. Open the update_pack directory then move to models folder. Copy all the files of "models" directory and paste those files inside your existing models directory. Which is located at application > models.
+4. Open the update_pack directory then move to views folder. Copy all the files of "backend" directory and paste those files inside your existing views's backend directory. Which is located at application > views > backend.
+5. Open the update_pack directory then move to views folder. Copy all the files of "install" directory and paste those files inside your existing views's install directory. Which is located at application > views > install.
+6. After that, Login as Admin.
+7. Click on "System Settings" option.
+8. Move to "Update Product" section.
+9. Upload the file "update_1.4.zip". Which is located at "update_pack/update_1.4.zip".
+10. You will get success message that you have successfully updated your application to the latest version of 1.4. If you face any kind of difficulties, let us know through tickets.
+That's it.

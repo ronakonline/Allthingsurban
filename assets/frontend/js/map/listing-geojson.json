@@ -1,0 +1,34 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "7.272992",
+                    "43.702070"
+                ]
+            },
+            "properties": {
+                "id": "bf533aad82a7fb6e6eb088d0b079dd5b",
+                "index": 0,
+                "isActive": true,
+                "logo": "5ef43e911ce4a706ed1c2aba2880aef7.jpg",
+                "image": "5ef43e911ce4a706ed1c2aba2880aef7.jpg",
+                "link": "http://localhost/Allthingsurban/beauty/le-local-barbershop/1",
+                "url": " http://yourcompany.com",
+                "name": "Le local_barbershop",
+                "category": "beauty",
+                "email": "yourbusiness@example.com",
+                "stars": "0.0",
+                "phone": "+48929485960",
+                "address": "Nice, France",
+                "about": "We believe in b\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        }
+    ]
+}
