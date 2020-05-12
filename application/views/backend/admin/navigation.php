@@ -24,7 +24,7 @@
     <div style=""></div>
     <ul id="main-menu" class="">
         <div style="text-align: -webkit-center;" id="branding_element">
-            <img src="<?php echo base_url('assets/global/light_logo.png'); ?>"  style="max-height:30px;"/>
+            <img src="<?php echo base_url('assets/global/light_logo.png'); ?>"  style="max-height:50px;"/>
         </div>
         <br>
         <!-- Home -->

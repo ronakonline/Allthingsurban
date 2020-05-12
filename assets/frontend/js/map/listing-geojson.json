@@ -58,6 +58,35 @@
                     ""
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "savasv",
+                    "sav"
+                ]
+            },
+            "properties": {
+                "id": "596d6a18484d86d9bf64b553e785c901",
+                "index": 2,
+                "isActive": true,
+                "logo": "7efc8f336ae1f409165ebcab65c33efc.jpg",
+                "image": "7efc8f336ae1f409165ebcab65c33efc.jpg",
+                "link": "http://localhost/Allthingsurban/n-a/4",
+                "url": "",
+                "name": "sbads",
+                "category": "general",
+                "email": "",
+                "stars": "0.0",
+                "phone": "",
+                "address": "",
+                "about": "asbxzb\r\n",
+                "tags": [
+                    ""
+                ]
+            }
         }
     ]
 }
