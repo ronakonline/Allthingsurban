@@ -83,6 +83,28 @@ class Home extends CI_Controller {
         $page_data['geo_json']      = $geo_json;
         $this->load->view('frontend/index', $page_data);
     }
+    function classifieds()
+    {
+        // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
+        $all_listings = $this->frontend_model->get_classifieds()->result_array();
+
+        $total_rows = count($all_listings);
+        $config = array();
+        $config = pagintaion($total_rows, 12);
+        $config['base_url']  = site_url('home/classifieds/');
+        $this->pagination->initialize($config);
+
+        $this->db->order_by('is_featured', 'desc');
+        $this->db->where('status', 'active');
+        $listings = $courses = $this->db->get('classifieds', $config['per_page'], $this->uri->segment(3))->result_array();
+        $geo_json = $this->make_geo_json_for_map($listings);
+
+        $page_data['page_name']     = 'classifieds';
+        $page_data['title']         = get_phrase('classifieds');
+        $page_data['listings']      = $listings;
+        $page_data['geo_json']      = $geo_json;
+        $this->load->view('frontend/index', $page_data);
+    }
 
     function make_geo_json_for_map($listings = array()){
         chmod("assets/frontend/js/map/listing-geojson.json", 0777);
@@ -379,6 +401,26 @@ class Home extends CI_Controller {
         $listings = $this->frontend_model->search_listing($search_string, $selected_category_id);
         $geo_json = $this->make_geo_json_for_map($listings);
         $page_data['page_name']     = 'listings';
+        $page_data['title']         = get_phrase('listings');
+        $page_data['listings']      = $listings;
+        $page_data['geo_json']      = $geo_json;
+        if ($selected_category_id != "") {
+            $page_data['category_ids'] = array($selected_category_id);
+        }
+        if ($search_string != "") {
+            $page_data['search_string'] = $search_string;
+        }
+        $this->load->view('frontend/index', $page_data);
+    }
+
+    // Search function for classified
+    function csearch() {
+        $search_string = $_GET['search_string'];
+        $selected_category_id = $_GET['selected_category_id'];
+
+        $listings = $this->frontend_model->search_classifieds($search_string, $selected_category_id);
+        $geo_json = $this->make_geo_json_for_map($listings);
+        $page_data['page_name']     = 'classifieds';
         $page_data['title']         = get_phrase('listings');
         $page_data['listings']      = $listings;
         $page_data['geo_json']      = $geo_json;

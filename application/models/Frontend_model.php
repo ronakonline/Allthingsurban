@@ -16,6 +16,11 @@ class Frontend_model extends CI_Model {
         return $this->db->get('listing');
     }
 
+    function get_classifieds() {
+        $this->db->where('status', 'active');
+        return $this->db->get('classifieds');
+    }
+
 
     function filter_listing($category_ids = array(), $amenity_ids = array(), $city_id = "", $price_range = 0, $with_video = 0, $with_open = 'all') {
         $listing_ids = array();
@@ -319,6 +324,31 @@ class Frontend_model extends CI_Model {
         }
     }
 
+    function get_top_ten_classifieds() {
+        $listing_ids = array();
+        $listing_id_with_rating = array();
+        $listings = $this->get_classifieds()->result_array();
+        foreach ($listings as $listing) {
+            if(!has_package($listing['user_id']) > 0){
+                continue;
+            }
+            $listing_id_with_rating[$listing['id']] = $this->get_listing_wise_rating($listing['id']);
+        }
+        arsort($listing_id_with_rating);
+        foreach ($listing_id_with_rating as $key => $value) {
+            if (count($listing_ids) <= 10) {
+                array_push($listing_ids, $key);
+            }
+        }
+        if (count($listing_ids) > 0) {
+            $this->db->where_in('id', $listing_ids);
+            $this->db->where('status', 'active');
+            return  $this->db->get('classifieds')->result_array();
+        }else {
+            return array();
+        }
+    }
+
     function search_listing($search_string = '', $selected_category_id = '') {
         if ($search_string != "") {
             $this->db->like('name', $search_string);
@@ -333,6 +363,22 @@ class Frontend_model extends CI_Model {
 
         $this->db->where('status', 'active');
         return  $this->db->get('listing')->result_array();
+    }
+
+    function search_classifieds($search_string = '', $selected_category_id = '') {
+        if ($search_string != "") {
+            $this->db->like('name', $search_string);
+            $this->db->or_like('description', $search_string);
+        }
+
+        if ($selected_category_id != "") {
+            $this->db->like('categories', "$selected_category_id");
+        }
+
+        $this->db->order_by('is_featured', 'desc');
+
+        $this->db->where('status', 'active');
+        return  $this->db->get('classifieds')->result_array();
     }
 
     function get_the_maximum_price_limit_of_all_listings() {

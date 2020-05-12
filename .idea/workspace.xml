@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="" />
+    <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_add_wiz.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_edit_wiz.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/classifieds.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/classifieds_grid_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/classifieds_list_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Frontend_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Frontend_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header_home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header_home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header_listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header_listing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header_pricing.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header_pricing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header_user_account.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header_user_account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +36,11 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1b5oGtXSCfPCVaROthRWsaZViDD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -35,10 +63,23 @@
       <updated>1587931222338</updated>
       <workItem from="1587931223780" duration="508000" />
       <workItem from="1587987961691" duration="597000" />
+      <workItem from="1589284590526" duration="32000" />
+      <workItem from="1589284625611" duration="4161000" />
+      <workItem from="1589302613016" duration="4748000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="548" y="176" key="NewPhpFileDialog" timestamp="1589303921847">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="548" y="176" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589303921847" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589302618943">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589302618943" />
   </component>
 </project>

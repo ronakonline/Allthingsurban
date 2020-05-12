@@ -67,12 +67,12 @@
 <div class="container-fluid margin_80_55">
 	<div class="main_title_2">
 		<span><em></em></span>
-		<h2><?php echo get_phrase('popular_listings'); ?></h2>
+		<h2><?php echo get_phrase('Classified'); ?></h2>
 	</div>
 
 	<div id="reccomended" class="owl-carousel owl-theme">
 		<?php // $listing_number = 0; ?>
-		<?php $listings = $this->frontend_model->get_top_ten_listings();
+		<?php $listings = $this->frontend_model->get_top_ten_classifieds();
 
 		
 
@@ -123,7 +123,7 @@
 	</div>
 	<!-- /carousel -->
 	<div class="container">
-		<div class="btn_home_align"><a href="<?php echo site_url('home/listings'); ?>" class="btn_1 rounded"><?php echo get_phrase('view_all'); ?></a></div>
+		<div class="text-center"><a href="<?php echo site_url('home/classifieds'); ?>" class="btn_1 rounded"><?php echo get_phrase('view_all'); ?></a></div>
 	</div>
 	<!-- /container -->
 </div>

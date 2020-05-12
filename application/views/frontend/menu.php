@@ -2,6 +2,7 @@
 	<ul>
 		<li><span><a href="<?php echo base_url();?>">Home</a></span></li>
 		<li><span><a href="<?php echo base_url();?>home/listings">Listings</a></span></li>
+        <li><span><a href="<?php echo base_url();?>home/classifieds">Classified</a></span></li>
 		<li><span><a href="<?php echo base_url();?>home/category">Category</a></span></li>
 		<li><span><a href="<?php echo base_url();?>home/pricing">Pricing</a></span></li>
 		<?php if ($this->session->userdata('is_logged_in') == 1): ?>

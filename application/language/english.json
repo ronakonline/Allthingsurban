@@ -822,5 +822,12 @@
     "confirm_password": "Confirm password",
     "currently_active_package_name": "Currently active package name",
     "more_info": "More info",
-    "oops": "Oops"
+    "oops": "Oops",
+    "classifieds": "Classifieds",
+    "add_new_classifieds": "Add new classifieds",
+    "add_classifieds_form": "Add classifieds form",
+    "classifieds_added_successfully": "Classifieds added successfully",
+    "add_new_classified": "Add new classified",
+    "classified": "Classified",
+    "classified_edit": "Classified edit"
 }

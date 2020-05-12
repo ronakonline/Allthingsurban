@@ -322,6 +322,70 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index', $page_data);
 	}
 
+    public function classifieds($param1 = '', $param2 = '') {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        if ($param1 == 'add') {
+            $this->crud_model->add_classifieds();
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'edit') {
+            $this->crud_model->update_classifieds($param2);
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'delete') {
+            $this->crud_model->delete_from_table('classifieds', $param2);
+            $this->session->set_flashdata('flash_message', get_phrase('listing_deleted'));
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'make_active'){
+            $this->crud_model->update_classifieds_single_column('status', 'active', $param2);
+            $this->session->set_flashdata('flash_message', get_phrase('listing_updated'));
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'make_pending'){
+            $this->crud_model->update_classifieds_single_column('status', 'pending', $param2);
+            $this->session->set_flashdata('flash_message', get_phrase('listing_updated'));
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'make_none_featured'){
+            $this->crud_model->update_classifieds_single_column('is_featured', 0, $param2);
+            $this->session->set_flashdata('flash_message', get_phrase('listing_updated'));
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'make_featured'){
+            $this->crud_model->update_classifieds_single_column('is_featured', 1, $param2);
+            $this->session->set_flashdata('flash_message', get_phrase('listing_updated'));
+            redirect(site_url('admin/classifieds'), 'refresh');
+        }elseif ($param1 == 'listings_delete'){
+            $listings_id = "',".$param2."'";
+            $listings_id = explode(',', $listings_id);
+            foreach($listings_id as $listing_id){
+                $this->db->where('id', $listing_id);
+                $this->db->delete('classifieds');
+            }
+            $this->session->set_flashdata('flash_message', get_phrase('listings_deleted_successfully'));
+        }
+
+        $page_data['timestamp_start'] = strtotime('-29 days', time());
+        $page_data['timestamp_end']   = strtotime(date("m/d/Y"));
+        $page_data['page_name']  = 'classifieds';
+        $page_data['page_title'] = get_phrase('classifieds');
+        //$page_data['listings'] = $this->crud_model->get_listings(0, $page_data['timestamp_start'], $page_data['timestamp_end'])->result_array();
+        $page_data['listings'] = $this->crud_model->get_classifieds(0, $page_data['timestamp_start'], $page_data['timestamp_end'])->result_array();
+        $this->load->view('backend/index', $page_data);
+    }
+
+    public function classifieds_form($param1 = '', $param2 = '') {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        if ($param1 == 'add') {
+            $page_data['page_name']  = 'classifieds_add_wiz';
+            $page_data['page_title'] = get_phrase('add_new_classifieds');
+        }elseif ($param1 == 'edit') {
+            $page_data['page_name']  = 'classifieds_edit_wiz';
+            $page_data['page_title'] = get_phrase('classified_edit');
+            $page_data['listing_id'] = $param2;
+        }
+        $this->load->view('backend/index.php', $page_data);
+    }
+
 	public function listing_form($param1 = '', $param2 = '') {
 		if ($this->session->userdata('admin_login') != true) {
 			redirect(site_url('login'), 'refresh');

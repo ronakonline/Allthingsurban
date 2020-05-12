@@ -214,6 +214,18 @@ function get_listings($listing_id = 0) {
   return $this->db->get('listing');
 }
 
+function get_classifieds($listing_id = 0) {
+        if (strtolower($this->session->userdata('role')) != 'admin') {
+            $this->db->where('user_id', $this->session->userdata('user_id'));
+        }
+        if ($listing_id > 0) {
+            $this->db->where('id', $listing_id);
+        }else {
+            $this->db->order_by('date_added' , 'desc');
+        }
+        return $this->db->get('classifieds');
+    }
+
 function filter_listing_table($data = array()) {
   if ($data['status'] != 'all')
   $this->db->where('status', $data['status']);
@@ -227,6 +239,114 @@ function filter_listing_table($data = array()) {
   return $this->db->get('listing');
 
 }
+
+function add_classifieds() {
+        $photo_gallery  = array();
+
+        $data['name'] = sanitizer($this->input->post('title'));
+        $data['description'] = sanitizer($this->input->post('description'));
+
+        $value_check = $this->input->post('is_featured');
+        if(isset($value_check)){
+            $data['is_featured'] = sanitizer($this->input->post('is_featured'));
+        }else{
+            $data['is_featured'] = sanitizer(0);
+        }
+
+        $data['country_id'] = sanitizer($this->input->post('country_id'));
+        $data['city_id'] = sanitizer($this->input->post('city_id'));
+        $data['address'] = sanitizer($this->input->post('address'));
+        $data['latitude'] = sanitizer($this->input->post('latitude'));
+        $data['longitude'] = sanitizer($this->input->post('longitude'));
+        $data['google_analytics_id'] = sanitizer($this->input->post('google_analytics_id'));
+
+        if (sizeof(sanitizer($this->input->post('amenities'))) > 0) {
+            $data['amenities'] = $this->make_json(sanitizer($this->input->post('amenities')));
+        }else {
+            $data['amenities'] = json_encode(array());
+        }
+
+        if (sizeof(sanitizer($this->input->post('categories'))) > 0) {
+            $data['categories'] = $this->make_json(sanitizer($this->input->post('categories')));
+        }else {
+            $data['categories'] = json_encode(array());
+        }
+
+
+        $data['video_provider'] = sanitizer($this->input->post('video_provider'));
+        $data['video_url'] = sanitizer($this->input->post('video_url'));
+        $data['tags'] = sanitizer($this->input->post('tags'));
+        $data['seo_meta_tags'] = sanitizer($this->input->post('seo_meta_tags'));
+
+        $data['website'] = sanitizer($this->input->post('website'));
+        $data['email'] = sanitizer($this->input->post('email'));
+        $data['phone'] = sanitizer($this->input->post('phone'));
+        $data['listing_type'] = sanitizer($this->input->post('listing_type'));
+
+        $data['user_id'] = $this->session->userdata('user_id');
+        $social_links = array(
+            'facebook' => sanitizer($this->input->post('facebook')),
+            'twitter' => sanitizer($this->input->post('twitter')),
+            'linkedin' => sanitizer($this->input->post('linkedin')),
+        );
+        $data['social'] = json_encode($social_links);
+        $data['date_added'] = strtotime(date('D, d-M-Y'));
+        $time_config = array();
+        $days = array('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday');
+        foreach ($days as $day) {
+            $time_config[$day] = sanitizer($this->input->post($day.'_opening')).'-'.sanitizer($this->input->post($day.'_closing'));
+        }
+
+        if ($_FILES['listing_thumbnail']['name'] == "") {
+            $data['listing_thumbnail'] = 'thumbnail.png';
+        }else {
+            $data['listing_thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
+            move_uploaded_file($_FILES['listing_thumbnail']['tmp_name'], 'uploads/listing_thumbnails/'.$data['listing_thumbnail']);
+        }
+
+        if ($_FILES['listing_cover']['name'] == "") {
+            $data['listing_cover'] = 'thumbnail.png';
+        }else {
+            $data['listing_cover'] = md5(rand(10000000, 20000000)).'.jpg';
+            move_uploaded_file($_FILES['listing_cover']['tmp_name'], 'uploads/listing_cover_photo/'.$data['listing_cover']);
+        }
+
+        foreach ($_FILES['listing_images']['tmp_name'] as $listing_image) {
+            if ($listing_image != "") {
+                $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
+                move_uploaded_file($listing_image, 'uploads/listing_images/'.$random_identifier);
+                array_push($photo_gallery, $random_identifier);
+            }
+        }
+        $data['photos'] = json_encode($photo_gallery);
+        $data['code'] = md5(rand(10000000, 20000000));
+
+        if (strtolower($this->session->userdata('role')) == 'admin') {
+            $data['status'] = 'active';
+        }else {
+            $data['status'] = 'pending';
+        }
+
+        $total_listing = $this->input->post('total_listing');
+        $submited_listing = $this->input->post('submited_listing');
+
+        $user_type = $this->db->get_where('user', array('id' => $this->session->userdata('user_id')))->row('role_id');
+
+        if($total_listing > $submited_listing || $user_type == '1'){
+            $this->db->insert('classifieds', $data);
+            $listing_id = $this->db->insert_id();
+            $time_config['listing_id'] = $listing_id;
+            $this->db->insert('time_configuration', $time_config);
+
+            // Add listing inner details data
+            $this->add_listing_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
+            $this->session->set_flashdata('flash_message', get_phrase('classifieds_added_successfully'));
+        }else{
+            $this->session->set_flashdata('error_message', get_phrase('there_is_no_free_space_to_add_to_the_classifieds'));
+        }
+    }
+
+
 function add_listing() {
   $photo_gallery  = array();
 
@@ -569,6 +689,127 @@ function update_listing($listing_id = "") {
   $this->session->set_flashdata('flash_message', get_phrase('listing_updated_successfully'));
 }
 
+function update_classifieds($listing_id = "") {
+        $listing_details      = $this->crud_model->get_classifieds($listing_id)->row_array();
+
+        $data['name'] = sanitizer($this->input->post('title'));
+        $data['description'] = sanitizer($this->input->post('description'));
+
+        $value_check = $this->input->post('is_featured');
+        if(isset($value_check)){
+            $data['is_featured'] = sanitizer($this->input->post('is_featured'));
+        }else{
+            $data['is_featured'] = sanitizer(0);
+        }
+
+        $data['country_id'] = sanitizer($this->input->post('country_id'));
+        $data['city_id'] = sanitizer($this->input->post('city_id'));
+        $data['address'] = sanitizer($this->input->post('address'));
+        $data['latitude'] = sanitizer($this->input->post('latitude'));
+        $data['longitude'] = sanitizer($this->input->post('longitude'));
+        $data['listing_type'] = sanitizer($this->input->post('listing_type'));
+        $data['google_analytics_id'] = sanitizer($this->input->post('google_analytics_id'));
+
+        if (sizeof(sanitizer($this->input->post('amenities'))) > 0) {
+            $data['amenities'] = $this->make_json(sanitizer($this->input->post('amenities')));
+        }else {
+            $data['amenities'] = json_encode(array());
+        }
+
+        if (sizeof(sanitizer($this->input->post('categories'))) > 0) {
+            $data['categories'] = $this->make_json(sanitizer($this->input->post('categories')));
+        }else {
+            $data['categories'] = json_encode(array());
+        }
+
+        $data['video_provider'] = sanitizer($this->input->post('video_provider'));
+        $data['video_url'] = sanitizer($this->input->post('video_url'));
+        $data['tags'] = sanitizer($this->input->post('tags'));
+        $data['seo_meta_tags'] = sanitizer($this->input->post('seo_meta_tags'));
+
+        $data['website'] = sanitizer($this->input->post('website'));
+        $data['email'] = sanitizer($this->input->post('email'));
+        $data['phone'] = sanitizer($this->input->post('phone'));
+        $data['user_id'] = sanitizer($this->input->post('user_id'));
+        $social_links = array(
+            'facebook' => sanitizer($this->input->post('facebook')),
+            'twitter' => sanitizer($this->input->post('twitter')),
+            'linkedin' => sanitizer($this->input->post('linkedin')),
+        );
+        $data['social'] = json_encode($social_links);
+        $data['date_modified'] = strtotime(date('D, d-M-Y'));
+        $time_config = array();
+        $days = array('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday');
+        foreach ($days as $day) {
+            $time_config[$day] = sanitizer($this->input->post($day.'_opening')).'-'.sanitizer($this->input->post($day.'_closing'));
+        }
+
+        if ($_FILES['listing_thumbnail']['name'] != "") {
+            if ($listing_details['listing_thumbnail'] == "thumbnail.png" || $listing_details['listing_thumbnail'] == "") {
+                $data['listing_thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
+                move_uploaded_file($_FILES['listing_thumbnail']['tmp_name'], 'uploads/listing_thumbnails/'.$data['listing_thumbnail']);
+            }else {
+                $data['listing_thumbnail'] = $listing_details['listing_thumbnail'];
+                move_uploaded_file($_FILES['listing_thumbnail']['tmp_name'], 'uploads/listing_thumbnails/'.$data['listing_thumbnail']);
+            }
+        }
+
+        if ($_FILES['listing_cover']['name'] != "") {
+            if ($listing_details['listing_cover'] == "thumbnail.png") {
+                $data['listing_cover'] = md5(rand(10000000, 20000000)).'.jpg';
+                move_uploaded_file($_FILES['listing_cover']['tmp_name'], 'uploads/listing_cover_photo/'.$data['listing_cover']);
+            }else {
+                $data['listing_cover'] = $listing_details['listing_cover'];
+                move_uploaded_file($_FILES['listing_cover']['tmp_name'], 'uploads/listing_cover_photo/'.$data['listing_cover']);
+            }
+        }
+
+        $old_listing_images   = json_decode($listing_details['photos']);
+        $new_listing_images   = $this->input->post('new_listing_images');
+        unset($new_listing_images[count($new_listing_images)-1]);
+        $final_listing_images = array();
+
+        foreach ($_FILES['listing_images']['tmp_name'] as $key => $listing_image) {
+
+            if (in_array($new_listing_images[$key], $old_listing_images)) {
+                if ($listing_image != "") {
+                    $random_identifier = $new_listing_images[$key];
+                    move_uploaded_file($listing_image, 'uploads/listing_images/'.$random_identifier);
+                    array_push($final_listing_images, $random_identifier);
+                }else {
+                    $random_identifier = $new_listing_images[$key];
+                    array_push($final_listing_images, $random_identifier);
+                }
+            }else {
+                if ($listing_image != "") {
+                    $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
+                    //unlink('./uploads/listing_images/'.$new_listing_images[$key]);
+
+                    move_uploaded_file($listing_image, 'uploads/listing_images/'.$random_identifier);
+                    array_push($final_listing_images, $random_identifier);
+                }else {
+                    //unlink('./uploads/listing_images/'.$new_listing_images[$key]);
+                }
+            }
+        }
+
+        $data['photos'] = json_encode($final_listing_images);
+
+        $this->db->where('id', $listing_id);
+        $this->db->update('classifieds', $data);
+
+
+        $this->db->where('listing_id', $listing_id);
+        $this->db->update('time_configuration', $time_config);
+
+        // Update listing inner details data
+        $this->update_listing_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
+
+        // remove the existing listing details from other tables
+        $this->remove_from_other_tables(sanitizer($this->input->post('listing_type')), $listing_id);
+        $this->session->set_flashdata('flash_message', get_phrase('listing_updated_successfully'));
+    }
+
 // This function updates listing wise inner data
 function update_listing_type_wise_details($listing_type = "", $listing_id = "") {
   $listing_photos = array();
@@ -790,6 +1031,14 @@ function update_listings_single_column($column_name = "", $value = "", $listing_
   $this->db->where('id', $listing_id);
   $this->db->update('listing', $data);
 }
+
+function update_classifieds_single_column($column_name = "", $value = "", $listing_id) {
+        $data = array(
+            $column_name => $value
+        );
+        $this->db->where('id', $listing_id);
+        $this->db->update('classifieds', $data);
+    }
 
 function check_listing_form_submission_status($data = array()) {
   if(trim($data['name']) == "" || $data['category_id'] == "" || $data['latitude'] == "" || $data['longitude'] == "" || $data['country_id'] == "" || $data['city_id'] == "" || $data['email'] == "" || $data['website'] == "" || $data['phone'] == ""){

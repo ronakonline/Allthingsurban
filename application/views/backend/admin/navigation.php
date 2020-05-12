@@ -107,6 +107,27 @@
             </ul>
         </li>
 
+        <!-- Classifieds -->
+        <li class="<?php if ($page_name == 'classifieds' || $page_name == 'classifieds_add_wiz' || $page_name == 'classifieds_edit_wiz' ) echo 'opened active has-sub'; ?>">
+            <a href="#">
+                <i class="fa fa-sitemap"></i>
+                <span><?php echo get_phrase('Classifieds'); ?></span>
+            </a>
+            <ul>
+                <li class="<?php if ($page_name == 'classifieds') echo 'active'; ?> ">
+                    <a href="<?php echo site_url('admin/classifieds'); ?>">
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('classifieds'); ?></span>
+                    </a>
+                </li>
+
+                <li class="<?php if ($page_name == 'classifieds_add_wiz') echo 'active'; ?> ">
+                    <a href="<?php echo site_url('admin/classifieds_form/add'); ?>">
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_classifieds'); ?></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <!-- Bookings -->
         <li class="<?php if ($page_name == 'booking_request_hotel' || $page_name == 'booking_request_restaurant' || $page_name == 'booking_request_beauty') echo 'opened active has-sub'; ?>">
             <a href="#">
