@@ -302,7 +302,7 @@ html * {
 body {
   background: #f8f8f8;
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 2.8;
   font-family: "Poppins", Helvetica, sans-serif;
   color: #555;
 }
@@ -923,7 +923,7 @@ header.header_in ul#top_menu li a {
 
 ul#top_menu {
   float: right;
-  margin: 0 0 0 10px;
+  margin: 10px 0 0 10px;
   padding: 0;
   font-size: 13px;
   font-size: 0.8125rem;
@@ -1449,7 +1449,7 @@ ul#additional_links li:after {
   height: 600px;
 }
 .hero_single.version_2 {
-  height: 620px;
+  height: 580px;
   background: #222 url(../images/home_section_1.jpg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;

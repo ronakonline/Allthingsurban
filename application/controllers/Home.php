@@ -19,6 +19,22 @@ class Home extends CI_Controller {
 
     public function index()
     {
+        // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
+        $all_listings = $this->frontend_model->get_classifieds()->result_array();
+
+        $total_rows = count($all_listings);
+        $config = array();
+        $config = pagintaion($total_rows, 12);
+        $config['base_url']  = site_url('home/classifieds/');
+        $this->pagination->initialize($config);
+
+        $this->db->order_by('is_featured', 'desc');
+        $this->db->where('status', 'active');
+        $listings = $courses = $this->db->get('classifieds', $config['per_page'], $this->uri->segment(3))->result_array();
+        $geo_json = $this->make_geo_json_for_map($listings);
+
+        $page_data['listings']      = $listings;
+        $page_data['geo_json']      = $geo_json;
         $page_data['page_name']     =   'home';
         $page_data['title']         =   'Home';
         $this->load->view('frontend/index', $page_data);

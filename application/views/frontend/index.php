@@ -8,6 +8,11 @@
 
 	    <!-- Top css library files -->
 	    <?php include 'includes_top.php';?>
+        <?php
+			if ($page_name == 'home' || $page_name == '404'){  ?>
+                <link href="<?php echo base_url();?>assets/frontend/css/home.css" rel="stylesheet">
+
+			<?php  }  ?>
 
 	</head>
 
@@ -18,7 +23,7 @@
 			<!-- Header -->
 			<?php
 			if ($page_name == 'home' || $page_name == '404')
-				include 'header_home.php';
+				include 'header_listing.php';
 			else if ($page_name == 'listings' || $page_name == 'listing/create')
 				include 'header_listing.php';
 			else if ($page_name == 'directory_listing')

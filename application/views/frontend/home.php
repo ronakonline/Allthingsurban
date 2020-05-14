@@ -27,10 +27,193 @@
 				</div>
 				<!-- /row -->
 			</form>
+
+            <ul class="mt-3"><li class="list-inline-item"></li><li class="list-inline-item"></li><li class="list-inline-item"></li><li class="list-inline-item"></li><li class="list-inline-item"></li></ul>
 		</div>
 	</div>
 </section>
+<div class="row">
+    <div class="col-sm" style="text-align: center">Houston</div>
+    <div class="col-sm" style="text-align: center">San Antonio</div>
+    <div class="col-sm" style="text-align: center">Dallas Fort Worth</div>
+    <div class="col-sm" style="text-align: center">Austin</div>
+    <div class="col-sm" style="text-align: center">El Paso</div>
+
+
+</div>
 <!-- /hero_single -->
+<section class="flat-highlights">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="highlights">
+                    <ul class="menu-list" style="margin-bottom: 0px;">
+                        <li>
+                            <a href="#" title="">
+<!--                                <img src="--><?php //echo base_url();?><!--assets/frontend/images/page/cutlery.png" alt="">-->
+                                <i class="fa fa-briefcase fa-2x"></i>
+                                <span>Businesses</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#" title="">
+                                <i class="fa fa-check fa-2x"></i>
+                                <span>Add Listing</span>
+                            </a>
+
+                        </li>
+                        <li class="">
+                            <a href="#" title="">
+                                <i class="fa fa-user fa-2x"></i>
+                                <span>Jobs</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#" title="">
+                                <i class="fa fa-home fa-2x"></i>
+                                <span>Housing/Offices</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#" title="">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                                <span>Buy/Sell</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#" title="">
+                                <i class="fa fa-wrench fa-2x"></i>
+                                <span>Services</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#" title="">
+                                <i class="fa fa-calendar fa-2x"></i>
+                                <span>Events</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#" title="">
+                                <i class="fa fa-smile fa-2x"></i>
+                                <span>Dating</span>
+                            </a>
+
+                        </li>
+                    </ul><!-- /.menu-list -->
+                </div><!-- /.highlights -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="bg_color_1">
+    <div class="container margin_80_55" style="">
+        <div class="row">
+            <aside class="" id="sidebar" style="white-space: -moz-pre-wrap; width: 24.20%; float: left ">
+                <div id="filters_col">
+                    <a  href="#collapseFilters" ><?php echo get_phrase('Business Directory'); ?> </a>
+                    <!-- Filter form starts-->
+
+                            <div class="filter_type">
+                                <h6 style="margin: 0px;"></h6>
+                                <ul>
+                                    <li><a>Active Life</a> </li>
+                                    <li><a>Airline Tickets, Car Rentals, Tours</a></li>
+                                    <li><a>Armenian Community</a></li>
+                                    <li><a>Attorneys & Legal Services</a></li>
+                                    <li><a>Automotive</a></li>
+                                    <li><a>Car Sales</a></li>
+                                    <li><a>Cleaning Services</a></li>
+                                    <li><a>Computers/Communication</a></li>
+                                    <li><a>Construction Services</a></li>
+                                    <li><a>Dentists</a></li>
+                                    <li><a>DJ Professional Services</a></li>
+                                    <li><a>Education/schools</a></li>
+                                    <li><a>Entertainment/Art</a></li>
+                                    <li><a>Event Planning & Services</a></li>
+                                    <li><a>Financial Services</a></li>
+                                    <li><a>Flowers</a></li>
+                                </ul>
+                            </div>
+
+                        <!--/collapse -->
+
+                    <!-- filter form ends -->
+                </div>
+                <!--/filters col-->
+            </aside>
+            <div class="col-xl-9 col-md-12 " id="listings">
+
+                <div class="row">
+
+                    <?php
+                    foreach($listings as $listing):
+                        if(!has_package($listing['user_id']) > 0)
+                            continue; ?>
+
+                        <?php
+                        // $active_package = has_package($listing['user_id']);
+                        // $listing_allowed_number = $this->db->get_where('package_purchased_history', array('id', $active_package))->row('number_of_listings');
+                        // $listings_2 = $this->db->get_where('listing', array('user_id' => $listing['user_id']));
+
+                        ?>
+
+
+
+                        <!-- A Single Listing Starts-->
+                        <div class="col-4 card " data-marker-id="<?php echo $listing['code']; ?>" id = "<?php echo $listing['code']; ?>">
+
+                            <div class="strip grid <?php if($listing['is_featured'] == 1) echo 'featured-tag-border'; ?>">
+                                <figure>
+
+                                    <a href="javascript::" class="wishlist-icon" onclick="addToWishList(this, '<?php echo $listing['id']; ?>')">
+                                        <i class=" <?php echo is_wishlisted($listing['id']) ? 'fas fa-heart' : 'far fa-heart'; ?> "></i>
+                                    </a>
+                                    <?php if($listing['is_featured'] == 1){ ?>
+                                        <a href="javascript::" class="featured-tag-grid"><?php echo get_phrase('featured'); ?></a>
+                                    <?php } ?>
+                                    <a href="<?php echo get_listing_url($listing['id']); ?>"  id = "listing-banner-image-for-<?php echo $listing['code']; ?>"  class="d-block h-100 img" style="background-image:url('<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>')">
+                                        <!-- <img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt=""> -->
+                                        <div class="read_more"><span><?php echo get_phrase('watch_details'); ?></span></div>
+                                    </a>
+                                    <small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
+                                </figure>
+                                <div class="wrapper <?php if($listing['is_featured'] == 1) echo 'featured-body'; ?>">
+                                    <h3 class="ellipsis"><a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo $listing['name']; ?></a></h3>
+                                    <small>
+                                        <?php
+                                        $city 	 = $this->db->get_where('city', array('id' =>  $listing['city_id']))->row_array();
+                                        $country = $this->db->get_where('country', array('id' =>  $listing['country_id']))->row_array();
+                                        echo $city['name'].', '.$country['name'];
+                                        ?>
+                                    </small>
+                                    <p class="ellipsis">
+                                        <?php echo $listing['description']; ?>
+                                    </p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- A Single Listing Ends-->
+                    <?php endforeach; ?>
+                </div>
+
+            </div>
+
+
+        </div><!--/row-->
+
+    </div>
+    <!-- /container -->
+</div>
 
 <div class="bg_color_1">
 	<div class="container margin_80_55">
