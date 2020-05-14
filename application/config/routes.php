@@ -59,3 +59,10 @@ $route['hotel/(:any)/(:any)'] = 'home/listing/$1/$2';
 $route['restaurant/(:any)/(:any)'] = 'home/listing/$1/$2';
 $route['shop/(:any)/(:any)'] = 'home/listing/$1/$2';
 $route['beauty/(:any)/(:any)'] = 'home/listing/$1/$2';
+
+//custom URL
+$route['cgeneral/(:any)/(:any)'] = 'home/classified/$1/$2';
+$route['chotel/(:any)/(:any)'] = 'home/classified/$1/$2';
+$route['crestaurant/(:any)/(:any)'] = 'home/classified/$1/$2';
+$route['cshop/(:any)/(:any)'] = 'home/classified/$1/$2';
+$route['cbeauty/(:any)/(:any)'] = 'home/classified/$1/$2';

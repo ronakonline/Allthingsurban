@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_edit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/class_listing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/class_open_time.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/listing_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/listing_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/classifieds.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/classifieds_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/classifieds_edit_wiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_edit_wiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/beauty_service_contact_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/beauty_service_contact_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/classifieds_grid_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/classifieds_grid_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/general_contact_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/general_contact_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/listing_reviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/listing_reviews.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/site_meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/site_meta.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +35,20 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,7 +62,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
@@ -46,6 +86,11 @@
       <workItem from="1589284590526" duration="32000" />
       <workItem from="1589284625611" duration="4161000" />
       <workItem from="1589302613016" duration="4997000" />
+      <workItem from="1589313000994" duration="2829000" />
+      <workItem from="1589350807153" duration="3004000" />
+      <workItem from="1589361806649" duration="1538000" />
+      <workItem from="1589377487244" duration="3861000" />
+      <workItem from="1589390090766" duration="6380000" />
     </task>
     <servers />
   </component>
@@ -53,13 +98,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="548" y="176" key="NewPhpFileDialog" timestamp="1589303921847">
+    <state x="360" y="37" key="#Deployment" timestamp="1589377870861">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="548" y="176" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589303921847" />
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589302618943">
+    <state x="360" y="37" key="#Deployment/0.0.1366.728@0.0.1366.728" timestamp="1589377870861" />
+    <state x="548" y="176" key="NewPhpFileDialog" timestamp="1589362609343">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589302618943" />
+    <state x="548" y="176" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589362609343" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589390092705">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589390092705" />
+    <state x="580" y="29" key="ftp.server.browser" timestamp="1589377869189">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="580" y="29" key="ftp.server.browser/0.0.1366.728@0.0.1366.728" timestamp="1589377869189" />
+    <state x="553" y="262" key="publish.login" timestamp="1589390157828">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1589390157828" />
   </component>
 </project>

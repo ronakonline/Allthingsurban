@@ -149,6 +149,13 @@ if (! function_exists('get_listing_url')) {
     $custom_url = site_url($listing['listing_type'].'/'.slugify($listing['name']).'/'.$listing_id);
     return $custom_url;
   }
+  function get_classifieds_url($listing_id = ""){
+        $CI =&  get_instance();
+        $CI->load->database();
+        $listing = $CI->db->get_where('classifieds', array('id' => $listing_id))->row_array();
+        $custom_url = site_url('c'.$listing['listing_type'].'/'.slugify($listing['name']).'/'.$listing_id);
+        return $custom_url;
+    }
 }
 
 

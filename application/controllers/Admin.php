@@ -329,6 +329,7 @@ class Admin extends CI_Controller {
         if ($param1 == 'add') {
             $this->crud_model->add_classifieds();
             redirect(site_url('admin/classifieds'), 'refresh');
+            redirect(site_url('admin/classifieds'), 'refresh');
         }elseif ($param1 == 'edit') {
             $this->crud_model->update_classifieds($param2);
             redirect(site_url('admin/classifieds'), 'refresh');

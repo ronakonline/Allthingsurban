@@ -12,7 +12,7 @@
       <div class="col-sm-4 on-hover-action" id = "<?php echo $category['id']; ?>">
         <article class="album">
           <header>
-            <a href="extra-gallery-single.html">
+            <a href="#">
               <img src="<?php echo base_url('uploads/category_thumbnails/'.$category['thumbnail']); ?>" />
             </a>
           </header>

@@ -11,6 +11,13 @@ isset($with_video) ? "" 	: $with_video = "";
 isset($with_open) ? "" 	: $with_open = "";
 isset($search_string) ? "": $search_string = "";
 ?>
+<div class="sub_header_in sticky_header">
+    <div class="container">
+        <h1></h1>
+    </div>
+    <!-- /container -->
+</div>
+<!-- /sub_header -->
 <div id="results">
     <div class="container">
         <div class="row">
@@ -74,95 +81,72 @@ isset($search_string) ? "": $search_string = "";
 
 
 <div class="container-fluid margin_60_35">
-    <div class="row ">
-
-
-        <div class="col-xl-5 col-md-12 order-xl-0 " id="listings">
-
-            <div class="row" style="flex-wrap: nowrap">
-
-                <?php
-                foreach($listings as $listing):
-                    if(!has_package($listing['user_id']) > 0)
-                        continue; ?>
-
-                    <?php
-                    // $active_package = has_package($listing['user_id']);
-                    // $listing_allowed_number = $this->db->get_where('package_purchased_history', array('id', $active_package))->row('number_of_listings');
-                    // $listings_2 = $this->db->get_where('listing', array('user_id' => $listing['user_id']));
-
-                    ?>
 
 
 
-                    <!-- A Single Listing Starts-->
-                    <div class="col-lg-6 col-md-6 listing-div " data-marker-id="<?php echo $listing['code']; ?>" id = "<?php echo $listing['code']; ?>">
 
-                        <div class="strip grid ">
-                            <figure>
 
-                                <a href="javascript::" class="wishlist-icon" onclick="addToWishList(this, '<?php echo $listing['id']; ?>')">
-                                    <i class=" <?php echo is_wishlisted($listing['id']) ? 'fas fa-heart' : 'far fa-heart'; ?> "></i>
-                                </a>
-                                <?php if($listing['is_featured'] == 1){ ?>
-                                    <a href="javascript::" class="featured-tag-grid"><?php echo get_phrase('featured'); ?></a>
-                                <?php } ?>
-                                <a href="<?php echo get_listing_url($listing['id']); ?>"  id = "listing-banner-image-for-<?php echo $listing['code']; ?>"  class="d-block h-100 img" style="background-image:url('<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>')">
-                                    <!-- <img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt=""> -->
-                                    <div class="read_more"><span><?php echo get_phrase('watch_details'); ?></span></div>
-                                </a>
-                                <small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
-                            </figure>
-                            <div class="wrapper <?php if($listing['is_featured'] == 1) echo 'featured-body'; ?>">
-                                <h3 class="ellipsis"><a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo $listing['name']; ?></a></h3>
-                                <small>
-                                    <?php
-                                    $city 	 = $this->db->get_where('city', array('id' =>  $listing['city_id']))->row_array();
-                                    $country = $this->db->get_where('country', array('id' =>  $listing['country_id']))->row_array();
-                                    echo $city['name'].', '.$country['name'];
-                                    ?>
-                                </small>
-                                <p class="ellipsis">
-                                    <?php echo $listing['description']; ?>
-                                </p>
-                                <?php if ($listing['latitude'] != "" && $listing['longitude'] != ""): ?>
-                                    <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target=""><?php echo get_phrase('show_on_map'); ?></a>
-                                <?php endif; ?>
+    <div class="row" >
 
-                            </div>
-                            <ul class="<?php if($listing['is_featured'] == 1) echo 'featured-footer'; ?> mb-0">
+        <?php
+        foreach($listings as $listing):
+            if(!has_package($listing['user_id']) > 0)
+                continue; ?>
 
-                                <li><span class="<?php echo strtolower(now_open($listing['id'])) == 'closed' ? 'loc_closed' : 'loc_open'; ?>"><?php echo now_open($listing['id']); ?></span></li>
-                                <li>
-                                    <div class="score">
-									<span>
-										<?php
-                                        if ($this->frontend_model->get_listing_wise_rating($listing['id']) > 0) {
-                                            $quality = $this->frontend_model->get_rating_wise_quality($listing['id']);
-                                            echo $quality['quality'];
-                                        }else {
-                                            echo get_phrase('unreviewed');
-                                        }
-                                        ?>
-										<em>
-											<?php echo count($this->frontend_model->get_listing_wise_review($listing['id'])).' '.get_phrase('reviews'); ?>
-										</em>
-									</span>
-                                        <strong><?php echo $this->frontend_model->get_listing_wise_rating($listing['id']); ?></strong></div>
-                                </li>
-                            </ul>
-                        </div>
+            <?php
+            // $active_package = has_package($listing['user_id']);
+            // $listing_allowed_number = $this->db->get_where('package_purchased_history', array('id', $active_package))->row('number_of_listings');
+            // $listings_2 = $this->db->get_where('listing', array('user_id' => $listing['user_id']));
+
+            ?>
+
+
+
+            <!-- A Single Listing Starts-->
+            <div class="col-lg-3 col-md-3 " data-marker-id="<?php echo $listing['code']; ?>" id = "<?php echo $listing['code']; ?>">
+
+                <div class="strip grid ">
+                    <figure>
+
+
+                        <?php if($listing['is_featured'] == 1){ ?>
+                            <a href="javascript::" class="featured-tag-grid"><?php echo get_phrase('featured'); ?></a>
+                        <?php } ?>
+                        <a href="<?php echo get_classifieds_url($listing['id']); ?>"  id = "listing-banner-image-for-<?php echo $listing['code']; ?>"  class="d-block h-100 img" style="background-image:url('<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>')">
+                            <!-- <img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt=""> -->
+                            <div class="read_more"><span><?php echo get_phrase('watch_details'); ?></span></div>
+                        </a>
+                        <small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
+                    </figure>
+                    <div class="wrapper <?php if($listing['is_featured'] == 1) echo 'featured-body'; ?>">
+                        <h3 class="ellipsis"><a href="<?php echo get_classifieds_url($listing['id']); ?>"><?php echo $listing['name']; ?></a></h3>
+                        <small>
+                            <?php
+                            $city 	 = $this->db->get_where('city', array('id' =>  $listing['city_id']))->row_array();
+                            $country = $this->db->get_where('country', array('id' =>  $listing['country_id']))->row_array();
+                            echo $city['name'].', '.$country['name'];
+                            ?>
+                        </small>
+                        <p class="ellipsis">
+                            <?php echo $listing['description']; ?>
+                        </p>
+                        <?php if ($listing['latitude'] != "" && $listing['longitude'] != ""): ?>
+                            <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target=""><?php echo get_phrase('show_on_map'); ?></a>
+                        <?php endif; ?>
+
                     </div>
-                    <!-- A Single Listing Ends-->
-                <?php endforeach; ?>
+
+                </div>
             </div>
-            <nav class="text-center">
-                <?php echo $this->pagination->create_links(); ?>
-            </nav>
-        </div>
+            <!-- A Single Listing Ends-->
+        <?php endforeach; ?>
+    </div id="listings">
+    <nav class="text-center">
+        <?php echo $this->pagination->create_links(); ?>
+    </nav>
 
 
-    </div>
+
 </div>
 <!-- /container -->
 <script type="text/javascript">

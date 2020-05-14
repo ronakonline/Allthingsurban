@@ -5,41 +5,8 @@
   $user_type = $this->db->get_where('user', array('id' => $user_id))->row('role_id');
 ?>
 <section id="reviews">
-  <h2><?php echo get_phrase('reviews'); ?></h2>
-  <!-- Ratings starts -->
-  <div class="reviews-container add_bottom_30">
-    <div class="row">
-      <div class="col-lg-3">
-        <div id="review_summary">
-          <strong><?php echo $rating; ?></strong>
-          <em>
-            <?php
-            if ($rating > 0) {
-              $quality = $this->frontend_model->get_rating_wise_quality($listing_id);
-              echo $quality['quality'];
-            }
-            ?>
-         </em>
-          <small><?php echo get_phrase('based_on').' '.count($reviews).' '.get_phrase('reviews'); ?></small>
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <!-- Rating Progeress Bar -->
-        <?php for($i = 1; $i <= 5; $i++): ?>
-          <div class="row">
-            <div class="col-lg-10 col-9">
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: <?php echo $this->frontend_model->get_percentage_of_specific_rating($listing_id, $i); ?>%" aria-valuenow="<?php echo $this->frontend_model->get_percentage_of_specific_rating($listing_id, $i); ?>" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="col-lg-2 col-3"><small><strong><?php echo $i.' '.get_phrase('stars'); ?></strong></small></div>
-          </div>
-        <?php endfor; ?>
-      </div>
-    </div>
-    <!-- /row -->
-  </div>
-  <!-- Ratings ends -->
+
+
 
   <div class="reviews-container">
     <!-- Single Review Starts -->

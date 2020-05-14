@@ -96,27 +96,15 @@
 				<figure>
 
 					<!--redirect to routs file-->
-					<a href="<?php echo get_listing_url($listing['id']); ?>"><img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Read more</span></div></a>
+					<a href="<?php echo get_classifieds_url($listing['id']); ?>"><img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Read more</span></div></a>
 					<small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
 				</figure>
 				<div class="wrapper">
 					<h3><a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo $listing['name']; ?></a></h3>
 					<p><?php echo substr($listing['description'], 0, 100) . '...'; ?>.</p>
-					<a class="address" href="http://maps.google.com/maps?q=<?php echo $listing['latitude']; ?>,<?php echo $listing['longitude']; ?>" target="_blank"><?php echo get_phrase('get_directions'); ?></a>
+
 				</div>
-				<ul>
-					<li><span class="loc_open"><?php echo now_open($listing['id']); ?></span></li>
-					<li><div class="score"><span>
-						<?php
-						if ($this->frontend_model->get_listing_wise_rating($listing['id']) > 0) {
-							$quality = $this->frontend_model->get_rating_wise_quality($listing['id']);
-							echo $quality['quality'];
-						}else {
-							echo get_phrase('unreviewed');
-						}
-						?>
-						<em><?php echo count($this->frontend_model->get_listing_wise_review($listing['id'])).' '.get_phrase('reviews'); ?></em></span><strong><?php echo $this->frontend_model->get_listing_wise_rating($listing['id']); ?></strong></div></li>
-					</ul>
+
 				</div>
 			</div>
 		<?php endforeach; ?>

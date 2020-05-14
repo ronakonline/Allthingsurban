@@ -11,7 +11,7 @@ $categories = $this->db->get('category')->result_array();
         </div>
     </div>
 </div>
-<form action="<?php echo site_url('admin/listings/add'); ?>" method="post" role="form" class="form-horizontal form-groups-bordered" enctype="multipart/form-data">
+<form action="<?php echo site_url('admin/classifieds/add'); ?>" method="post" role="form" class="form-horizontal form-groups-bordered" enctype="multipart/form-data">
     <div class="row justify-content-md-center">
         <!-- First Portion Starts -->
         <div class="col-xl-6">

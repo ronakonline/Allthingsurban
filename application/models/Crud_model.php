@@ -335,11 +335,11 @@ function add_classifieds() {
         if($total_listing > $submited_listing || $user_type == '1'){
             $this->db->insert('classifieds', $data);
             $listing_id = $this->db->insert_id();
-            $time_config['listing_id'] = $listing_id;
-            $this->db->insert('time_configuration', $time_config);
+            $time_config['class_id'] = $listing_id;
+            $this->db->insert('ctime_configuration', $time_config);
 
             // Add listing inner details data
-            $this->add_listing_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
+            $this->add_classifieds_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
             $this->session->set_flashdata('flash_message', get_phrase('classifieds_added_successfully'));
         }else{
             $this->session->set_flashdata('error_message', get_phrase('there_is_no_free_space_to_add_to_the_classifieds'));
@@ -567,6 +567,121 @@ function add_listing_type_wise_details($listing_type = "", $listing_id = "") {
     }
   }
 }
+
+// This function saves listing wise inner data
+function add_classifieds_type_wise_details($listing_type = "", $listing_id = "") {
+        $listing_photos = array();
+        if ($listing_type == 'hotel') {
+            $room_name_array = sanitizer($this->input->post('room_name'));
+            array_pop($room_name_array);
+            $room_description_array = sanitizer($this->input->post('room_description'));
+            array_pop($room_description_array);
+            $room_price_array = sanitizer($this->input->post('room_price'));
+            array_pop($room_price_array);
+            $hotel_room_amenities_array = sanitizer($this->input->post('hotel_room_amenities'));
+            array_pop($hotel_room_amenities_array);
+            foreach ($_FILES['room_image']['tmp_name'] as $room_image) {
+                if ($room_image != "") {
+                    $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
+                    move_uploaded_file($room_image, 'uploads/hotel_room_images/'.$random_identifier);
+                    array_push($listing_photos, $random_identifier);
+                }
+            }
+
+            foreach ($room_name_array as $key => $room_name) {
+                $hotel_room_specification_data['name']        = sanitizer($room_name);
+                $hotel_room_specification_data['description'] = sanitizer($room_description_array[$key]);
+                $hotel_room_specification_data['price']       = sanitizer($room_price_array[$key]);
+                $hotel_room_specification_data['amenities']   = sanitizer($hotel_room_amenities_array[$key]);
+                $hotel_room_specification_data['photo']       = sanitizer($listing_photos[$key]);
+                $hotel_room_specification_data['listing_id']  = $listing_id;
+                $this->db->insert('chotel_room_specification',$hotel_room_specification_data);
+            }
+        }
+        elseif ($listing_type == 'restaurant') {
+            $menu_name_array = sanitizer($this->input->post('menu_name'));
+            array_pop($menu_name_array);
+            $menu_items_array = sanitizer($this->input->post('items'));
+            array_pop($menu_items_array);
+            $menu_price_array = sanitizer($this->input->post('menu_price'));
+            array_pop($menu_price_array);
+
+            foreach ($_FILES['menu_image']['tmp_name'] as $menu_image) {
+                if ($menu_image != "") {
+                    $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
+                    move_uploaded_file($menu_image, 'uploads/restaurant_menu_images/'.$random_identifier);
+                    array_push($listing_photos, $random_identifier);
+                }
+            }
+
+            foreach ($menu_name_array as $key => $menu_name) {
+                $food_menu_data['name']       = sanitizer($menu_name);
+                $food_menu_data['price']      = sanitizer($menu_price_array[$key]);
+                $food_menu_data['items']      = sanitizer($menu_items_array[$key]);
+                $food_menu_data ['photo']     = sanitizer($listing_photos[$key]);
+                $food_menu_data['listing_id'] = sanitizer($listing_id);
+                $this->db->insert('cfood_menu', $food_menu_data);
+            }
+        }
+        elseif ($listing_type == 'beauty') {
+            $service_name_array = sanitizer($this->input->post('service_name'));
+            array_pop($service_name_array);
+
+            $service_starting_time_array = $this->input->post('starting_time');
+            array_pop($service_starting_time_array);
+
+            $service_ending_time_array = $this->input->post('ending_time');
+            array_pop($service_ending_time_array);
+
+            $service_duration_array = $this->input->post('duration');
+            array_pop($service_duration_array);
+
+            $service_price_array = sanitizer($this->input->post('service_price'));
+            array_pop($service_price_array);
+
+            foreach ($_FILES['service_image']['tmp_name'] as $service_image) {
+                if ($service_image != "") {
+                    $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
+                    move_uploaded_file($service_image, 'uploads/beauty_service_images/'.$random_identifier);
+                    array_push($listing_photos, $random_identifier);
+                }
+            }
+
+            foreach ($service_name_array as $key    => $service_name) {
+                $beauty_service_data['name']          = sanitizer($service_name);
+                $beauty_service_data['price']         = sanitizer($service_price_array[$key]);
+                $beauty_service_data['service_times'] = sanitizer($service_starting_time_array[$key]).','.sanitizer($service_ending_time_array[$key]).','.sanitizer($service_duration_array[$key]);
+                $beauty_service_data ['photo']        = sanitizer($listing_photos[$key]);
+                $beauty_service_data['listing_id']    = sanitizer($listing_id);
+                $this->db->insert('cbeauty_service', $beauty_service_data);
+            }
+        }
+        elseif ($listing_type == 'shop') {
+            $product_name_array = sanitizer($this->input->post('product_name'));
+            array_pop($product_name_array);
+            $product_variants_array = sanitizer($this->input->post('variants'));
+            array_pop($product_variants_array);
+            $product_price_array = sanitizer($this->input->post('product_price'));
+            array_pop($product_price_array);
+
+            foreach ($_FILES['product_image']['tmp_name'] as $product_image) {
+                if ($product_image != "") {
+                    $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
+                    move_uploaded_file($product_image, 'uploads/product_images/'.$random_identifier);
+                    array_push($listing_photos, $random_identifier);
+                }
+            }
+
+            foreach ($product_name_array as $key => $product_name) {
+                $product_details_data['name']       = sanitizer($product_name);
+                $product_details_data['variant']    = sanitizer($product_variants_array[$key]);
+                $product_details_data['price']      = sanitizer($product_price_array[$key]);
+                $product_details_data ['photo']     = sanitizer($listing_photos[$key]);
+                $product_details_data['listing_id'] = sanitizer($listing_id);
+                $this->db->insert('cproduct_details', $product_details_data);
+            }
+        }
+    }
 
 function update_listing($listing_id = "") {
   $listing_details      = $this->crud_model->get_listings($listing_id)->row_array();
@@ -799,14 +914,14 @@ function update_classifieds($listing_id = "") {
         $this->db->update('classifieds', $data);
 
 
-        $this->db->where('listing_id', $listing_id);
-        $this->db->update('time_configuration', $time_config);
+        $this->db->where('class_id', $listing_id);
+        $this->db->update('ctime_configuration', $time_config);
 
         // Update listing inner details data
-        $this->update_listing_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
+     //   $this->update_listing_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
 
         // remove the existing listing details from other tables
-        $this->remove_from_other_tables(sanitizer($this->input->post('listing_type')), $listing_id);
+     //   $this->remove_from_other_tables(sanitizer($this->input->post('listing_type')), $listing_id);
         $this->session->set_flashdata('flash_message', get_phrase('listing_updated_successfully'));
     }
 
@@ -1051,6 +1166,9 @@ function check_listing_form_submission_status($data = array()) {
 function get_time_configuration_by_listing_id($listing_id = 0) {
   return $this->db->get_where('time_configuration', array('listing_id' => $listing_id));
 }
+function get_time_configuration_by_classifieds_id($listing_id = 0) {
+        return $this->db->get_where('ctime_configuration', array('class_id' => $listing_id));
+    }
 function get_countries($country_id = 0) {
   if ($country_id > 0) {
     $this->db->where('id', $country_id);
@@ -1261,6 +1379,14 @@ public function get_listing_details($listing_id = "", $attribute = "") {
   }
   return $this->db->get('listing');
 }
+
+    public function get_classifieds_details($listing_id = "", $attribute = "") {
+        $this->db->where('id', $listing_id);
+        if ($attribute != "") {
+            $this->db->select($attribute);
+        }
+        return $this->db->get('classifieds');
+    }
 
 public function get_amenities($amenity_id = "") {
   if ($amenity_id > 0) {

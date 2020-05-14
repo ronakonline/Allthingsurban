@@ -99,7 +99,7 @@ if (!isset($user_id)) {
                             </td>
                             <td>
                                 <strong>
-                                    <a href="<?php echo site_url('admin/listing_form/edit/'.$listing['id']); ?>">
+                                    <a href="<?php echo site_url('admin/classifieds_form/edit/'.$listing['id']); ?>">
                                         <?php echo $listing['name']; ?>
                                         <?php if ($listing['is_featured'] == 1):?>
                                             <i class="entypo-star" style="color: #FF5722; font-size: 11px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo get_phrase('featured'); ?>"></i>

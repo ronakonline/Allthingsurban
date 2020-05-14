@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="48b60517-b838-4fbc-b484-68c1c7d7b97b" name="DABD" url="http://ftp@creativestrokes.xyz">
+        <fileTransfer host="ftp@creativestrokes.xyz" port="21" rootFolder="/public_html/design.creativestrokes.xyz/DABD">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

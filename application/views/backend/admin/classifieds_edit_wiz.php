@@ -1,6 +1,6 @@
 <?php
 $listing_details = $this->crud_model->get_classifieds($listing_id)->row_array();
-$time_configuration_details = $this->crud_model->get_time_configuration_by_listing_id($listing_id)->row_array();
+//$time_configuration_details = $this->crud_model->get_time_configuration_by_listing_id($listing_id)->row_array();
 $social_links = json_decode($listing_details['social'], true);
 $countries  = $this->db->get('country')->result_array();
 $categories = $this->db->get('category')->result_array();
