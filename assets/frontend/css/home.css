@@ -2535,9 +2535,6 @@ a {
     transition: all 0.3s ease-in-out;
 }
 @media only screen and (max-width: 1919px) {
-    body{
-        overflow-x: hidden;
-    }
     .flat-contact .contact-form .contact-us {
         padding: 100px 50px;
     }
@@ -3053,9 +3050,6 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-    body{
-        overflow-x: hidden;
-    }
     .wrap-box-search.style2.v2 form > span,
     .filter .select-filter ul.list-filter.one-half,
     .login-form.style2 .wrap-login.lastname,
@@ -3118,8 +3112,15 @@ a {
 }
 
 /* Smaller than standard 480 */
-@media only screen and (max-width: 480px) {
-
+@media only screen and (max-width: 790px) {
+    #bs{
+        display: none;
+    }
+    .highlights ul.menu-list li a span {
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+    }
 }
 
 /* Smaller than standard 320 */
@@ -3130,10 +3131,3 @@ body{
     overflow-x: hidden;
 }
 
-@media (min-width: 34em) {
-    .card-columns {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
-}

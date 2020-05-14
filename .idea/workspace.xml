@@ -2,66 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/frontend/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/address.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/application.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/bg-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/bg-ft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/cocktail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/cutlery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/double-bed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/dumbbell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/guitar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/halong.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/hanoi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/icon-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/icon-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/iconbox-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/iconbox-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/iconbox-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v2-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v2-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v2-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v3-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v3-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v3-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v3-04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v4-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v4-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v4-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/img-v4-04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/like.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/newyork.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/note.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/phone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/rent-a-car.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/seoul.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/shopping-bag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/small-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/small-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/small-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/team-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/team-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/team-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/team-04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/frontend/images/page/tokyo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/system/home_banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/system/home_banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/frontend/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/css/home.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +80,7 @@
       <workItem from="1589441737705" duration="4338000" />
       <workItem from="1589450749332" duration="658000" />
       <workItem from="1589458867676" duration="7331000" />
-      <workItem from="1589473229150" duration="3270000" />
+      <workItem from="1589473229150" duration="5416000" />
     </task>
     <servers />
   </component>

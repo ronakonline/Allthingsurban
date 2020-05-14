@@ -42,7 +42,7 @@
 
 </div>
 <!-- /hero_single -->
-<section class="flat-highlights">
+<section class="flat-highlights" >
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -112,10 +112,10 @@
     </div><!-- /.container-fluid -->
 </section>
 
-<div class="bg_color_1">
+<div class="bg_color_1" id="bs">
     <div class="container margin_80_55" style="">
         <div class="row">
-            <aside class="" id="sidebar" style="white-space: -moz-pre-wrap; width: 24.20%; float: left ">
+            <aside class="col-3" id="sidebar">
                 <div id="filters_col">
                     <a  href="#collapseFilters" ><?php echo get_phrase('Business Directory'); ?> </a>
                     <!-- Filter form starts-->
@@ -148,7 +148,7 @@
                 </div>
                 <!--/filters col-->
             </aside>
-            <div class="col-xl-9 col-md-12 " id="listings">
+            <div class="col-xl-9 col-md-9 " id="listings">
 
                 <div class="row">
 
