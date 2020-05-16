@@ -1,3 +1,8 @@
+<script>
+    $(function(){
+        $('.selectpicker').selectpicker();
+    });
+</script>
 <!-- COMMON SCRIPTS -->
 <script src="<?php echo base_url();?>assets/frontend/js/common_scripts.js"></script>
 <script src="<?php echo base_url();?>assets/frontend/js/functions.js"></script>
@@ -60,4 +65,5 @@ $('.date-picker').daterangepicker({
 function loginAlert() {
   toastr.error('<?php echo get_phrase('you_will_need_to_login_first'); ?>')
 }
+
 </script>

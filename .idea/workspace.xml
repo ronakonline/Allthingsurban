@@ -2,9 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/addlisting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/frontend/jobs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/header_listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header_listing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/frontend/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/includes_bottom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/includes_bottom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +56,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1b5oGtXSCfPCVaROthRWsaZViDD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -80,12 +105,17 @@
       <workItem from="1589441737705" duration="4338000" />
       <workItem from="1589450749332" duration="658000" />
       <workItem from="1589458867676" duration="7331000" />
-      <workItem from="1589473229150" duration="5416000" />
+      <workItem from="1589473229150" duration="5504000" />
+      <workItem from="1589547902499" duration="4822000" />
+      <workItem from="1589554895505" duration="7875000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="37" key="#Deployment" timestamp="1589377870861">
@@ -96,25 +126,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589463091002" />
-    <state x="548" y="176" key="NewPhpFileDialog" timestamp="1589444918799">
+    <state x="548" y="176" key="NewPhpFileDialog" timestamp="1589557109189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="548" y="176" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589444918799" />
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589473258086">
+    <state x="548" y="176" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589557109189" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589554901646">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589473258086" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589554901646" />
     <state x="580" y="29" key="ftp.server.browser" timestamp="1589377869189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="580" y="29" key="ftp.server.browser/0.0.1366.728@0.0.1366.728" timestamp="1589377869189" />
-    <state x="553" y="262" key="publish.login" timestamp="1589390157828">
+    <state x="553" y="262" key="publish.login" timestamp="1589557602156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1589390157828" />
+    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1589557602156" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1589552602915">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589552602915" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589442074880">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589442074880" />
+    <state x="488" y="106" key="webDeployment.PermissionsDialog.Tabs" timestamp="1589557667879">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="106" key="webDeployment.PermissionsDialog.Tabs/0.0.1366.728@0.0.1366.728" timestamp="1589557667879" />
   </component>
 </project>

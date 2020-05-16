@@ -9,7 +9,7 @@
 	    <!-- Top css library files -->
 	    <?php include 'includes_top.php';?>
         <?php
-			if ($page_name == 'home' || $page_name == '404'){  ?>
+			if ($page_name == 'home' || $page_name == '404' || $page_name == 'addlisting' || $page_name == 'jobs'){  ?>
                 <link href="<?php echo base_url();?>assets/frontend/css/home.css" rel="stylesheet">
 
 			<?php  }  ?>

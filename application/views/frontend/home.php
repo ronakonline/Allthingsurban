@@ -1,6 +1,6 @@
 <section class="hero_single version_2" style="background: #222 url(<?php echo base_url('uploads/system/home_banner.jpg'); ?>) center center no-repeat; background-size: cover;">
 	<div class="wrapper">
-		<div class="container">
+		<div class="container" style="padding-top: 65px;">
 			<h3><?php echo get_frontend_settings('banner_title'); ?>!</h3>
 			<p><?php echo get_frontend_settings('slogan'); ?></p>
 			<form action="<?php echo site_url('home/search'); ?>" method="get">
@@ -57,14 +57,14 @@
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting'); ?>" title="">
                                 <i class="fa fa-check fa-2x"></i>
                                 <span>Add Listing</span>
                             </a>
 
                         </li>
                         <li class="">
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/jobs'); ?>" title="">
                                 <i class="fa fa-user fa-2x"></i>
                                 <span>Jobs</span>
                             </a>

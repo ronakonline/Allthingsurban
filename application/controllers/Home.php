@@ -40,6 +40,33 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
+    public function addlisting(){
+        // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
+        $all_listings = $this->frontend_model->get_classifieds()->result_array();
+
+        $total_rows = count($all_listings);
+        $config = array();
+        $config = pagintaion($total_rows, 12);
+        $config['base_url']  = site_url('home/classifieds/');
+        $this->pagination->initialize($config);
+
+        $this->db->order_by('is_featured', 'desc');
+        $this->db->where('status', 'active');
+        $listings = $courses = $this->db->get('classifieds', $config['per_page'], $this->uri->segment(3))->result_array();
+        $geo_json = $this->make_geo_json_for_map($listings);
+
+        $page_data['listings']      = $listings;
+        $page_data['geo_json']      = $geo_json;
+        $page_data['page_name']     =   'addlisting';
+        $page_data['title']         =   'Home';
+        $this->load->view('frontend/index', $page_data);
+    }
+    public function  jobs(){
+        $page_data['page_name']     =   'jobs';
+        $page_data['title']         =   'Home';
+        $this->load->view('frontend/index', $page_data);
+    }
+
     public function login() {
         $page_data['page_name']                 = 'login';
         $page_data['title']                     = get_phrase('get_logged_in');

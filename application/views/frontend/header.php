@@ -13,7 +13,12 @@
         <?php if ($this->session->userdata('is_logged_in') != 1): ?>
   				<li><a href="<?php echo site_url('home/login'); ?>" class="login" title="Sign In">Sign In</a></li>
   			<?php endif; ?>
+          <li style="padding-top: 6px; padding-left: 20px;"><select class="selectpicker" data-width="fit">
+                  <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                  <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
+              </select></li>
       </ul>
+
       <!-- /top_menu -->
       <a href="#menu" class="btn_mobile">
         <div class="hamburger hamburger--spin" id="hamburger">
