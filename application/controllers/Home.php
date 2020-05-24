@@ -119,7 +119,7 @@ class Home extends CI_Controller {
         $this->db->where('status', 'active');
         $listings = $courses = $this->db->get('listing', $config['per_page'], $this->uri->segment(3))->result_array();
         $geo_json = $this->make_geo_json_for_map($listings);
-        
+
         $page_data['page_name']     = 'listings';
         $page_data['title']         = get_phrase('listings');
         $page_data['listings']      = $listings;
@@ -154,17 +154,17 @@ class Home extends CI_Controller {
         $listing_details_array = array();
         foreach ($listings as $key => $listing) {
             if(!has_package($listing['user_id']) > 0)
-            continue;
+                continue;
             $listing_details = array();
             $listing_tags = explode(',', $listing['tags']);
             $listing_details['type'] = 'Feature';
             $listing_details['geometry'] = array (
                 'type' => 'Point',
                 'coordinates' =>
-                array (
-                    0 => $listing['longitude'],
-                    1 => $listing['latitude'],
-                ),
+                    array (
+                        0 => $listing['longitude'],
+                        1 => $listing['latitude'],
+                    ),
             );
             $listing_details['properties'] = array (
                 'id' => $listing['code'],
@@ -316,7 +316,7 @@ class Home extends CI_Controller {
 
     function listing_form($action = "") { // This function only shows the form for adding and editing the listing.
         if ($action == "")
-        redirect(site_url('home/listings'), 'refresh');
+            redirect(site_url('home/listings'), 'refresh');
 
         if ($action == 'add') {
             if ($this->session->userdata('admin_login') == true) {

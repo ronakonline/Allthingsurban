@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/frontend/addlisting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/frontend/jobs.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/category_thumbnails/service9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/header_listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/header_listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/includes_bottom.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/includes_bottom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +51,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TravelCrunch/application/views/header.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -108,6 +85,8 @@
       <workItem from="1589473229150" duration="5504000" />
       <workItem from="1589547902499" duration="4822000" />
       <workItem from="1589554895505" duration="7875000" />
+      <workItem from="1589632422661" duration="1057000" />
+      <workItem from="1590326055813" duration="1297000" />
     </task>
     <servers />
   </component>
@@ -130,18 +109,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="548" y="176" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1589557109189" />
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589554901646">
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589632871878">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589554901646" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589632871878" />
     <state x="580" y="29" key="ftp.server.browser" timestamp="1589377869189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="580" y="29" key="ftp.server.browser/0.0.1366.728@0.0.1366.728" timestamp="1589377869189" />
-    <state x="553" y="262" key="publish.login" timestamp="1589557602156">
+    <state x="553" y="262" key="publish.login" timestamp="1590326321018">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1589557602156" />
+    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1590326321018" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1589552602915">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

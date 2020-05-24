@@ -6,17 +6,104 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    "7.272992",
+                    "43.702070"
+                ]
+            },
+            "properties": {
+                "id": "bf533aad82a7fb6e6eb088d0b079dd5b",
+                "index": 0,
+                "isActive": true,
+                "logo": "5ef43e911ce4a706ed1c2aba2880aef7.jpg",
+                "image": "5ef43e911ce4a706ed1c2aba2880aef7.jpg",
+                "link": "http://localhost/DABD/beauty/le-local-barbershop/1",
+                "url": " http://yourcompany.com",
+                "name": "Le local_barbershop",
+                "category": "beauty",
+                "email": "yourbusiness@example.com",
+                "stars": "0.0",
+                "phone": "+48929485960",
+                "address": "Nice, France",
+                "about": "We believe in b\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "4.856175",
+                    "45.773751"
+                ]
+            },
+            "properties": {
+                "id": "5cf86c8cc502141626f4ac470d7cb824",
+                "index": 1,
+                "isActive": true,
+                "logo": "fd45eb065edf52ec94f8aef20ce5e0eb.jpg",
+                "image": "fd45eb065edf52ec94f8aef20ce5e0eb.jpg",
+                "link": "http://localhost/DABD/beauty/the-beauty-shop/2",
+                "url": "http://yourcompany.com",
+                "name": "The Beauty Shop",
+                "category": "beauty",
+                "email": "yourbusiness@example.com",
+                "stars": "0.0",
+                "phone": "+48929485960",
+                "address": "Lyon, France",
+                "about": "The Beauty Shop\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "savasv",
+                    "sav"
+                ]
+            },
+            "properties": {
+                "id": "596d6a18484d86d9bf64b553e785c901",
+                "index": 2,
+                "isActive": true,
+                "logo": "7efc8f336ae1f409165ebcab65c33efc.jpg",
+                "image": "7efc8f336ae1f409165ebcab65c33efc.jpg",
+                "link": "http://localhost/DABD/n-a/4",
+                "url": "",
+                "name": "sbads",
+                "category": "general",
+                "email": "",
+                "stars": "0.0",
+                "phone": "",
+                "address": "",
+                "about": "asbxzb\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     "savav",
                     "asva"
                 ]
             },
             "properties": {
                 "id": "74b785aeb2f677cd4bdc7ce6fae887e6",
-                "index": 0,
+                "index": 3,
                 "isActive": true,
                 "logo": "11b3e4d67e7c93a85e5c59e225b2242e.jpg",
                 "image": "11b3e4d67e7c93a85e5c59e225b2242e.jpg",
-                "link": "http://localhost/DABD/general/safsa/5",
+                "link": "http://localhost/DABD/n-a/5",
                 "url": "asvsav",
                 "name": "savasvaa",
                 "category": "general",
@@ -41,7 +128,7 @@
             },
             "properties": {
                 "id": "b2679069b3f5747e6b3e7af1ef723356",
-                "index": 1,
+                "index": 4,
                 "isActive": true,
                 "logo": "6a2a07ad96c8c1a2ff2fcd069267cd92.jpg",
                 "image": "6a2a07ad96c8c1a2ff2fcd069267cd92.jpg",
@@ -70,7 +157,7 @@
             },
             "properties": {
                 "id": "636bcbd35659787217eeeec73acc877d",
-                "index": 2,
+                "index": 5,
                 "isActive": true,
                 "logo": "0fb7dd3381cc2afb576d5fedc56af496.jpg",
                 "image": "0fb7dd3381cc2afb576d5fedc56af496.jpg",
@@ -99,7 +186,7 @@
             },
             "properties": {
                 "id": "f079ec71fa2fd542386948e1b6acb564",
-                "index": 3,
+                "index": 6,
                 "isActive": true,
                 "logo": "cf0a4cceae2f14dbbc69cea49967461b.jpg",
                 "image": "cf0a4cceae2f14dbbc69cea49967461b.jpg",
