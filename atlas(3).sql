@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 09:49 AM
+-- Generation Time: May 13, 2020 at 11:43 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -144,6 +143,68 @@ INSERT INTO `category` (`id`, `parent`, `icon_class`, `name`, `slug`, `thumbnail
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cbeauty_service`
+--
+
+CREATE TABLE `cbeauty_service` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `service_times` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cchotel_room_specification`
+--
+
+CREATE TABLE `cchotel_room_specification` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `amenities` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cfood_menu`
+--
+
+CREATE TABLE `cfood_menu` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `items` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chotel_room_specification`
+--
+
+CREATE TABLE `chotel_room_specification` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `amenities` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `city`
 --
 
@@ -172,9 +233,37 @@ CREATE TABLE `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('8db9v9g8ej4eghaac2kr3cuuribaho3a', '127.0.0.1', 1588697297, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538383639373239373b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
-('j7bjcn6i1trk25l028v87duolcgq0jio', '127.0.0.1', 1588697299, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538383639373239373b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
-('lngij0mh105ro9s07000tpqqrq8i60lb', '::1', 1589182768, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393138323736363b);
+('ef18cnvpdikqhvb5vj4j86dtg5i5uvtt', '::1', 1589302528, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330323532383b),
+('tgotp5qee47chq46lq6qh5e8khe221nl', '::1', 1589303017, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330333031373b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('33buh0jmvm5gm17fffsnrtmtgraim9ka', '::1', 1589303800, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330333830303b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('s6j8vedt8d5vjevq83uu9eq3heqc82gk', '::1', 1589304132, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330343133323b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('hv6vql3kcr4h0jb9o9j2jflb0sug4uq8', '::1', 1589304487, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330343438373b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('16namnvi6caqpd3oaa5uh5os441ghb5u', '::1', 1589304844, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330343834343b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('h1om99b47ulhnfrujjgtl9s4c6cpssfq', '::1', 1589305156, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330353135363b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('oo7usjg0ldjml305nslee8uldlr3frji', '::1', 1589305480, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330353438303b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('380htc1ba75s2pbovon4oo6uivqteagf', '::1', 1589305784, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330353738343b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b6c697374696e67735f766965777c733a393a22677269645f76696577223b),
+('hebekpphiun07r3o2bcdb58emuho727f', '::1', 1589306085, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330363038353b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b6c697374696e67735f766965777c733a393a22677269645f76696577223b),
+('0b8ccd1251ua870eqtt3maj9dqqb0r6p', '::1', 1589306557, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330363535373b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b6c697374696e67735f766965777c733a393a22677269645f76696577223b),
+('32j6b13ar0qemla749lpi53brbts5vht', '::1', 1589306871, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330363837313b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b6c697374696e67735f766965777c733a393a22677269645f76696577223b),
+('b4i9l2spsog0giajasla41cqu65p6va5', '::1', 1589307322, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330373332323b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b6c697374696e67735f766965777c733a393a22677269645f76696577223b),
+('sv33pmgqq230ftn2a05pqv93glpoapda', '::1', 1589307624, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393330373632343b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b6c697374696e67735f766965777c733a393a22677269645f76696577223b),
+('oajc293t1kurmiq61teg6a94dh5l45oc', '::1', 1589313023, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393331333032333b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('8mp2vite8206h9pdld1j43ajuesqfmm7', '::1', 1589313818, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393331333831383b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('btgv1at7dpvu4rgjm88ja0njcilutdgt', '::1', 1589315583, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393331353538333b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('8el08830ooo3274ai23jl4r6ab55gjt4', '::1', 1589316193, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393331363139333b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('5o8km51586eptkg8ovka1fdqir2172u2', '::1', 1589316669, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393331363636393b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('02rj77gnauci4u9nbbtimg2eusqvtsqv', '::1', 1589316821, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393331363636393b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('sgjifi5f05jkagrieiktoap2gvbecilg', '::1', 1589352711, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393335323731313b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('g1h5hmoqb5g8vuv50k1pur2d1lqtgnob', '::1', 1589352215, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393335323231353b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('h90gh0nf5buml9e27nn0snllj95vd7n6', '::1', 1589353017, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393335333031373b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('road58j7bb6d5do2mtc3ed1747qb0094', '::1', 1589356354, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393335363335343b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('7gnejee7ernd3gloasem3vmke5hrim64', '::1', 1589361719, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393336313731393b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('9chr867q1bfj69aojuokq9p8amgj1vtl', '127.0.0.1', 1589358705, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393335383730313b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('vk6t0uv45qb3mkcmemrm00dd9n4ms73u', '127.0.0.1', 1589359192, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393335393139313b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('nqiknl75sbieh4jfes1u0p82cnaa0rbt', '127.0.0.1', 1589362356, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393336323335363b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('3cd40rrhmvj7ujk4t37st60d18q3gcbc', '127.0.0.1', 1589362050, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393336323035303b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('hf7img7v0ase9euclfii5rerfsuhb93l', '127.0.0.1', 1589362757, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393336323730303b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b),
+('n61kjos6qj734jk2acqfq0mnm0jau1fm', '127.0.0.1', 1589362700, 0x5f5f63695f6c6173745f726567656e65726174657c693a313538393336323730303b69735f6c6f676765645f696e7c693a313b757365725f69647c733a313a2231223b726f6c655f69647c733a313a2231223b726f6c657c733a353a2241646d696e223b6e616d657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b);
 
 -- --------------------------------------------------------
 
@@ -191,6 +280,57 @@ CREATE TABLE `claimed_listing` (
   `additional_information` longtext COLLATE utf8_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classifieds`
+--
+
+CREATE TABLE `classifieds` (
+  `id` int(11) NOT NULL,
+  `code` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `categories` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `amenities` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photos` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `video_url` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `video_provider` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tags` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `website` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `social` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `latitude` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `longitude` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `google_analytics_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
+  `is_featured` int(11) NOT NULL DEFAULT 0,
+  `listing_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `listing_thumbnail` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `listing_cover` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_meta_tags` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `date_added` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `date_modified` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `classifieds`
+--
+
+INSERT INTO `classifieds` (`id`, `code`, `name`, `description`, `categories`, `amenities`, `photos`, `video_url`, `video_provider`, `tags`, `address`, `email`, `phone`, `website`, `social`, `user_id`, `latitude`, `longitude`, `google_analytics_id`, `country_id`, `city_id`, `status`, `is_featured`, `listing_type`, `listing_thumbnail`, `listing_cover`, `seo_meta_tags`, `date_added`, `date_modified`) VALUES
+(1, 'bf533aad82a7fb6e6eb088d0b079dd5b', 'Le local_barbershop', 'We believe in beauty with a conscience. We have created a shop that offers the highest quality beauty services in a setting that is healthier for the environment, our guests and our staff. It is our goal to exceed your expectations. Come experience a family atmosphere where you come as guests and leave as friends. Our staff is highly trained with diversity in all aspects of Hair, Waxing, and Massage.', '[\"23\",\"26\"]', '[\"5\",\"7\",\"11\"]', '[\"1ea99c215c07be57fb0af87867040077.jpg\",\"038defb49c10b93c7c2d4190252fa6bb.jpg\",\"25c544a878a33e2e12e0edd177e20020.jpg\"]', 'https://vimeo.com/181714626', 'vimeo', '', 'Nice, France', 'yourbusiness@example.com', '+48929485960', ' http://yourcompany.com', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, '43.702070', '7.272992', '', 73, NULL, 'active', 1, 'beauty', '5ef43e911ce4a706ed1c2aba2880aef7.jpg', '064a1d7591aec7fdb11547383857e138.jpg', '', '1587751200', NULL),
+(2, '5cf86c8cc502141626f4ac470d7cb824', 'The Beauty Shop', 'The Beauty Shop was created on October 2, 2011 by Gaëlle. The concept is simple, as indicated by its slogan &quot;Esthetics and tasteful music&quot;.\r\n\r\nIt is a beauty salon where we find all the classic services, but in a totally different atmosphere. Here we are pampered, we talk, we get acquainted by listening to good music, mainly rock&#039;n&#039;roll and all this in a frame straight out of the 50s! Why? Because Gaëlle likes it and wants to share it with her clients! She will relax, take care of your body, your hands, your feet, your face and comfort you with your heartaches! Joana accompanies him in this beautiful adventure! ', '[\"23\",\"28\",\"26\",\"24\"]', '[\"1\",\"3\",\"5\",\"6\",\"7\",\"8\",\"11\"]', '[\"20a6e12faf9cf8fa3a380ae83716a239.jpg\",\"67e99d2c84aad1965113ea3130069bd9.jpg\",\"c6cadd667363a3af80cb6962e64e4636.jpg\"]', 'https://vimeo.com/32195486', 'vimeo', '', 'Lyon, France', 'yourbusiness@example.com', '+48929485960', 'http://yourcompany.com', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, '45.773751', '4.856175', '', 73, NULL, 'active', 1, 'beauty', 'fd45eb065edf52ec94f8aef20ce5e0eb.jpg', '42b913704f8b2d2de8d1118b5f2941f2.jpg', '', '1587751200', NULL),
+(4, '596d6a18484d86d9bf64b553e785c901', 'sbads', 'asbxzb', '[\"10\"]', '[\"1\",\"4\",\"7\"]', '[]', '', 'youtube', '', '', '', '', '', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, 'sav', 'savasv', 'sabzx', 2, NULL, 'active', 1, 'general', '7efc8f336ae1f409165ebcab65c33efc.jpg', '6d10db78e5d008512ea316d5aaf6a955.jpg', '', '1589220000', NULL),
+(5, '74b785aeb2f677cd4bdc7ce6fae887e6', 'savasvaa', 'savsavsavav', '[\"11\"]', '[\"1\",\"4\",\"7\"]', '[]', '', 'youtube', '', 'asvavxvqavsavxvqasvavxavsvxvzv\r\n\r\n\r\n\r\nvasvavav', '', '', 'asvsav', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, 'asva', 'savav', 'asva', 6, NULL, 'active', 1, 'general', '11b3e4d67e7c93a85e5c59e225b2242e.jpg', '23f1e7c57ecdf64c2beedff3bb486a60.jpg', '', '1589306400', 1589306400),
+(6, 'b2679069b3f5747e6b3e7af1ef723356', 'abcdad', 'asvihasiovnosavnlznvisavlianva', '[\"2\"]', '[\"1\",\"5\",\"7\"]', '[]', '', 'youtube', '', 'savxva', '', '', '', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, 'savsav', 'savsavx', 'sava', 4, NULL, 'active', 1, 'general', '6a2a07ad96c8c1a2ff2fcd069267cd92.jpg', 'c93dd338080cb6c686366a24dc8aecc4.jpg', '', '1589306400', 1589306400),
+(7, '636bcbd35659787217eeeec73acc877d', 'abc', 'sabvxzbv', '[\"3\"]', '[\"1\",\"4\",\"7\"]', '[]', '', 'youtube', '', 'abxzbqa', '', '', '', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, 'asba', 'sabxz', 'asbxz', 1, NULL, 'active', 1, 'general', '0fb7dd3381cc2afb576d5fedc56af496.jpg', '525ffde1fece9ad4695bc6b037336fa5.jpg', '', '1589306400', NULL),
+(8, 'f079ec71fa2fd542386948e1b6acb564', '123', 'asvav', '[\"8\"]', '[\"1\",\"4\",\"7\"]', '[]', '', 'youtube', '', 'asv', '', '', '', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\"}', 1, 'asv', 'savasv', '', 1, NULL, 'active', 1, 'general', 'cf0a4cceae2f14dbbc69cea49967461b.jpg', 'e568572a822ea66403660cbc2214c227.jpg', '', '1589306400', NULL);
 
 -- --------------------------------------------------------
 
@@ -472,6 +612,46 @@ INSERT INTO `country` (`id`, `name`, `code`, `dial_code`, `currency_name`, `curr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cproduct_details`
+--
+
+CREATE TABLE `cproduct_details` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `variant` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ctime_configuration`
+--
+
+CREATE TABLE `ctime_configuration` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `saturday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sunday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `monday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tuesday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `wednesday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `thursday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `friday` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ctime_configuration`
+--
+
+INSERT INTO `ctime_configuration` (`id`, `class_id`, `saturday`, `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`) VALUES
+(7, 8, '0-18', '4-8', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `currency`
 --
 
@@ -634,14 +814,14 @@ CREATE TABLE `frontend_settings` (
 --
 
 INSERT INTO `frontend_settings` (`id`, `type`, `description`) VALUES
-(1, 'banner_title', 'All Things Urban Directory Listing'),
+(1, 'banner_title', 'Dallas Armenian Business Ditectory'),
 (2, 'banner_sub_title', 'Subtitle Of Atlas Directory Listing'),
-(3, 'about_us', '<u><b>About us</b></u>'),
-(4, 'terms_and_condition', '<p><span style=\"font-family: \"Impact\";\">﻿</span><b><u><span style=\"font-family: \"Impact\";\">Terms and conditions</span></u></b></p>'),
-(5, 'privacy_policy', '<u><b>Privacy Poilicy</b></u>'),
+(3, 'about_us', '<p><strong>About us</strong></p>\r\n'),
+(4, 'terms_and_condition', '<p>﻿<strong>Terms and conditions</strong></p>\r\n'),
+(5, 'privacy_policy', '<p><strong>Privacy Poilicy</strong></p>\r\n'),
 (6, 'social_links', '{\"facebook\":\"\",\"twitter\":\"\",\"linkedin\":\"\",\"google\":\"\",\"instagram\":\"\",\"pinterest\":\"\"}'),
 (7, 'slogan', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'),
-(8, 'faq', '<b><u>Faq</u></b>');
+(8, 'faq', '<p><strong>Faq</strong></p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -905,7 +1085,11 @@ CREATE TABLE `time_configuration` (
 
 INSERT INTO `time_configuration` (`id`, `listing_id`, `saturday`, `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`) VALUES
 (1, 1, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed'),
-(2, 2, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed');
+(2, 2, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed'),
+(3, 3, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed'),
+(4, 3, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed'),
+(5, 4, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed'),
+(6, 5, 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed', 'closed-closed');
 
 -- --------------------------------------------------------
 
@@ -965,6 +1149,24 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cbeauty_service`
+--
+ALTER TABLE `cbeauty_service`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cfood_menu`
+--
+ALTER TABLE `cfood_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chotel_room_specification`
+--
+ALTER TABLE `chotel_room_specification`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `city`
 --
 ALTER TABLE `city`
@@ -974,6 +1176,12 @@ ALTER TABLE `city`
 -- Indexes for table `claimed_listing`
 --
 ALTER TABLE `claimed_listing`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `classifieds`
+--
+ALTER TABLE `classifieds`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -988,6 +1196,18 @@ ALTER TABLE `comment`
 ALTER TABLE `country`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `code` (`code`);
+
+--
+-- Indexes for table `cproduct_details`
+--
+ALTER TABLE `cproduct_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ctime_configuration`
+--
+ALTER TABLE `ctime_configuration`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `currency`
@@ -1108,6 +1328,24 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `cbeauty_service`
+--
+ALTER TABLE `cbeauty_service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `cfood_menu`
+--
+ALTER TABLE `cfood_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `chotel_room_specification`
+--
+ALTER TABLE `chotel_room_specification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
@@ -1120,6 +1358,12 @@ ALTER TABLE `claimed_listing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `classifieds`
+--
+ALTER TABLE `classifieds`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
@@ -1130,6 +1374,18 @@ ALTER TABLE `comment`
 --
 ALTER TABLE `country`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+
+--
+-- AUTO_INCREMENT for table `cproduct_details`
+--
+ALTER TABLE `cproduct_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ctime_configuration`
+--
+ALTER TABLE `ctime_configuration`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `currency`
@@ -1159,7 +1415,7 @@ ALTER TABLE `hotel_room_specification`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `package`
@@ -1213,7 +1469,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `time_configuration`
 --
 ALTER TABLE `time_configuration`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
