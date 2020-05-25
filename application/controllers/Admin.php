@@ -57,6 +57,26 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/index.php', $page_data);
 	}
 
+
+	public function classified_categories($param1 = '', $param2 = '') {
+		if ($this->session->userdata('admin_login') != true) {
+			redirect(site_url('login'), 'refresh');
+		}
+		if ($param1 == 'add') {
+			$this->crud_model->add_classified_category();
+			$this->session->set_flashdata('flash_message', get_phrase('category_added'));
+			redirect(site_url('admin/classified_categories'), 'refresh');
+
+		}
+		$page_data['timestamp_start'] = strtotime('-29 days', time());
+		$page_data['timestamp_end']   = strtotime(date("m/d/Y"));
+		$page_data['page_name']  = 'classified_categories';
+		$page_data['page_title'] = 'All Classified Categories';
+		
+		$page_data['listings'] = $this->crud_model->get_classified_category()->result_array();
+		$this->load->view('backend/index', $page_data);
+	}
+
 	public function sub_categories() {
 		if ($this->session->userdata('admin_login') != true) {
 			redirect(site_url('login'), 'refresh');
@@ -84,6 +104,25 @@ class Admin extends CI_Controller {
 		}
 		$this->load->view('backend/index.php', $page_data);
 	}
+
+	public function classified_category_form($param1 = "", $param2 = "") {
+		if ($this->session->userdata('admin_login') != true) {
+			redirect(site_url('login'), 'refresh');
+		}
+		if($param1 == 'add'){
+			$page_data['page_name'] = 'classified_category_add';
+			$page_data['page_title'] = 'Add New Classified Category';
+			$page_data['categories'] = $this->crud_model->get_classified_parent()->result_array();
+		}elseif ($param1 == 'edit') {
+			$page_data['category_id'] = $param2;
+			$page_data['page_name'] = 'category_edit';
+			$page_data['page_title'] = get_phrase('update_category');
+			$page_data['categories'] = $this->crud_model->get_categories()->result_array();
+		}
+		$this->load->view('backend/index.php', $page_data);
+	}
+
+	
 
 	public function cities($param1 = "", $param2 = "") {
 		if ($this->session->userdata('admin_login') != true) {

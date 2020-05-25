@@ -55,6 +55,27 @@
             </ul>
         </li>
 
+        <!--Classified Category -->
+        <li class="<?php if ($page_name == 'classified_categories' || $page_name == 'classified_sub_categories' || $page_name == 'classified_category_add' || $page_name == 'classified_category_edit') echo 'opened active has-sub'; ?>">
+            <a href="#">
+                <i class="fa fa-globe"></i>
+                <span>Classified Categories</span>
+            </a>
+            <ul>
+                <li class="<?php if ($page_name == 'classified_categories') echo 'active'; ?> ">
+                    <a href="<?php echo site_url('admin/classified_categories'); ?>">
+                        <span><i class="entypo-dot"></i>Classified Categories</span>
+                    </a>
+                </li>
+
+                <li class="<?php if ($page_name == 'classified_category_add') echo 'active'; ?> ">
+                    <a href="<?php echo site_url('admin/classified_category_form/add'); ?>">
+                        <span><i class="entypo-dot"></i> Add Category</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <!-- Amenity -->
         <li class="<?php if ($page_name == 'amenities' || $page_name == 'amenity_add' || $page_name == 'amenity_edit') echo 'opened active has-sub'; ?>">
             <a href="#">

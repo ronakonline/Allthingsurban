@@ -43,6 +43,20 @@ class Crud_model extends CI_Model {
     $this->db->insert('category', $data);
   }
 
+  function add_classified_category() {
+    $data['parent'] = sanitizer($this->input->post('parent'));
+    $data['name'] = sanitizer($this->input->post('name'));
+    
+      if ($_FILES['category_thumbnail']['name'] == "") {
+        $data['category_thumbnail'] = 'thumbnail.png';
+      }else {
+        // $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
+        move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$_FILES['category_thumbnail']['name']);
+        $this->db->query('INSERT INTO `classified_categorie`(`id`, `parent`, `sub_name`, `banner`) VALUES (null,"'.$data['parent'].'","'.$data['name'].'","'.$_FILES['category_thumbnail']['name'].'")');
+      }
+
+  }
+
   function edit_category($category_id = "") {
     $data['parent'] = sanitizer($this->input->post('parent'));
     $data['icon_class'] = str_replace(array("\n","\r"), '', sanitizer($this->input->post('icon_class')));
@@ -212,6 +226,20 @@ function get_listings($listing_id = 0) {
     $this->db->order_by('date_added' , 'desc');
   }
   return $this->db->get('listing');
+}
+
+function get_classified_category() {
+  if (strtolower($this->session->userdata('role')) != 'admin') {
+    $this->db->where('user_id', $this->session->userdata('user_id'));
+  }
+  return $this->db->query('SELECT classified_parent.name, classified_categorie.id, classified_categorie.sub_name, classified_categorie.banner from classified_parent, classified_categorie where classified_parent.id= classified_categorie.parent');
+}
+
+function get_classified_parent() {
+  if (strtolower($this->session->userdata('role')) != 'admin') {
+    $this->db->where('user_id', $this->session->userdata('user_id'));
+  }
+  return $this->db->query('SELECT * from classified_parent');
 }
 
 function get_classifieds($listing_id = 0) {
