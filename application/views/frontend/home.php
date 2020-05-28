@@ -123,22 +123,9 @@
                             <div class="filter_type">
                                 <h6 style="margin: 0px;"></h6>
                                 <ul>
-                                    <li><a>Active Life</a> </li>
-                                    <li><a>Airline Tickets, Car Rentals, Tours</a></li>
-                                    <li><a>Armenian Community</a></li>
-                                    <li><a>Attorneys & Legal Services</a></li>
-                                    <li><a>Automotive</a></li>
-                                    <li><a>Car Sales</a></li>
-                                    <li><a>Cleaning Services</a></li>
-                                    <li><a>Computers/Communication</a></li>
-                                    <li><a>Construction Services</a></li>
-                                    <li><a>Dentists</a></li>
-                                    <li><a>DJ Professional Services</a></li>
-                                    <li><a>Education/schools</a></li>
-                                    <li><a>Entertainment/Art</a></li>
-                                    <li><a>Event Planning & Services</a></li>
-                                    <li><a>Financial Services</a></li>
-                                    <li><a>Flowers</a></li>
+                                    <?php foreach ($businesses as $row) { ?>
+                                    <li><a><?php echo $row->sub_name; ?></a> </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
 

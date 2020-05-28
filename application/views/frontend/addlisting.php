@@ -89,97 +89,15 @@
             <p>Add your listing by choosing one of these categories</p>
         </div>
         <div class="row">
+            <?php foreach ($listings as $row) { ?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
                 <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service4.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">New Business</a></h3>
+                    <img src="<?php echo base_url('uploads/classified_category_tumbnail/').$row->banner;?>" alt="service" class="img-fluid" height="50px" width="50px">
+                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink"><?php echo $row->sub_name; ?></a></h3>
                     <div class="view">&nbsp;</div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service3.png');?>" alt="service" class="img-fluid">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Jobs</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service5.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Resume / Job Wanted</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service7.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Offer Services</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service8.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Real Estate</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service9.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Business for Sale</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service10.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Sell Products online</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service6.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Housing for Rent</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service11.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Office for Rent</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service12.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Roommates / Shares</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service13.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Event</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service14.png');?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Dating</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
-                <div class="service-box1 bg-body text-center">
-                    <img src="<?php echo base_url('uploads/category_thumbnails/service2.png');?>" alt="service" class="img-fluid">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink">Car for Sales</a></h3>
-                    <div class="view">&nbsp;</div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
