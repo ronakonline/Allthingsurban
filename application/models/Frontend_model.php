@@ -432,4 +432,9 @@ class Frontend_model extends CI_Model {
         return $listing_id;
       }
     }
+
+    public function get_business(){
+        $q = $this->db->where('parent',1)->get('classified_categorie');
+        return $q->result();
+    }
 }
