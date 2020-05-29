@@ -416,6 +416,7 @@ class Admin extends CI_Controller {
             redirect(site_url('login'), 'refresh');
         }
         if ($param1 == 'add') {
+        	$page_data['categories'] = $this->crud_model->get_parent_category()->result_array();
             $page_data['page_name']  = 'classifieds_add_wiz';
             $page_data['page_title'] = get_phrase('add_new_classifieds');
         }elseif ($param1 == 'edit') {
