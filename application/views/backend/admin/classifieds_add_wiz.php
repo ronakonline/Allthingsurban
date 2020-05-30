@@ -84,7 +84,7 @@
                         <label for="parent" class="col-sm-3 control-label">Foreign Languages you speak</label>
 
                         <div class="col-sm-7">
-                            <select name="languages" id = "languages" class="select2" data-allow-clear="true" data-placeholder="Languages" multiple required>
+                            <select name="languages[]" id = "languages" class="select2" data-allow-clear="true" data-placeholder="Languages" multiple required>
                                 <option value="0" disabled><?php echo get_phrase('none'); ?></option>
                                 <option value="Armenian">Armenian</option>
                                 <option value="Russian">Russian</option>
