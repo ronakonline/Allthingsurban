@@ -1,3 +1,18 @@
+<script>
+    function fetchdata(id) {
+       // alert(id);
+       // alert('hi');
+        $.ajax({
+            url:"<?php echo base_url('Home/listingbycate'); ?>",
+            type:"post",
+            data : {id:id},
+            success: function (response) {
+                $('#default').remove();
+                $('#newcat').html(response);
+            }
+        })
+    }
+</script>
 <section class="hero_single version_2" style="background: #222 url(<?php echo base_url('uploads/system/home_banner.jpg'); ?>) center center no-repeat; background-size: cover;">
 	<div class="wrapper">
 		<div class="container" style="padding-top: 65px;">
@@ -122,10 +137,12 @@
                             <div class="filter_type">
                                 <h6 style="margin: 0px;"></h6>
                                 <ul>
+                                   <?php $categories = $this->db->get_where('category', array('parent' => 0))->result_array(); ?>
                                     <?php foreach ($categories as $key => $category) { ?>
-                                    <li><a><?php echo $category['name']; ?></a> </li>
+                                    <li><a href="javascript:fetchdata(<?php echo $category['id']; ?>);"><?php echo $category['name']; ?></a> </li>
                                     <?php } ?>
                                 </ul>
+
                             </div>
 
                         <!--/collapse -->
@@ -135,7 +152,7 @@
                 <!--/filters col-->
             </aside>
             <div class="col-xl-9 col-md-9 " id="listings">
-
+                <div id="default">
                 <div class="row">
 
                     <?php
@@ -190,7 +207,10 @@
                         </div>
                         <!-- A Single Listing Ends-->
                     <?php endforeach; ?>
+                    </div>
+
                 </div>
+                <div id="newcat"></div>
 
             </div>
 
@@ -288,3 +308,5 @@
 
 
 <!-- /container -->
+
+

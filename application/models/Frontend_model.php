@@ -437,4 +437,9 @@ class Frontend_model extends CI_Model {
         $q = $this->db->where('parent',1)->get('classified_categorie');
         return $q->result();
     }
+
+    public function listingbycate($id){
+        $q = $this->db->like('categories',$id)->get('listing');
+        return $q->result();
+    }
 }
