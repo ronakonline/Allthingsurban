@@ -21,57 +21,56 @@
                 <div class="highlights">
                     <ul class="menu-list" style="margin-bottom: 0px;">
                         <li>
-                            <a href="#" title="">
-                                <!--                                <img src="--><?php //echo base_url();?><!--assets/frontend/images/page/cutlery.png" alt="">-->
+                            <a href="<?php echo base_url('Home/addlisting/1'); ?>" title="">
                                 <i class="fa fa-briefcase fa-2x"></i>
                                 <span>Businesses</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="<?php echo base_url('Home/addlisting'); ?>" title="">
+                            <a href="<?php echo base_url('Home/addlisting/2'); ?>" title="">
                                 <i class="fa fa-check fa-2x"></i>
                                 <span>Add Listing</span>
                             </a>
 
                         </li>
                         <li class="">
-                            <a href="<?php echo base_url('Home/jobs'); ?>" title="">
+                            <a href="<?php echo base_url('Home/addlisting/3'); ?>" title="">
                                 <i class="fa fa-user fa-2x"></i>
                                 <span>Jobs</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/4'); ?>" title="">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span>Housing/Offices</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/5'); ?>" title="">
                                 <i class="fa fa-shopping-cart fa-2x"></i>
                                 <span>Buy/Sell</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/6'); ?>" title="">
                                 <i class="fa fa-wrench fa-2x"></i>
                                 <span>Services</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/7'); ?>" title="">
                                 <i class="fa fa-calendar fa-2x"></i>
                                 <span>Events</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/8'); ?>" title="">
                                 <i class="fa fa-smile fa-2x"></i>
                                 <span>Dating</span>
                             </a>
@@ -86,14 +85,17 @@
 <section class="service-layout1 bg-accent s-space-custom3">
     <div class="container " style=" padding-bottom: 55px;">
         <div class="main_title_2">
-            <p>Add your listing by choosing one of these categories</p>
+            <?php if ($listings->parent==2): ?>
+                <p>Add your listing by choosing one of these categories</p>    
+            <?php endif ?>
+            
         </div>
         <div class="row">
             <?php foreach ($listings as $row) { ?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
                 <div class="service-box1 bg-body text-center">
                     <img src="<?php echo base_url('uploads/classified_category_tumbnail/').$row->banner;?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="#" class="cardlink"><?php echo $row->sub_name; ?></a></h3>
+                    <h3 class="title-medium-dark mb-none"><a href="<?php echo base_url('home/classifieds/').$row->id; ?>" class="cardlink"><?php echo $row->sub_name; ?></a></h3>
                     <div class="view">&nbsp;</div>
                 </div>
             </div>

@@ -32,9 +32,11 @@ class Home extends CI_Controller {
         $this->db->order_by('is_featured', 'desc');
         $this->db->where('status', 'active');
         $listings = $courses = $this->db->get('classifieds', $config['per_page'], $this->uri->segment(3))->result_array();
+        $categories = $this->db->get_where('category')->result_array();
         $geo_json = $this->make_geo_json_for_map($listings);
 
         $page_data['listings']      = $listings;
+        $page_data['category']      =  $category;
         $page_data['businesses']  = $business;
         $page_data['geo_json']      = $geo_json;
         $page_data['page_name']     =   'home';
@@ -42,19 +44,15 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
-    public function addlisting(){
+    public function addlisting($id){
         // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
-        $listings  = $this->db->where('parent',2)->get('classified_categorie');
+        $listings  = $this->db->where('parent',$id)->get('classified_categorie');
         $page_data['listings']     =  $listings->result();
         $page_data['page_name']     =   'addlisting';
         $page_data['title']         =   'Home';
         $this->load->view('frontend/index', $page_data);
     }
-    public function  jobs(){
-        $page_data['page_name']     =   'jobs';
-        $page_data['title']         =   'Home';
-        $this->load->view('frontend/index', $page_data);
-    }
+    
 
     public function login() {
         $page_data['page_name']                 = 'login';
@@ -115,10 +113,10 @@ class Home extends CI_Controller {
         $page_data['geo_json']      = $geo_json;
         $this->load->view('frontend/index', $page_data);
     }
-    function classifieds()
+    function classifieds($id=null)
     {
         // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
-        $all_listings = $this->frontend_model->get_classifieds()->result_array();
+        $all_listings = $this->db->where('category',$id)->get('classified')->result_array();
 
         $total_rows = count($all_listings);
         $config = array();
@@ -126,15 +124,15 @@ class Home extends CI_Controller {
         $config['base_url']  = site_url('home/classifieds/');
         $this->pagination->initialize($config);
 
-        $this->db->order_by('is_featured', 'desc');
-        $this->db->where('status', 'active');
-        $listings = $courses = $this->db->get('classifieds', $config['per_page'], $this->uri->segment(3))->result_array();
-        $geo_json = $this->make_geo_json_for_map($listings);
+        // $this->db->order_by('is_featured', 'desc');
+        // $this->db->where('status', 'active');
+        // $listings = $courses = $this->db->get('classifieds', $config['per_page'], $this->uri->segment(3))->result_array();
+        // $geo_json = $this->make_geo_json_for_map($listings);
 
         $page_data['page_name']     = 'classifieds';
         $page_data['title']         = get_phrase('classifieds');
-        $page_data['listings']      = $listings;
-        $page_data['geo_json']      = $geo_json;
+        $page_data['listings']      = $all_listings;
+        // $page_data['geo_json']      = $geo_json;
         $this->load->view('frontend/index', $page_data);
     }
 

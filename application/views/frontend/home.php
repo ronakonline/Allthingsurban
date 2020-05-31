@@ -49,57 +49,56 @@
                 <div class="highlights">
                     <ul class="menu-list" style="margin-bottom: 0px;">
                         <li>
-                            <a href="#" title="">
-<!--                                <img src="--><?php //echo base_url();?><!--assets/frontend/images/page/cutlery.png" alt="">-->
+                            <a href="<?php echo base_url('Home/addlisting/1'); ?>" title="">
                                 <i class="fa fa-briefcase fa-2x"></i>
                                 <span>Businesses</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="<?php echo base_url('Home/addlisting'); ?>" title="">
+                            <a href="<?php echo base_url('Home/addlisting/2'); ?>" title="">
                                 <i class="fa fa-check fa-2x"></i>
                                 <span>Add Listing</span>
                             </a>
 
                         </li>
                         <li class="">
-                            <a href="<?php echo base_url('Home/jobs'); ?>" title="">
+                            <a href="<?php echo base_url('Home/addlisting/3'); ?>" title="">
                                 <i class="fa fa-user fa-2x"></i>
                                 <span>Jobs</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/4'); ?>" title="">
                                 <i class="fa fa-home fa-2x"></i>
                                 <span>Housing/Offices</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/5'); ?>" title="">
                                 <i class="fa fa-shopping-cart fa-2x"></i>
                                 <span>Buy/Sell</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/6'); ?>" title="">
                                 <i class="fa fa-wrench fa-2x"></i>
                                 <span>Services</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting7'); ?>" title="">
                                 <i class="fa fa-calendar fa-2x"></i>
                                 <span>Events</span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#" title="">
+                            <a href="<?php echo base_url('Home/addlisting/8'); ?>" title="">
                                 <i class="fa fa-smile fa-2x"></i>
                                 <span>Dating</span>
                             </a>
@@ -117,14 +116,14 @@
         <div class="row">
             <aside class="col-3" id="sidebar">
                 <div id="filters_col">
-                    <a  href="#collapseFilters" ><?php echo get_phrase('Business Directory'); ?> </a>
+                    <a  href="#collapseFilters">Categories </a>
                     <!-- Filter form starts-->
 
                             <div class="filter_type">
                                 <h6 style="margin: 0px;"></h6>
                                 <ul>
-                                    <?php foreach ($businesses as $row) { ?>
-                                    <li><a><?php echo $row->sub_name; ?></a> </li>
+                                    <?php foreach ($categories as $key => $category) { ?>
+                                    <li><a><?php echo $category['name']; ?></a> </li>
                                     <?php } ?>
                                 </ul>
                             </div>

@@ -90,8 +90,7 @@ isset($search_string) ? "": $search_string = "";
 
         <?php
         foreach($listings as $listing):
-            if(!has_package($listing['user_id']) > 0)
-                continue; ?>
+            ?>
 
             <?php
             // $active_package = has_package($listing['user_id']);
@@ -109,30 +108,22 @@ isset($search_string) ? "": $search_string = "";
                     <figure>
 
 
-                        <?php if($listing['is_featured'] == 1){ ?>
-                            <a href="javascript::" class="featured-tag-grid"><?php echo get_phrase('featured'); ?></a>
-                        <?php } ?>
-                        <a href="<?php echo get_classifieds_url($listing['id']); ?>"  id = "listing-banner-image-for-<?php echo $listing['code']; ?>"  class="d-block h-100 img" style="background-image:url('<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>')">
-                            <!-- <img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt=""> -->
+                        
+                        <a href="<?php echo get_classifieds_url($listing['id']); ?>"   class="d-block h-100 img" style="background-image:url('<?php echo base_url('uploads/classified/'.$listing['picture1']); ?>')">
+                            
                             <div class="read_more"><span><?php echo get_phrase('watch_details'); ?></span></div>
                         </a>
-                        <small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
+                        <!-- <small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small> -->
                     </figure>
                     <div class="wrapper <?php if($listing['is_featured'] == 1) echo 'featured-body'; ?>">
-                        <h3 class="ellipsis"><a href="<?php echo get_classifieds_url($listing['id']); ?>"><?php echo $listing['name']; ?></a></h3>
+                        <h3 class="ellipsis"><a href="<?php echo get_classifieds_url($listing['id']); ?>"><?php echo $listing['business_name']; ?></a></h3>
                         <small>
-                            <?php
-                            $city 	 = $this->db->get_where('city', array('id' =>  $listing['city_id']))->row_array();
-                            $country = $this->db->get_where('country', array('id' =>  $listing['country_id']))->row_array();
-                            echo $city['name'].', '.$country['name'];
+                            <?php echo $listing['address'];
                             ?>
                         </small>
                         <p class="ellipsis">
                             <?php echo $listing['description']; ?>
                         </p>
-                        <?php if ($listing['latitude'] != "" && $listing['longitude'] != ""): ?>
-                            <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target=""><?php echo get_phrase('show_on_map'); ?></a>
-                        <?php endif; ?>
 
                     </div>
 

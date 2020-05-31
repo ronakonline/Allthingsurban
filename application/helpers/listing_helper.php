@@ -152,8 +152,8 @@ if (! function_exists('get_listing_url')) {
   function get_classifieds_url($listing_id = ""){
         $CI =&  get_instance();
         $CI->load->database();
-        $listing = $CI->db->get_where('classifieds', array('id' => $listing_id))->row_array();
-        $custom_url = site_url('c'.$listing['listing_type'].'/'.slugify($listing['name']).'/'.$listing_id);
+        $listing = $CI->db->where('id',$listing_id)->get('classified')->row_array();
+        $custom_url = site_url('classifieds/'.slugify($listing['business_name']));
         return $custom_url;
     }
 }
