@@ -146,6 +146,12 @@
                         <span><i class="entypo-dot"></i> <?php echo get_phrase('add_new_classifieds'); ?></span>
                     </a>
                 </li>
+
+                <li class="<?php if ($page_name == 'verify_classified') echo 'active'; ?> ">
+                    <a href="<?php echo site_url('admin/classifieds_verify'); ?>">
+                        <span><i class="entypo-dot"></i> <?php echo "Verify Classified"; ?></span>
+                    </a>
+                </li>
             </ul>
         </li>
 

@@ -44,6 +44,12 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
+    public function add(){
+
+        $page_data['page_name']     =   'addlisting_form';
+        $page_data['title']         =   'Add Listing';
+        $this->load->view('frontend/index', $page_data);
+    }
     public function addlisting($id){
         // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
         $listings  = $this->db->where('parent',$id)->get('classified_categorie');

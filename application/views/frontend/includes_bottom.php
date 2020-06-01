@@ -1,8 +1,9 @@
 <script>
-    $(function(){
-        $('.selectpicker').selectpicker();
-    });
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
 </script>
+
 <!-- COMMON SCRIPTS -->
 <script src="<?php echo base_url();?>assets/frontend/js/common_scripts.js"></script>
 <script src="<?php echo base_url();?>assets/frontend/js/functions.js"></script>
@@ -12,6 +13,10 @@
 <script src="<?php echo base_url();?>assets/frontend/js/input_qty.js"></script>
 <script src="<?php echo base_url();?>assets/frontend/js/custom.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
 
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="<?php echo base_url();?>assets/frontend/js/markerclusterer.js"></script>

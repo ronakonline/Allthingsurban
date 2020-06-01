@@ -1,9 +1,4 @@
 
-<div class="row ">
-  <div class="col-lg-12">
-    <a href="<?php echo site_url('admin/classified_category_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i>Add New Category</a>
-  </div><!-- end col-->
-</div>
 
 <div class="row">
   <div class="col-lg-12">
@@ -18,41 +13,41 @@
           <thead>
             <tr>
               <th width="80"><div>#</div></th>
+              <th><div>Classified</div></th>
               <th><div>Category</div></th>
-              <th><div>Parent</div></th>
               <th><div>Thumbnail</div></th>
               <th><div>Action</div></th>
             </tr>
           </thead>
           <tbody id = "listing_table">
             <?php
-            $counter = 0;
-            foreach ($listings as $listing):
+            // $counter = 0;
+            // foreach ($listings as $listing):
               //$user_details = $this->user_model->get_all_users($listing['user_id'])->row_array();?>
               <tr>
                 <td>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="listings_id" value="<?php echo $listing['id']; ?>" class="custom-control-input checkMark" id="<?php echo $counter; ?>">
-                      <label class="custom-control-label" for="<?php echo $counter; ?>">
-                        <?php echo ++$counter; ?>
+                      <input type="checkbox" name="listings_id" value="<?php echo $listing['id']; ?>" class="custom-control-input checkMark" id="<?php //echo $counter; ?>">
+                      <label class="custom-control-label" for="<?php //echo $counter; ?>">
+                        <?php //echo ++$counter; ?>
                       </label>
                     </div>
                   </div>
                 </td>
                 <td>
                   <strong>
-                      <?php echo $listing['sub_name']; ?>
+                      <?php //echo $listing['sub_name']; ?>
                   </strong>
                 </td>
                 <td>
                   <strong>
-                      <?php echo $listing['name']; ?>
+                      <?php //echo $listing['name']; ?>
                   </strong>
                 </td>
                 <td>
                  <strong>
-                      <img src="<?php echo base_url('uploads/classified_category_tumbnail/').$listing['banner']; ?>" style="height: 100px;width: 100px;">
+                      <img src="<?php //echo base_url('uploads/classified_category_tumbnail/').$listing['banner']; ?>" style="height: 100px;width: 100px;">
                   </strong>
                 </td>
                 
@@ -100,7 +95,7 @@
                   </div>
                 </td>
               </tr>
-            <?php endforeach; ?>
+            <?php //endforeach; ?>
           </tbody>
         </table>
         <button class="btn btn-danger" id="delete_listings" style="display: none;"><?php echo get_phrase('delete_selected'); ?></button>

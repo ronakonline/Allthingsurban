@@ -427,6 +427,18 @@ class Admin extends CI_Controller {
         $this->load->view('backend/index.php', $page_data);
     }
 
+    public function classifieds_verify() {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        
+    	// $page_data['classifieds'] = $this->crud_model->get_verify_classifieds()->result_array();
+        $page_data['page_name']  = 'verify_classified';
+        $page_data['page_title'] = "Verify Classifieds";
+
+        $this->load->view('backend/index.php', $page_data);
+    }
+
 	public function listing_form($param1 = '', $param2 = '') {
 		if ($this->session->userdata('admin_login') != true) {
 			redirect(site_url('login'), 'refresh');
