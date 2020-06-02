@@ -44,12 +44,25 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
 
-    public function add(){
-
+    public function add($id){
+        $page_data['category'] = $id;
         $page_data['page_name']     =   'addlisting_form';
         $page_data['title']         =   'Add Listing';
         $this->load->view('frontend/index', $page_data);
     }
+    public function add_form(){
+        $page_data['categories'] = $this->crud_model->get_parent_category()->result_array();
+        $page_data['page_name']     =   'addform';
+        $page_data['title']         =   'Add Listing';
+        $this->load->view('frontend/index', $page_data);
+    }
+
+    public function insert_business(){
+        
+        $this->crud_model->add_business();
+        redirect(site_url('Home'), 'refresh');
+    }
+
     public function addlisting($id){
         // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
         $listings  = $this->db->where('parent',$id)->get('classified_categorie');

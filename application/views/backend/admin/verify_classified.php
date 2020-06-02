@@ -1,53 +1,53 @@
 
+<div class="row ">
+  <div class="col-lg-12">
+    <a href="<?php echo site_url('admin/classified_category_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i>Add New Category</a>
+  </div><!-- end col-->
+</div>
 
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-primary" data-collapsed="0">
       <div class="panel-heading">
         <div class="panel-title">
-          Classified Categories
+          Verify Classifieds
         </div>
       </div>
       <div class="panel-body">
         <table class="table table-bordered datatable">
           <thead>
             <tr>
-              <th width="80"><div>#</div></th>
-              <th><div>Classified</div></th>
+              <th><div>Business Name</div></th>
               <th><div>Category</div></th>
+              <th><div>Email</div></th>
               <th><div>Thumbnail</div></th>
               <th><div>Action</div></th>
             </tr>
           </thead>
           <tbody id = "listing_table">
             <?php
-            // $counter = 0;
-            // foreach ($listings as $listing):
+            
+            foreach ($classifieds as $classifieds):
               //$user_details = $this->user_model->get_all_users($listing['user_id'])->row_array();?>
               <tr>
                 <td>
-                  <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="listings_id" value="<?php echo $listing['id']; ?>" class="custom-control-input checkMark" id="<?php //echo $counter; ?>">
-                      <label class="custom-control-label" for="<?php //echo $counter; ?>">
-                        <?php //echo ++$counter; ?>
-                      </label>
-                    </div>
-                  </div>
-                </td>
-                <td>
                   <strong>
-                      <?php //echo $listing['sub_name']; ?>
+                      <?php echo $classifieds['business_name']; ?>
                   </strong>
                 </td>
                 <td>
                   <strong>
-                      <?php //echo $listing['name']; ?>
+                      <?php echo $classifieds['sub_name']; ?>
+                  </strong>
+                </td>
+                <td>
+                  <strong>
+                      <?php echo $classifieds['business_email']; ?>
                   </strong>
                 </td>
                 <td>
                  <strong>
-                      <img src="<?php //echo base_url('uploads/classified_category_tumbnail/').$listing['banner']; ?>" style="height: 100px;width: 100px;">
+                      <img src="<?php echo base_url('uploads/classified/').$classifieds['logo']; ?>" style="height: 100px;width: 100px;">
                   </strong>
                 </td>
                 
@@ -58,44 +58,18 @@
                         <?php echo get_phrase('action'); ?> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu dropdown-blue" role="menu">
-                        <li><a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo get_phrase('view_in_website'); ?></a></li>
-                        <li><a href="<?php echo site_url('admin/listing_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
-                        <?php if ($listing['status'] == 'pending'): ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_active/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_active'); ?></a></li>
-                        <?php else: ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_pending/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_pending'); ?></a></li>
-                        <?php endif; ?>
-
-                        <?php if ($listing['is_featured'] == 1): ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_none_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('remove_from_featured'); ?></a></li>
-                        <?php elseif($listing['is_featured'] == 0): ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_featured'); ?></a></li>
-                        <?php endif; ?>
-                        <li class="divider"></li>
-                        <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a>
-                        </li>
+                        <li><a href="<?php echo base_url('admin/classified_open/').$classifieds['id']; ?>">Details</a></li>
+                        <li><a href="<?php echo base_url('admin/classified_approve/').$classifieds['id']; ?>">Approve</a></li>
+                        <li><a href="<?php echo base_url('admin/classified_bane/').$classifieds['id']; ?>">Bane</a></li>
+                        
                       </ul>
                     </div>
                   </div>
 
-                  <!-- Single button -->
-                  <div class="dropright dropright">
-                    <button type="button" class="btn btn-sm btn-outline-primary btn-rounded btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="mdi mdi-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="<?php echo site_url('admin/listing_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
-
-
-
-                      <li><a class="dropdown-item" href="<?php echo get_listing_url($listing['id']); ?>" target="_blank"><?php echo get_phrase('view_in_website'); ?></a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url('admin/listings/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a></li>
-                    </ul>
-                  </div>
+                  
                 </td>
               </tr>
-            <?php //endforeach; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
         <button class="btn btn-danger" id="delete_listings" style="display: none;"><?php echo get_phrase('delete_selected'); ?></button>

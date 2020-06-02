@@ -432,12 +432,35 @@ class Admin extends CI_Controller {
             redirect(site_url('login'), 'refresh');
         }
         
-    	// $page_data['classifieds'] = $this->crud_model->get_verify_classifieds()->result_array();
+    	$page_data['classifieds'] = $this->crud_model->get_verify_classifieds()->result_array();
         $page_data['page_name']  = 'verify_classified';
         $page_data['page_title'] = "Verify Classifieds";
 
         $this->load->view('backend/index.php', $page_data);
     }
+
+    public function classified_open($id) {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        $q=$this->db->query('select * from classified where id='.$id);
+    	$page_data['classifieds'] = $q->result_array();
+    	
+        $page_data['page_name']  = 'detailed_classified';
+        $page_data['page_title'] = "Detailed Classifieds";
+
+        $this->load->view('backend/index.php', $page_data);
+    }
+
+    public function classified_approve($id){
+    	$this->db->query('update classified set verify = 1 where id='.$id);
+    	redirect('admin/classifieds_verify');
+    }
+
+	public function classified_bane($id){
+    	$this->db->query('update classified set verify = 2 where id='.$id);
+    	redirect('admin/classifieds_verify');
+    }    
 
 	public function listing_form($param1 = '', $param2 = '') {
 		if ($this->session->userdata('admin_login') != true) {
