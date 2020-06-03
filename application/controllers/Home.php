@@ -51,7 +51,7 @@ class Home extends CI_Controller {
         $this->load->view('frontend/index', $page_data);
     }
     public function add_form(){
-        $page_data['categories'] = $this->crud_model->get_parent_category()->result_array();
+        $page_data['categories'] = $this->crud_model->get_parent_category()->result();
         $page_data['page_name']     =   'addform';
         $page_data['title']         =   'Add Listing';
         $this->load->view('frontend/index', $page_data);
@@ -61,6 +61,11 @@ class Home extends CI_Controller {
         
         $this->crud_model->add_business();
         redirect(site_url('Home'), 'refresh');
+    }
+
+    public function insert_list(){
+        $this->crud_model->add_list();
+        // redirect(site_url('Home'), 'refresh');
     }
 
     public function addlisting($id){

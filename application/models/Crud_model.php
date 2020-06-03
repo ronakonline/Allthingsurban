@@ -359,6 +359,27 @@ function add_classifieds() {
         // }
     }
 
+function add_list(){
+        $data['business_name'] = sanitizer($this->input->post('business_name'));
+        $data['address'] = sanitizer($this->input->post('address'));
+        $data['business_telephone'] = sanitizer($this->input->post('business_telephone'));
+        $data['business_email'] = sanitizer($this->input->post('business_email'));
+        $data['description'] = sanitizer($this->input->post('description'));
+        $data['category'] = sanitizer($this->input->post('category'));
+        $data['picture1'] = sanitizer($this->input->post('picture1'));
+        $data['price'] = sanitizer($this->input->post('price'));
+        
+        $count = count($_FILES['picture1']['name']);
+        for ($i=0; $i <$count ; $i++) { 
+          if ($_FILES['picture1']['name'][$i] == "") {
+              $_FILES['picture1']['name'][$i] = 'thumbnail.png';
+          }else {
+              // $_FILES['picture1']['name'][$i] = md5(rand(10000000, 20000000)).'.jpg';
+              move_uploaded_file($_FILES['picture1']['tmp_name'][$i], 'uploads/classified/'.$_FILES['picture1']['name'][$i]);
+          }  
+        }
+        $this->db->insert('classified', $data);
+}
 
 function add_business() {
         $photo_gallery  = array();
