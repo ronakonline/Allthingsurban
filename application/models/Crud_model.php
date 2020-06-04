@@ -288,9 +288,8 @@ function get_classifieds($listing_id = 0) {
         if ($listing_id > 0) {
             $this->db->where('id', $listing_id);
         }else {
-            $this->db->order_by('date_added' , 'desc');
         }
-        return $this->db->get('classifieds');
+        return $this->db->get('classified');
     }
 
 function filter_listing_table($data = array()) {
@@ -1521,8 +1520,9 @@ public function get_listing_details($listing_id = "", $attribute = "") {
         if ($attribute != "") {
             $this->db->select($attribute);
         }
-        return $this->db->get('classifieds');
+        return $this->db->get('classified');
     }
+
 
 public function get_amenities($amenity_id = "") {
   if ($amenity_id > 0) {

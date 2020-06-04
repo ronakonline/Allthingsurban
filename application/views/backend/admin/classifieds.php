@@ -100,7 +100,7 @@ if (!isset($user_id)) {
                             <td>
                                 <strong>
                                     <a href="<?php echo site_url('admin/classifieds_form/edit/'.$listing['id']); ?>">
-                                        <?php echo $listing['name']; ?>
+                                        <?php echo $listing['business_name']; ?>
                                         <?php if ($listing['is_featured'] == 1):?>
                                             <i class="entypo-star" style="color: #FF5722; font-size: 11px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo get_phrase('featured'); ?>"></i>
                                         <?php endif; ?>
@@ -109,17 +109,16 @@ if (!isset($user_id)) {
                                 <br>
                                 <small>
                                     <?php
-                                    echo $user_details['name'].'<br/>'.date('D, d-M-Y', $listing['date_added']);
+                                    echo $user_details['name'].'<br/>';
                                     ?>
                                 </small>
                             </td>
                             <td>
                                 <?php
-                                $categories = json_decode($listing['categories']);
-                                foreach ($categories as $category):
-                                    $category_details = $this->crud_model->get_categories($category)->row_array();?>
-                                    <span class="badge badge-secondary"><?php echo $category_details['name']; ?></span><br>
-                                <?php endforeach; ?>
+                                $categories = json_decode($listing['category']);
+                              //  echo $categories;
+                                    $category_details = $this->crud_model->get_classified_categories($categories);?>
+                                    <span class="badge badge-secondary"><?php echo $category_details[0]->sub_name; ?></span><br>
                             </td>
                             <td>
                                 <?php
@@ -130,9 +129,9 @@ if (!isset($user_id)) {
                             </td>
                             <td class="text-center">
                   <span class="mr-2">
-                    <?php if ($listing['status'] == 'pending'): ?>
+                    <?php if ($listing['verify'] == 0 || $listing['verify'] == 2): ?>
                         <i class="entypo-record" style="color: #FFC107; font-size: 19px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo get_phrase($listing['status']); ?>"></i>
-                    <?php elseif ($listing['status'] == 'active'):?>
+                    <?php elseif ($listing['verify'] == 1):?>
                         <i class="entypo-record" style="color: #4CAF50; font-size: 19px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo get_phrase($listing['status']); ?>"></i>
                     <?php endif; ?>
                   </span>
