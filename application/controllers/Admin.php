@@ -68,8 +68,13 @@ class Admin extends CI_Controller {
 			redirect(site_url('admin/classified_categories'), 'refresh');
 
 		}
-		$page_data['timestamp_start'] = strtotime('-29 days', time());
-		$page_data['timestamp_end']   = strtotime(date("m/d/Y"));
+		if ($param1 == 'edit') {
+			$this->crud_model->edit_classified_category($param2);
+			$this->session->set_flashdata('flash_message', 'updated');
+			redirect(site_url('admin/classified_categories'), 'refresh');
+
+		}
+		
 		$page_data['page_name']  = 'classified_categories';
 		$page_data['page_title'] = 'All Classified Categories';
 		
@@ -115,9 +120,11 @@ class Admin extends CI_Controller {
 			$page_data['categories'] = $this->crud_model->get_classified_parent()->result_array();
 		}elseif ($param1 == 'edit') {
 			$page_data['category_id'] = $param2;
-			$page_data['page_name'] = 'category_edit';
-			$page_data['page_title'] = get_phrase('update_category');
-			$page_data['categories'] = $this->crud_model->get_categories()->result_array();
+			$page_data['page_name'] = 'classified_category_edit';
+			$page_data['page_title'] = 'Update Classified Category';
+			$page_data['categories'] = $this->crud_model->get_classified_parent()->result_array();
+			$page_data['category'] = $this->crud_model->get_classified_categories($param2);
+
 		}
 		$this->load->view('backend/index.php', $page_data);
 	}

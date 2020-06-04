@@ -27,6 +27,12 @@ class Crud_model extends CI_Model {
     return $this->db->get('category');
   }
 
+  function get_classified_categories($id){
+    // return $this->db->where('id',$id)->get('classified_categorie');
+    $q = $this->db->query('select classified_categorie.*,classified_parent.name from classified_categorie, classified_parent where classified_categorie.parent = classified_parent.id and classified_categorie.id='.$id);
+    return $q->result();
+  }
+
   function get_verify_classifieds(){
     
     $q = $this->db->query('select classified.*,classified_categorie.sub_name from classified,classified_categorie WHERE classified.category=classified_categorie.id and verify = 0');
@@ -61,6 +67,25 @@ class Crud_model extends CI_Model {
         move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$_FILES['category_thumbnail']['name']);
         $this->db->query('INSERT INTO `classified_categorie`(`id`, `parent`, `sub_name`, `banner`) VALUES (null,"'.$data['parent'].'","'.$data['name'].'","'.$_FILES['category_thumbnail']['name'].'")');
       }
+
+  }
+  function edit_classified_category($id) {
+    $data['parent'] = sanitizer($this->input->post('parent'));
+    $data['sub_name'] = sanitizer($this->input->post('name'));
+    
+      // if ($_FILES['category_thumbnail']['name'] == "") {
+      //   $data['category_thumbnail'] = 'thumbnail.png';
+      // }else {
+      //   $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
+      //   move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$_FILES['category_thumbnail']['name']);
+      //   $this->db->query('update classified_categorie set parent="'.$data['parent'].'",sub_name=,"'.$data['name'].'",banner="'.$_FILES['category_thumbnail']['name'].'" where id='.$id);
+      // }
+      if ($_FILES['category_thumbnail']['name'] != "") {
+      $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';;
+      move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$data['thumbnail']);
+      }
+      $this->db->where('id',$id);
+      $this->db->update('classified_categorie', $data);
 
   }
 

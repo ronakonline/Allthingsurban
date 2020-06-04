@@ -63,13 +63,9 @@
                         <?php echo get_phrase('action'); ?> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu dropdown-blue" role="menu">
-                        <li><a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo get_phrase('view_in_website'); ?></a></li>
-                        <li><a href="<?php echo site_url('admin/listing_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
-                        <?php if ($listing['status'] == 'pending'): ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_active/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_active'); ?></a></li>
-                        <?php else: ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_pending/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_pending'); ?></a></li>
-                        <?php endif; ?>
+                       
+                        <li><a href="<?php echo site_url('admin/classified_category_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
+                       
 
                         <?php if ($listing['is_featured'] == 1): ?>
                           <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_none_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('remove_from_featured'); ?></a></li>
@@ -81,22 +77,6 @@
                         </li>
                       </ul>
                     </div>
-                  </div>
-
-                  <!-- Single button -->
-                  <div class="dropright dropright">
-                    <button type="button" class="btn btn-sm btn-outline-primary btn-rounded btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="mdi mdi-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="<?php echo site_url('admin/listing_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
-
-
-
-                      <li><a class="dropdown-item" href="<?php echo get_listing_url($listing['id']); ?>" target="_blank"><?php echo get_phrase('view_in_website'); ?></a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url('admin/listings/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a></li>
-                    </ul>
                   </div>
                 </td>
               </tr>
