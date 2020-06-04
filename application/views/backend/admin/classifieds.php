@@ -11,56 +11,7 @@ if (!isset($user_id)) {
         <a href="<?php echo site_url('admin/classifieds_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i><?php echo get_phrase('add_new_classified'); ?></a>
     </div><!-- end col-->
 </div>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-primary" data-collapsed="0">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    <?php echo get_phrase('filter'); ?>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <form action="<?php echo site_url('admin/filter_listing_table') ?>" method="get">
-                        <div class="col-md-offset-2 col-md-3">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <select name="status" id = "status_filter" class="select2 form-control" data-allow-clear="true" data-placeholder="<?php echo get_phrase('status_filter'); ?>">
-                                        <option value="<?php echo 'all'; ?>" <?php if($status == 'all'): ?>selected<?php endif; ?>><?php echo get_phrase('all_status'); ?></option>
-                                        <option value="<?php echo 'pending'; ?>" <?php if($status == 'pending'): ?>selected<?php endif; ?>><?php echo get_phrase('pending'); ?></option>
-                                        <option value="<?php echo 'active'; ?>" <?php if($status == 'active'): ?>selected<?php endif; ?>><?php echo get_phrase('active'); ?></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <select name="user_id" id = "user_filter" class="select2 form-control" data-allow-clear="true" data-placeholder="<?php echo get_phrase('user_filter'); ?>">
-                                        <option value="<?php echo 'all'; ?>" <?php if($user_id == 'all'): ?>selected<?php endif; ?>><?php echo get_phrase('all_users'); ?></option>
-                                        <?php
-                                        $users = $this->user_model->get_all_users()->result_array();
-                                        foreach ($users as $user): ?>
-                                            <option value="<?php echo $user['id']; ?>" <?php if($user_id == $user['id']): ?>selected<?php endif; ?>><?php echo $user['name']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <!-- <button type="submit" class="btn btn-info btn-block"><?php echo get_phrase('filter'); ?></button> -->
-                                    <button type="submit" class="btn btn-info" style="margin-top: 5px;"><i class="entypo-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div><!-- end col-->
-</div>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary" data-collapsed="0">
@@ -120,6 +71,7 @@ if (!isset($user_id)) {
                                     $category_details = $this->crud_model->get_classified_categories($categories);?>
                                     <span class="badge badge-secondary"><?php echo $category_details[0]->sub_name; ?></span><br>
                             </td>
+                            </td>
                             <td>
                                 <?php
                                 $country_details = $this->crud_model->get_countries($listing['country_id'])->row_array();
@@ -143,19 +95,8 @@ if (!isset($user_id)) {
                                             <?php echo get_phrase('action'); ?> <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu dropdown-blue" role="menu">
-                                            <li><a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo get_phrase('view_in_website'); ?></a></li>
-                                            <li><a href="<?php echo site_url('admin/classifieds_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
-                                            <?php if ($listing['status'] == 'pending'): ?>
-                                                <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds/make_active/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_active'); ?></a></li>
-                                            <?php else: ?>
-                                                <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds/make_pending/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_pending'); ?></a></li>
-                                            <?php endif; ?>
 
-                                            <?php if ($listing['is_featured'] == 1): ?>
-                                                <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds/make_none_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('remove_from_featured'); ?></a></li>
-                                            <?php elseif($listing['is_featured'] == 0): ?>
-                                                <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds/make_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_featured'); ?></a></li>
-                                            <?php endif; ?>
+                                            <li><a href="<?php echo site_url('admin/classifieds_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
                                             <li class="divider"></li>
                                             <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a>
                                             </li>

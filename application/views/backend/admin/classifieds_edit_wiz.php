@@ -3,312 +3,293 @@ $listing_details = $this->crud_model->get_classifieds($listing_id)->row_array();
 //$time_configuration_details = $this->crud_model->get_time_configuration_by_listing_id($listing_id)->row_array();
 $social_links = json_decode($listing_details['social'], true);
 $countries  = $this->db->get('country')->result_array();
-$categories = $this->db->get('category')->result_array();
+$categories = $this->db->get('classified_categorie')->result_array();
 $listing_amenities = json_decode($listing_details['amenities'], false);
 $listing_categories = json_decode($listing_details['categories'], false);
+$languages = json_decode($listing_details['languages'],false);
+
 ?>
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-10">
         <div class="panel panel-primary" data-collapsed="0">
             <div class="panel-heading">
                 <div class="panel-title">
-                    <?php echo get_phrase('update').': '.$listing_details['name']; ?>
+                    Edit Classified Category
                 </div>
             </div>
             <div class="panel-body">
-                <form action="<?php echo site_url('admin/classifieds/edit/'.$listing_id); ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered listing_edit_form">
-                    <div class="col-md-12">
-                        <ul class="nav nav-tabs bordered"><!-- available classes "bordered", "right-aligned" -->
-                            <li class="active">
-                                <a href="#first" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-home"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('basic'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#second" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-user"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('location'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#third" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-mail"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('amenities'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#fourth" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('media'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#fifth" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs"><?php echo 'SEO'; ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#sixth" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('schedule'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#seventh" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('contact'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#eighth" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('type'); ?></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#ninth" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs"><?php echo get_phrase('finish'); ?></span>
-                                </a>
-                            </li>
-                        </ul>
 
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="first">
-                                <?php include 'edit_listing_basic.php'; ?>
-                            </div>
-                            <div class="tab-pane" id="second">
-                                <?php include 'edit_listing_location.php'; ?>
-                            </div>
-                            <div class="tab-pane" id="third">
-                                <?php include 'edit_listing_amenity.php'; ?>
-                            </div>
+                <form action="<?php echo site_url('admin/classifieds/edit/').$listing_details['id']; ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered">
 
-                            <div class="tab-pane" id="fourth">
-                                <?php include 'edit_listing_media.php'; ?>
-                            </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Business Legal Name</label>
 
-                            <div class="tab-pane" id="fifth">
-                                <?php include 'edit_listing_seo.php'; ?>
-                            </div>
-                            <div class="tab-pane" id="sixth">
-                                <?php include 'edit_listing_schedule.php'; ?>
-                            </div>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="business_name" id="name" placeholder="Provide Business Legal Name"  value="<?php echo $listing_details['business_name']; ?>"  >
+                        </div>
+                    </div>
 
-                            <div class="tab-pane" id="seventh">
-                                <?php include 'edit_listing_contact.php'; ?>
-                            </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Business Address</label>
 
-                            <div class="tab-pane" id="eighth">
-                                <?php include 'edit_listing_type.php'; ?>
-                            </div>
-                            <div class="tab-pane" id="ninth">
-                                <?php include 'edit_listing_finish.php'; ?>
+                        <div class="col-sm-7">
+                            <textarea rows="4" class="form-control" name="address" placeholder="Provide Business Address"  > <?php echo $listing_details['address']; ?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Business Phone Number</label>
+
+                        <div class="col-sm-7">
+                            <input type="tel" class="form-control" name="business_telephone" id="name" placeholder="Provide button Phone Number"  value="<?php echo $listing_details['business_telephone']; ?>"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Business Email Address</label>
+
+                        <div class="col-sm-7">
+                            <input type="Email" class="form-control" name="business_email" id="name" placeholder="Provide Business Email Address"  value="<?php echo $listing_details['business_email']; ?>"  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Business Website</label>
+
+                        <div class="col-sm-7">
+                            <input type="web" class="form-control" name="website" id="name" placeholder="Provide Business Website"  value="<?php echo $listing_details['business_website']; ?>"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Description of Business</label>
+
+                        <div class="col-sm-7">
+                            <textarea rows="4" class="form-control" name="description" placeholder="Provide Description of Business"  > <?php echo $listing_details['description']; ?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parent" class="col-sm-3 control-label"><?php echo get_phrase('parent_category'); ?></label>
+
+                        <div class="col-sm-7">
+                            <select name="category" id = "category" class="select2" data-allow-clear="true" data-placeholder="Category"  >
+                                <option value="0" disabled selected><?php echo get_phrase('none'); ?></option>
+                                <?php foreach ($categories as $category){ ?>
+                                    <?php if($listing_details['category'] == $category['id']) {?>
+                                    <option value="<?php echo $category['id']; ?>" selected><?php echo $category['sub_name']; ?></option>
+                                        <?php }else{ ?>
+                                        <option value="<?php echo $category['id']; ?>"><?php echo $category['sub_name']; ?></option>
+                                        <?php } ?>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Days of Operation</label>
+
+                        <div class="col-sm-7">
+                            <input type="web" class="form-control" name="days" id="name" placeholder="Provide Days of Operation"  value="<?php echo $listing_details['days']; ?>"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parent" class="col-sm-3 control-label">Foreign Languages you speak</label>
+
+                        <div class="col-sm-7">
+                            <select name="languages[]" id = "languages" class="select2" data-allow-clear="true" data-placeholder="Languages" multiple  >
+                                <option value="0" disabled><?php echo get_phrase('none'); ?></option>
+                                <?php if(in_array("Armenian",$listing_details['language'])){ ?>
+                                <option value="Armenian" selected>Armenian</option>
+                                <?php }else{ ?>
+                                <option value="Armenian">Armenian</option>
+                                <?php } ?>
+                                <?php if(in_array("Russian",$listing_details['language'])){ ?>
+                                <option value="Russian" selected>Russian</option>
+                                <?php }else{ ?>
+                                <option value="Russian">Russian</option>
+                                <?php } ?>
+                                <?php if(in_array("Hebrew",$listing_details['language'])){ ?>
+                                    <option value="Hebrew" selected>Hebrew</option>
+                                <?php }else{ ?>
+                                    <option value="Hebrew">Hebrew</option>
+                                <?php } ?>
+                                <?php if(in_array("Spanish",$listing_details['language'])){ ?>
+                                    <option value="Spanish" selected>Spanish</option>
+                                <?php }else{ ?>
+                                    <option value="Spanish">Spanish</option>
+                                <?php } ?>
+                                <?php if(in_array("Persian",$listing_details['language'])){ ?>
+                                    <option value="Persian" selected>Persian</option>
+                                <?php }else{ ?>
+                                    <option value="Persian">Persian</option>
+                                <?php } ?>
+
+                                <?php if(in_array("Arabic",$languages)){ ?>
+                                <option value="Arabic" selected>Arabic</option>
+                                <?php }else{ ?>
+                                <option value="Arabic">Arabic</option>
+                                <?php } ?>
+                                <?php if(in_array("French",$languages)){ ?>
+                                <option value="French" selected>French</option>
+                                <?php }else{ ?>
+                                <option value="French">French</option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="form-group" id = "thumbnail-picker-area">
+                        <label class="col-sm-3 control-label">Logo<small>(JPG, PNG, GIF, max size:2Mb)</small> </label>
+
+                        <div class="col-sm-7">
+
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
+                                    <img src="<?php echo base_url('uploads/classified/').$listing_details['logo']; ?>" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
+                                <div>
+                                    <span class="btn btn-white btn-file">
+                                        <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+                                        <input type="file" name="logo" accept="image/*"  >
+                                    </span>
+                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group" id = "thumbnail-picker-area">
+                        <label class="col-sm-3 control-label">Picture<small>(JPG, PNG, GIF, max size:2Mb)</small> </label>
+
+                        <div class="col-sm-7">
+
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
+                                    <img src="<?php echo base_url('uploads/classified/').$listing_details['picture1'];; ?>" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
+                                <div>
+                                    <span class="btn btn-white btn-file">
+                                        <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+                                        <input type="file" name="picture1" accept="image/*"  >
+                                    </span>
+                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id = "thumbnail-picker-area">
+                        <label class="col-sm-3 control-label">Picture<small>(JPG, PNG, GIF, max size:2Mb)</small> </label>
+
+                        <div class="col-sm-7">
+
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
+                                    <img src="<?php echo base_url('uploads/classified/').$listing_details['picture2'];; ?>" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
+                                <div>
+                                    <span class="btn btn-white btn-file">
+                                        <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
+                                        <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+                                        <input type="file" name="picture2" accept="image/*"  >
+                                    </span>
+                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+        <div class="panel panel-primary" data-collapsed="0">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Personal Info
+                </div>
+            </div>
+            <div class="panel-body form-horizontal form-groups-bordered">
+
+
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Full Name</label>
+
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="full_name" id="name" placeholder="Provide Full Name" value="<?php echo $listing_details['full_name']; ?>"  >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Telephone Number</label>
+
+                    <div class="col-sm-7">
+                        <input type="tel" class="form-control" name="telephone" id="telephone" placeholder="Provide Telephone Number" value="<?php echo $listing_details['telephone']; ?>"  >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Email Address</label>
+
+                    <div class="col-sm-7">
+                        <input type="Email" class="form-control" name="email" id="ref_business" placeholder="Provide Email Address" value="<?php echo $listing_details['email']; ?>"  >
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="panel panel-primary" data-collapsed="0">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    How You Hear About Us? <small>(Optional)</small>
+                </div>
+            </div>
+            <div class="panel-body form-horizontal form-groups-bordered">
+
+
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Business Name</label>
+
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="ref_business" id="ref_business" placeholder="Provide Business Name" value="<?php echo $listing_details['ref_business']; ?>">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Full Name</label>
+
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="ref_name" id="ref_name" placeholder="Provide Full Name" value="<?php echo $listing_details['ref_name']; ?>">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Telephone Number</label>
+
+                    <div class="col-sm-7">
+                        <input type="tel" class="form-control" name="ref_telephone" id="ref_telephone" placeholder="Provide Telephone Number" value="<?php echo $listing_details['ref_telephone']; ?>">
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-3 col-sm-5" style="padding-top: 10px;">
+                    <button type="submit" class="btn btn-info"><?php echo get_phrase('Edit_category'); ?></button>
+                </div>
                 </form>
             </div>
         </div>
     </div><!-- end col-->
 </div>
-<script type="text/javascript">
-    function getCityList(country_id) {
-        $.ajax({
-            type : 'POST',
-            url : '<?php echo site_url('home/get_city_list_by_country_id'); ?>',
-            data : {country_id : country_id},
-            success : function(response) {
-                $('#city_id').html(response);
-            }
-        });
-    }
-    var blank_category = $('#blank_category_field').html();
-    var blank_photo_uploader = $('#blank_photo_uploader').html();
-    var blank_special_offer_div = $('#blank_special_offer_div').html();
-    var blank_food_menu_div = $('#blank_food_menu_div').html();
-    var blank_beauty_service_div = $('#blank_beauty_service_div').html();
-    var blank_hotel_room_specification_div = $('#blank_hotel_room_specification_div').html();
-    var listing_type_value = $('.listing-type-radio').val();
 
-    $(document).ready(function() {
-        $('#blank_category_field').hide();
-        $('#blank_photo_uploader').hide();
-        $('#blank_special_offer_div').hide();
-        $('#blank_food_menu_div').hide();
-        $('#blank_beauty_service_div').hide();
-        $('#blank_hotel_room_specification_div').hide();
-        showListingTypeForm('<?php echo $listing_details['listing_type']; ?>');
-    });
-
-    function appendHotelRoomSpecification() {
-
-        jQuery('#hotel_room_specification_div').append(blank_hotel_room_specification_div);
-        let selector = jQuery('#hotel_room_specification_div .hotel_room_specification_div');
-
-        let rand = Math.random().toString(36).slice(3);
-
-        $(selector[selector.length - 1]).find('label.btn').attr('for', 'room-image-' + rand );
-        $(selector[selector.length - 1]).find('input.image-upload').attr('id', 'room-image-' + rand );
-        $(".bootstrap-tag-input").tagsinput('items');
-        initImagePreviewer();
-    }
-
-    function removeHotelRoomSpecification(elem) {
-        jQuery(elem).closest('.hotel_room_specification_div').remove();
-        $(".bootstrap-tag-input").tagsinput('items');
-        removeFromDatabase('hotel', elem.id);
-    }
-
-    function appendFoodMenu() {
-
-        jQuery('#food_menu_div').append(blank_food_menu_div);
-        let selector = jQuery('#food_menu_div .food_menu_div');
-
-        let rand = Math.random().toString(36).slice(3);
-
-        $(selector[selector.length - 1]).find('label.btn').attr('for', 'menu-image-' + rand );
-        $(selector[selector.length - 1]).find('input.image-upload').attr('id', 'menu-image-' + rand );
-        $(".bootstrap-tag-input").tagsinput('items');
-        initImagePreviewer();
-    }
-
-    function removeFoodMenu(elem) {
-        jQuery(elem).closest('.food_menu_div').remove();
-        $(".bootstrap-tag-input").tagsinput('items');
-        removeFromDatabase('food_menu', elem.id);
-    }
-
-    function appendBeautyService() {
-
-        jQuery('#beauty_service_div').append(blank_beauty_service_div);
-        let selector = jQuery('#beauty_service_div .beauty_service_div');
-
-        let rand = Math.random().toString(36).slice(3);
-
-        $(selector[selector.length - 1]).find('label.btn').attr('for', 'service-image-' + rand );
-        $(selector[selector.length - 1]).find('input.image-upload').attr('id', 'service-image-' + rand );
-        $(".bootstrap-tag-input").tagsinput('items');
-        initImagePreviewer();
-    }
-
-    function removeBeautyService(elem) {
-        jQuery(elem).closest('.beauty_service_div').remove();
-        $(".bootstrap-tag-input").tagsinput('items');
-        removeFromDatabase('beauty_service', elem.id);
-    }
-
-    function appendSpecialOffer() {
-
-        jQuery('#special_offer_div').append(blank_special_offer_div);
-        let selector = jQuery('#special_offer_div .special_offer_div');
-
-        let rand = Math.random().toString(36).slice(3);
-
-        $(selector[selector.length - 1]).find('label.btn').attr('for', 'product-image-' + rand );
-        $(selector[selector.length - 1]).find('input.image-upload').attr('id', 'product-image-' + rand );
-        $(".bootstrap-tag-input").tagsinput('items');
-        initImagePreviewer();
-    }
-
-    function removeSpecialOffer(elem) {
-        jQuery(elem).closest('.special_offer_div').remove();
-        $(".bootstrap-tag-input").tagsinput('items');
-        removeFromDatabase('product', elem.id);
-    }
-
-    function appendCategory() {
-        jQuery('#category_area').append(blank_category);
-    }
-
-    function removeCategory(categoryElem) {
-        jQuery(categoryElem).closest('.appendedCategoryFields').remove();
-    }
-
-    function appendPhotoUploader() {
-        jQuery('#photos_area').append(blank_photo_uploader);
-    }
-
-    function removePhotoUploader(photoElem) {
-        jQuery(photoElem).closest('.appendedPhotoUploader').remove();
-    }
-
-    function showListingTypeForm(listing_type) {
-        listing_type_value = listing_type;
-        if (listing_type === "shop") {
-            $('#special_offer_parent_div').show();
-            $('#food_menu_parent_div').hide();
-            $('#beauty_service_parent_div').hide();
-            $('#hotel_room_specification_parent_div').hide();
-            $('#demo-btn').html('<i class="mdi mdi-eye"></i> <?php echo get_phrase('preview_products'); ?>');
-        }
-        else if (listing_type === "hotel") {
-            $('#special_offer_parent_div').hide();
-            $('#food_menu_parent_div').hide();
-            $('#beauty_service_parent_div').hide();
-            $('#hotel_room_specification_parent_div').show();
-            $('#demo-btn').html('<i class="mdi mdi-eye"></i> <?php echo get_phrase('preview_rooms'); ?>');
-        }
-        else if (listing_type === "restaurant") {
-            $('#special_offer_parent_div').hide();
-            $('#food_menu_parent_div').show();
-            $('#beauty_service_parent_div').hide();
-            $('#hotel_room_specification_parent_div').hide();
-            $('#demo-btn').html('<i class="mdi mdi-eye"></i> <?php echo get_phrase('preview_food_menu'); ?>');
-        }else if (listing_type === "beauty") {
-            $('#special_offer_parent_div').hide();
-            $('#food_menu_parent_div').hide();
-            $('#beauty_service_parent_div').show();
-            $('#hotel_room_specification_parent_div').hide();
-            $('#demo-btn').html('<i class="mdi mdi-eye"></i> <?php echo get_phrase('preview_food_menu'); ?>');
-        }else {
-            $('#special_offer_parent_div').hide();
-            $('#food_menu_parent_div').hide();
-            $('#hotel_room_specification_parent_div').hide();
-            $('#demo-btn').html('<i class="mdi mdi-eye"></i> <?php echo get_phrase('no_preview_available'); ?>');
-        }
-    }
-
-    function removeFromDatabase(type, id) {
-        $.ajax({
-            type : 'POST',
-            url : '<?php echo site_url('admin/remove_listing_inner_feature'); ?>',
-            data : {type : type, id : id},
-            success : function(response) {
-                success_notify('<?php echo get_phrase('removed_successfully'); ?>');
-            }
-        });
-    }
-
-    // This fucntion checks the minimul required fields of listing form
-    function checkMinimumFieldRequired() {
-        var title = $('#title').val();
-        var defaultCategory = $('#category_default').val();
-        var latitude = $('#latitude').val();
-        var longitude = $('#longitude').val();
-        if (title === "" || defaultCategory === "" || latitude === "" || longitude === "") {
-            error_notify('<?php echo get_phrase('listing_title').', '.get_phrase('listing_category').', '.get_phrase('latitude').', '.get_phrase('longitude').' '.get_phrase('can_not_be_empty'); ?>');
-        }else {
-            $('.listing_edit_form').submit();
-        }
-    }
-
-    // Show Listing Type Wise Demo
-    function showListingTypeWiseDemo(param) {
-        if (listing_type_value === 'hotel') {
-            showAjaxModal('<?php echo base_url();?>modal/popup/preview_of_details/hotel_room', '<?php echo get_phrase('preview'); ?>');
-        }
-        if (listing_type_value === 'restaurant') {
-            showAjaxModal('<?php echo base_url();?>modal/popup/preview_of_details/food_menu', '<?php echo get_phrase('preview'); ?>');
-        }
-        if (listing_type_value === 'shop') {
-            showAjaxModal('<?php echo base_url();?>modal/popup/preview_of_details/special_offers', '<?php echo get_phrase('preview'); ?>');
-        }
-        if (listing_type_value === 'beauty') {
-            showAjaxModal('<?php echo base_url();?>modal/popup/preview_of_details/beauty_service', '<?php echo get_phrase('preview'); ?>');
-        }
-    }
-</script>

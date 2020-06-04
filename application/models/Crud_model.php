@@ -942,115 +942,75 @@ function update_listing($listing_id = "") {
 function update_classifieds($listing_id = "") {
         $listing_details      = $this->crud_model->get_classifieds($listing_id)->row_array();
 
-        $data['name'] = sanitizer($this->input->post('title'));
-        $data['description'] = sanitizer($this->input->post('description'));
+    $data['business_name'] = sanitizer($this->input->post('business_name'));
+    $data['address'] = sanitizer($this->input->post('address'));
+    $data['business_telephone'] = sanitizer($this->input->post('business_telephone'));
+    $data['business_email'] = sanitizer($this->input->post('business_email'));
+    $data['website'] = sanitizer($this->input->post('website'));
+    $data['description'] = sanitizer($this->input->post('description'));
 
-        $value_check = $this->input->post('is_featured');
-        if(isset($value_check)){
-            $data['is_featured'] = sanitizer($this->input->post('is_featured'));
-        }else{
-            $data['is_featured'] = sanitizer(0);
-        }
+    // $value_check = $this->input->post('is_featured');
+    // if(isset($value_check)){
+    //     $data['is_featured'] = sanitizer($this->input->post('is_featured'));
+    // }else{
+    //     $data['is_featured'] = sanitizer(0);
+    // }
 
-        $data['country_id'] = sanitizer($this->input->post('country_id'));
-        $data['city_id'] = sanitizer($this->input->post('city_id'));
-        $data['address'] = sanitizer($this->input->post('address'));
-        $data['latitude'] = sanitizer($this->input->post('latitude'));
-        $data['longitude'] = sanitizer($this->input->post('longitude'));
-        $data['listing_type'] = sanitizer($this->input->post('listing_type'));
-        $data['google_analytics_id'] = sanitizer($this->input->post('google_analytics_id'));
+    $data['category'] = sanitizer($this->input->post('category'));
+    $data['days'] = sanitizer($this->input->post('days'));
+    $data['languages'] = json_encode(sanitizer($this->input->post('languages[]')));
+    $data['logo'] = sanitizer($this->input->post('logo'));
+    $data['picture1'] = sanitizer($this->input->post('picture1'));
+    $data['picture2'] = sanitizer($this->input->post('picture2'));
+    $data['full_name'] = sanitizer($this->input->post('full_name'));
 
-        if (sizeof(sanitizer($this->input->post('amenities'))) > 0) {
-            $data['amenities'] = $this->make_json(sanitizer($this->input->post('amenities')));
-        }else {
-            $data['amenities'] = json_encode(array());
-        }
+    // if (sizeof(sanitizer($this->input->post('amenities'))) > 0) {
+    //     $data['amenities'] = $this->make_json(sanitizer($this->input->post('amenities')));
+    // }else {
+    //     $data['amenities'] = json_encode(array());
+    // }
 
-        if (sizeof(sanitizer($this->input->post('categories'))) > 0) {
-            $data['categories'] = $this->make_json(sanitizer($this->input->post('categories')));
-        }else {
-            $data['categories'] = json_encode(array());
-        }
+    // if (sizeof(sanitizer($this->input->post('categories'))) > 0) {
+    //     $data['categories'] = $this->make_json(sanitizer($this->input->post('categories')));
+    // }else {
+    //     $data['categories'] = json_encode(array());
+    // }
 
-        $data['video_provider'] = sanitizer($this->input->post('video_provider'));
-        $data['video_url'] = sanitizer($this->input->post('video_url'));
-        $data['tags'] = sanitizer($this->input->post('tags'));
-        $data['seo_meta_tags'] = sanitizer($this->input->post('seo_meta_tags'));
 
-        $data['website'] = sanitizer($this->input->post('website'));
-        $data['email'] = sanitizer($this->input->post('email'));
-        $data['phone'] = sanitizer($this->input->post('phone'));
-        $data['user_id'] = sanitizer($this->input->post('user_id'));
-        $social_links = array(
-            'facebook' => sanitizer($this->input->post('facebook')),
-            'twitter' => sanitizer($this->input->post('twitter')),
-            'linkedin' => sanitizer($this->input->post('linkedin')),
-        );
-        $data['social'] = json_encode($social_links);
-        $data['date_modified'] = strtotime(date('D, d-M-Y'));
-        $time_config = array();
-        $days = array('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday');
-        foreach ($days as $day) {
-            $time_config[$day] = sanitizer($this->input->post($day.'_opening')).'-'.sanitizer($this->input->post($day.'_closing'));
-        }
+    $data['telephone'] = sanitizer($this->input->post('telephone'));
+    $data['email'] = sanitizer($this->input->post('email'));
+    $data['ref_business'] = sanitizer($this->input->post('ref_business'));
+    $data['ref_name'] = sanitizer($this->input->post('ref_name'));
+    $data['ref_telephone'] = sanitizer($this->input->post('ref_telephone'));
 
-        if ($_FILES['listing_thumbnail']['name'] != "") {
-            if ($listing_details['listing_thumbnail'] == "thumbnail.png" || $listing_details['listing_thumbnail'] == "") {
-                $data['listing_thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
-                move_uploaded_file($_FILES['listing_thumbnail']['tmp_name'], 'uploads/listing_thumbnails/'.$data['listing_thumbnail']);
-            }else {
-                $data['listing_thumbnail'] = $listing_details['listing_thumbnail'];
-                move_uploaded_file($_FILES['listing_thumbnail']['tmp_name'], 'uploads/listing_thumbnails/'.$data['listing_thumbnail']);
-            }
-        }
 
-        if ($_FILES['listing_cover']['name'] != "") {
-            if ($listing_details['listing_cover'] == "thumbnail.png") {
-                $data['listing_cover'] = md5(rand(10000000, 20000000)).'.jpg';
-                move_uploaded_file($_FILES['listing_cover']['tmp_name'], 'uploads/listing_cover_photo/'.$data['listing_cover']);
-            }else {
-                $data['listing_cover'] = $listing_details['listing_cover'];
-                move_uploaded_file($_FILES['listing_cover']['tmp_name'], 'uploads/listing_cover_photo/'.$data['listing_cover']);
-            }
-        }
 
-        $old_listing_images   = json_decode($listing_details['photos']);
-        $new_listing_images   = $this->input->post('new_listing_images');
-        unset($new_listing_images[count($new_listing_images)-1]);
-        $final_listing_images = array();
 
-        foreach ($_FILES['listing_images']['tmp_name'] as $key => $listing_image) {
+    if ($_FILES['logo']['name'] == "") {
+        $data['logo'] = $listing_details['logo'];
+    }else {
+        $data['logo'] = md5(rand(10000000, 20000000)).'.jpg';
+        move_uploaded_file($_FILES['logo']['tmp_name'], 'uploads/classified/'.$data['logo']);
+    }
 
-            if (in_array($new_listing_images[$key], $old_listing_images)) {
-                if ($listing_image != "") {
-                    $random_identifier = $new_listing_images[$key];
-                    move_uploaded_file($listing_image, 'uploads/listing_images/'.$random_identifier);
-                    array_push($final_listing_images, $random_identifier);
-                }else {
-                    $random_identifier = $new_listing_images[$key];
-                    array_push($final_listing_images, $random_identifier);
-                }
-            }else {
-                if ($listing_image != "") {
-                    $random_identifier = md5(rand(10000000, 20000000)).'.jpg';
-                    //unlink('./uploads/listing_images/'.$new_listing_images[$key]);
+    if ($_FILES['picture1']['name'] == "") {
+        $data['picture1'] = $listing_details['picture1'];
+    }else {
+        $data['picture1'] = md5(rand(10000000, 20000000)).'.jpg';
+        move_uploaded_file($_FILES['picture1']['tmp_name'], 'uploads/classified/'.$data['picture1']);
+    }
 
-                    move_uploaded_file($listing_image, 'uploads/listing_images/'.$random_identifier);
-                    array_push($final_listing_images, $random_identifier);
-                }else {
-                    //unlink('./uploads/listing_images/'.$new_listing_images[$key]);
-                }
-            }
-        }
-
-        $data['photos'] = json_encode($final_listing_images);
+    if ($_FILES['picture2']['name'] == "") {
+        $data['picture2'] = $listing_details['picture2'];
+    }else {
+        $data['picture2'] = md5(rand(10000000, 20000000)).'.jpg';
+        move_uploaded_file($_FILES['picture2']['tmp_name'], 'uploads/classified/'.$data['picture2']);
+    }
 
         $this->db->where('id', $listing_id);
-        $this->db->update('classifieds', $data);
+        $this->db->update('classified', $data);
 
 
-        $this->db->where('class_id', $listing_id);
-        $this->db->update('ctime_configuration', $time_config);
 
         // Update listing inner details data
      //   $this->update_listing_type_wise_details(sanitizer($this->input->post('listing_type')), $listing_id);
