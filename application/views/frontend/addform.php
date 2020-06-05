@@ -8,12 +8,12 @@
 						<div class="divider"><span><?php echo "Listing Details"; ?></span></div>
 						<div class="form-group">
 							<label>Title</label>
-							<input type="web" class="form-control" name="business_name" id="name" placeholder="Business Name">
+							<input type="web" class="form-control" name="business_name" id="name" placeholder="Title">
 						</div>
 
 						<div class="form-group">
 							<label>Description</label>
-							<textarea rows="10" class="form-control" placeholder="Provide Description of Business"></textarea>
+							<textarea rows="10" class="form-control" name="description" placeholder="Provide Description of Business"></textarea>
 						</div>
 						
 						<div class="form-group">
@@ -62,7 +62,7 @@
 							    <span class="input-group-text" id="inputGroupFileAddon01">Picture</span>
 							  </div>
 							  <div class="custom-file">
-							    <input type="file" class="custom-file-input" name="picture1[]" 
+							    <input type="file" class="custom-file-input" name="picture1" 
 							      aria-describedby="inputGroupFileAddon01" multiple>
 							    <label class="custom-file-label" for="inputGroupFile01">Choose Pictures</label>
 							  </div>

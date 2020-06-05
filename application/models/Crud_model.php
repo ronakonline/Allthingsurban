@@ -81,8 +81,8 @@ class Crud_model extends CI_Model {
       //   $this->db->query('update classified_categorie set parent="'.$data['parent'].'",sub_name=,"'.$data['name'].'",banner="'.$_FILES['category_thumbnail']['name'].'" where id='.$id);
       // }
       if ($_FILES['category_thumbnail']['name'] != "") {
-      $data['banner'] = md5(rand(10000000, 20000000)).'.jpg';;
-      move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$data['banner']);
+      $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';;
+      move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$data['thumbnail']);
       }
       $this->db->where('id',$id);
       $this->db->update('classified_categorie', $data);
@@ -268,6 +268,9 @@ function get_classified_category() {
 }
 
 function get_parent_category(){
+  if (strtolower($this->session->userdata('role')) != 'admin') {
+    $this->db->where('user_id', $this->session->userdata('user_id'));
+  }
   return $this->db->get('classified_categorie');
 }
 
@@ -381,17 +384,30 @@ function add_classifieds() {
     }
 
 function add_list(){
-        $data = $this->input->post();
-       // print_r($data);
-        $count = count($_FILES['picture1']['name']);
-        for ($i=0; $i <$count ; $i++) { 
-          if ($_FILES['picture1']['name'][$i] == "") {
-              $_FILES['picture1']['name'][$i] = 'thumbnail.png';
-          }else {
-              // $_FILES['picture1']['name'][$i] = md5(rand(10000000, 20000000)).'.jpg';
-              move_uploaded_file($_FILES['picture1']['tmp_name'][$i], 'uploads/classified/'.$_FILES['picture1']['name'][$i]);
-          }  
+        $data['business_name'] = sanitizer($this->input->post('business_name'));
+        $data['address'] = sanitizer($this->input->post('address'));
+        $data['city'] = sanitizer($this->input->post('city'));
+        $data['business_telephone'] = sanitizer($this->input->post('business_telephone'));
+        $data['business_email'] = sanitizer($this->input->post('business_email'));
+        $data['description'] = sanitizer($this->input->post('description'));
+        $data['category'] = sanitizer($this->input->post('category'));
+        $data['price'] = sanitizer($this->input->post('price'));
+        
+        if ($_FILES['picture1']['name'] == "") {
+            $data['picture1'] = 'thumbnail.png';
+        }else {
+            $data['picture1'] = md5(rand(10000000, 20000000)).'.jpg';
+            move_uploaded_file($_FILES['picture1']['tmp_name'], 'uploads/classified/'.$data['picture1']);
         }
+        // $count = count($_FILES['picture1']['name']);
+        // for ($i=0; $i <$count ; $i++) { 
+        //   if ($_FILES['picture1']['name'][$i] == "") {
+        //       $_FILES['picture1']['name'][$i] = 'thumbnail.png';
+        //   }else {
+        //       // $_FILES['picture1']['name'][$i] = md5(rand(10000000, 20000000)).'.jpg';
+        //       move_uploaded_file($_FILES['picture1']['tmp_name'][$i], 'uploads/classified/'.$_FILES['picture1']['name'][$i]);
+        //   }  
+        // }
         $this->db->insert('classified', $data);
 }
 

@@ -65,7 +65,7 @@ class Home extends CI_Controller {
 
     public function insert_list(){
         $this->crud_model->add_list();
-         redirect(site_url('Home'), 'refresh');
+        redirect(site_url('Home'), 'refresh');
     }
 
     public function addlisting($id){
