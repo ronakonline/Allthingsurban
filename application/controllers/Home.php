@@ -140,8 +140,11 @@ class Home extends CI_Controller {
     function classifieds($id=null)
     {
         // $this->frontend_model->check_if_this_listing_lies_in_price_range(10, 560);
-        $all_listings = $this->db->where('category',$id)->get('classified')->result_array();
-
+        if($id!=null) {
+            $all_listings = $this->db->where('category', $id)->get('classified')->result_array();
+        }else{
+            $all_listings = $this->db->get('classified')->result_array();
+        }
         $total_rows = count($all_listings);
         $config = array();
         $config = pagintaion($total_rows, 12);
