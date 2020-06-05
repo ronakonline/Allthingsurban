@@ -7,8 +7,24 @@
 					<div class="form_container">
 						<div class="divider"><span><?php echo "Business Details"; ?></span></div>
 						<div class="form-group">
-							<label>Business Name</label>
+							<label>Title</label>
 							<input type="web" class="form-control" name="business_name" id="name" placeholder="Business Name">
+						</div>
+
+						<div class="form-group">
+							<label>Description</label>
+							<textarea rows="10" class="form-control" placeholder="Provide Description of Business"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label>Category</label>
+							<select class="js-example-basic-single" name="category" data-allow-clear="true" data-placeholder="category" style="width: 100%;">
+							  <option value="0" disabled><?php echo "Categoty"; ?></option>
+                                <?php 
+                                	foreach ($categories as $value) {?>
+                                	<option value="<?php echo $value->id ?>"><?php echo $value->sub_name ?></option>
+                            	<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Phone Number</label>
@@ -27,22 +43,10 @@
 							<textarea rows="4" class="form-control" name="address" placeholder="Business Address"></textarea>
 						</div>
 						
-						<div class="form-group">
-							<label>Category</label>
-							<select class="js-example-basic-single" name="category" data-allow-clear="true" data-placeholder="category" style="width: 100%;">
-							  <option value="0" disabled><?php echo "Categoty"; ?></option>
-                                <?php 
-                                	foreach ($categories as $value) {?>
-                                	<option value="<?php echo $value->id ?>"><?php echo $value->sub_name ?></option>
-                            	<?php } ?>
-							</select>
-						</div>
+						
 
 						
-						<div class="form-group">
-							<label>Description</label>
-							<textarea rows="10" class="form-control" placeholder="Provide Description of Business"></textarea>
-						</div>
+						
 
 						<div class="form-group">
 							<label>Price</label>
