@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/addlisting.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/addlisting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/directory_listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/directory_listing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +104,10 @@
       <workItem from="1591286189723" duration="1374000" />
       <workItem from="1591293424887" duration="2430000" />
       <workItem from="1591335704065" duration="2873000" />
-      <workItem from="1591342681964" duration="260000" />
+      <workItem from="1591342681964" duration="372000" />
+      <workItem from="1591350650594" duration="1315000" />
+      <workItem from="1591363512738" duration="907000" />
+      <workItem from="1591372126254" duration="2584000" />
     </task>
     <servers />
   </component>
@@ -115,10 +122,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="360" y="37" key="#Deployment/0.0.1366.728@0.0.1366.728" timestamp="1589377870861" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589463091002">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1591381061749">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589463091002" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591381061749" />
     <state x="548" y="176" key="NewPhpFileDialog" timestamp="1589557109189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -127,18 +134,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1590813861308" />
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1591342787945">
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1591372135062">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591342787945" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591372135062" />
     <state x="580" y="29" key="ftp.server.browser" timestamp="1589377869189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="580" y="29" key="ftp.server.browser/0.0.1366.728@0.0.1366.728" timestamp="1589377869189" />
-    <state x="553" y="262" key="publish.login" timestamp="1591342957278">
+    <state x="553" y="262" key="publish.login" timestamp="1591372203207">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1591342957278" />
+    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1591372203207" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1589552602915">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

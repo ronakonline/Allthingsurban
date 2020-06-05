@@ -64,7 +64,7 @@
                 <div class="highlights">
                     <ul class="menu-list" style="margin-bottom: 0px;">
                         <li>
-                            <a href="<?php echo base_url('Home/addlisting/1'); ?>" title="">
+                            <a href="<?php echo base_url('Home/'); ?>" title="">
                                 <i class="fa fa-briefcase fa-2x"></i>
                                 <span>Businesses</span>
                             </a>

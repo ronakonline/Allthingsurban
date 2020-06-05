@@ -268,9 +268,7 @@ function get_classified_category() {
 }
 
 function get_parent_category(){
-  if (strtolower($this->session->userdata('role')) != 'admin') {
-    $this->db->where('user_id', $this->session->userdata('user_id'));
-  }
+
   return $this->db->get('classified_categorie');
 }
 
