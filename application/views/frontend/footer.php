@@ -46,9 +46,9 @@
 			</a>
 			<div class="collapse show" id="collapse_ft_3">
 				<ul class="contacts">
-					<li><i class="ti-home"></i><?php echo get_settings('address'); ?></li>
-					<li><i class="ti-headphone-alt"></i><?php echo get_settings('phone'); ?></li>
-					<li><i class="ti-email"></i><a href="#0"><?php echo get_settings('system_email'); ?></a></li>
+					<li><i class="ti-home" style="margin-top: 10px;"></i><?php echo get_settings('address'); ?></li>
+					<li><i class="ti-headphone-alt" style="margin-top: 10px;"></i><?php echo get_settings('phone'); ?></li>
+					<li><i class="ti-email" style="margin-top: 10px;"></i><a href="#0"><?php echo get_settings('system_email'); ?></a></li>
 				</ul>
 			</div>
 		</div>
