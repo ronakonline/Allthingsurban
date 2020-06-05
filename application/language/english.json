@@ -832,5 +832,6 @@
     "classified_edit": "Classified edit",
     "business_directory": "Business directory",
     "select_your_listing_categories": "Select your listing categories",
-    "select_your_listing_category": "Select your listing category"
+    "select_your_listing_category": "Select your listing category",
+    "classified_deleted": "Classified deleted"
 }

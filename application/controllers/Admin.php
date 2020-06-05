@@ -125,7 +125,18 @@ class Admin extends CI_Controller {
 			$page_data['categories'] = $this->crud_model->get_classified_parent()->result_array();
 			$page_data['category'] = $this->crud_model->get_classified_categories($param2);
 
-		}
+		}elseif($param1== 'delete'){
+            $id = $param2;
+            $this->db->where('id',$id);
+            $op = $this->db->delete('classified_categorie');
+            //echo $op;
+            if($op!=1){
+                $this->session->set_flashdata('error_message', 'Cant deleted it might have classified listings');
+            }else{
+                $this->session->set_flashdata('flash_message', 'Deleted');
+            }
+            redirect(site_url('admin/classified_categories'), 'refresh');
+        }
 		$this->load->view('backend/index.php', $page_data);
 	}
 
@@ -430,6 +441,12 @@ class Admin extends CI_Controller {
             $page_data['page_name']  = 'classifieds_edit_wiz';
             $page_data['page_title'] = get_phrase('classified_edit');
             $page_data['listing_id'] = $param2;
+        }elseif ($param1 == 'delete'){
+            $id = $param2;
+            $this->db->where('id',$id);
+            $op = $this->db->delete('classified');
+            $this->session->set_flashdata('flash_message', get_phrase('Classified_deleted'));
+            redirect(site_url('admin/classifieds'), 'refresh');
         }
         $this->load->view('backend/index.php', $page_data);
     }

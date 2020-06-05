@@ -65,15 +65,9 @@
                       <ul class="dropdown-menu dropdown-blue" role="menu">
                        
                         <li><a href="<?php echo site_url('admin/classified_category_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
-                       
 
-                        <?php if ($listing['is_featured'] == 1): ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_none_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('remove_from_featured'); ?></a></li>
-                        <?php elseif($listing['is_featured'] == 0): ?>
-                          <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/make_featured/'.$listing['id']); ?>', 'generic_confirmation');"><?php echo get_phrase('mark_as_featured'); ?></a></li>
-                        <?php endif; ?>
                         <li class="divider"></li>
-                        <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/listings/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a>
+                        <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classified_category_form/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a>
                         </li>
                       </ul>
                     </div>

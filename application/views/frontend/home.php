@@ -285,7 +285,7 @@
 				<figure>
 
 					<!--redirect to routs file-->
-					<a href="<?php echo get_classifieds_url($listing['id']); ?>"><img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Read more</span></div></a>
+					<a href="<?php echo get_classifieds_url($listing['id']); ?>"><img src="<?php echo base_url('uploads/classified/'.$listing['picture1']); ?>" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Read more</span></div></a>
 					<small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
 				</figure>
 				<div class="wrapper">

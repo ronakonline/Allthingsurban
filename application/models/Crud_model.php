@@ -81,8 +81,8 @@ class Crud_model extends CI_Model {
       //   $this->db->query('update classified_categorie set parent="'.$data['parent'].'",sub_name=,"'.$data['name'].'",banner="'.$_FILES['category_thumbnail']['name'].'" where id='.$id);
       // }
       if ($_FILES['category_thumbnail']['name'] != "") {
-      $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';;
-      move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$data['thumbnail']);
+      $data['banner'] = md5(rand(10000000, 20000000)).'.jpg';;
+      move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/classified_category_tumbnail/'.$data['banner']);
       }
       $this->db->where('id',$id);
       $this->db->update('classified_categorie', $data);

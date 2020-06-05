@@ -85,13 +85,14 @@
 <section class="service-layout1 bg-accent s-space-custom3">
     <div class="container " style=" padding-bottom: 55px;">
         <div class="main_title_2">
-            <?php if ($listings->parent==2): ?>
+            <?php if ($listings[0]->parent==2){ ?>
                 <p>Add your listing by choosing one of these categories</p>    
-            <?php endif ?>
+            <?php } ?>
             
         </div>
         <div class="row">
             <?php foreach ($listings as $row) { ?>
+                <?php if($row->parent==2){ ?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
                 <div class="service-box1 bg-body text-center">
                     <img src="<?php echo base_url('uploads/classified_category_tumbnail/').$row->banner;?>" alt="service" class="img-fluid" height="50px" width="50px">
@@ -99,6 +100,15 @@
                     <div class="view">&nbsp;</div>
                 </div>
             </div>
+                    <?php }else{ ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
+                        <div class="service-box1 bg-body text-center">
+                            <img src="<?php echo base_url('uploads/classified_category_tumbnail/').$row->banner;?>" alt="service" class="img-fluid" height="50px" width="50px">
+                            <h3 class="title-medium-dark mb-none"><a href="<?php echo base_url('home/classifieds/').$row->id; ?>" class="cardlink"><?php echo $row->sub_name; ?></a></h3>
+                            <div class="view">&nbsp;</div>
+                        </div>
+                    </div>
+                    <?php } ?>
             <?php } ?>
         </div>
     </div>

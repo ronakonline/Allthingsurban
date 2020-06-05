@@ -17,8 +17,8 @@ class Frontend_model extends CI_Model {
     }
 
     function get_classifieds() {
-        $this->db->where('status', 'active');
-        return $this->db->get('classifieds');
+        $this->db->where('verify', '1');
+        return $this->db->get('classified');
     }
 
 
@@ -328,25 +328,7 @@ class Frontend_model extends CI_Model {
         $listing_ids = array();
         $listing_id_with_rating = array();
         $listings = $this->get_classifieds()->result_array();
-        foreach ($listings as $listing) {
-            if(!has_package($listing['user_id']) > 0){
-                continue;
-            }
-            $listing_id_with_rating[$listing['id']] = $this->get_listing_wise_rating($listing['id']);
-        }
-        arsort($listing_id_with_rating);
-        foreach ($listing_id_with_rating as $key => $value) {
-            if (count($listing_ids) <= 10) {
-                array_push($listing_ids, $key);
-            }
-        }
-        if (count($listing_ids) > 0) {
-            $this->db->where_in('id', $listing_ids);
-            $this->db->where('status', 'active');
-            return  $this->db->get('classifieds')->result_array();
-        }else {
-            return array();
-        }
+        return $listings;
     }
 
     function search_listing($search_string = '', $selected_category_id = '') {

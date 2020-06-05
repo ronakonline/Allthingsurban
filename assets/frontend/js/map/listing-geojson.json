@@ -16,7 +16,7 @@
                 "isActive": true,
                 "logo": "5ef43e911ce4a706ed1c2aba2880aef7.jpg",
                 "image": "5ef43e911ce4a706ed1c2aba2880aef7.jpg",
-                "link": "http://localhost/DABD/beauty/le-local-barbershop/1",
+                "link": "https://localhost/DABD/beauty/le-local-barbershop/1",
                 "url": " http://yourcompany.com",
                 "name": "Le local_barbershop",
                 "category": "beauty",
@@ -25,6 +25,35 @@
                 "phone": "+48929485960",
                 "address": "Nice, France",
                 "about": "We believe in b\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "4.856175",
+                    "45.773751"
+                ]
+            },
+            "properties": {
+                "id": "5cf86c8cc502141626f4ac470d7cb824",
+                "index": 1,
+                "isActive": true,
+                "logo": "fd45eb065edf52ec94f8aef20ce5e0eb.jpg",
+                "image": "fd45eb065edf52ec94f8aef20ce5e0eb.jpg",
+                "link": "https://localhost/DABD/beauty/the-beauty-shop/2",
+                "url": "http://yourcompany.com",
+                "name": "The Beauty Shop",
+                "category": "beauty",
+                "email": "yourbusiness@example.com",
+                "stars": "0.0",
+                "phone": "+48929485960",
+                "address": "Lyon, France",
+                "about": "The Beauty Shop\r\n",
                 "tags": [
                     ""
                 ]

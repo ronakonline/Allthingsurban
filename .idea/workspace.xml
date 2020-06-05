@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b743150-6a75-4f93-b70c-e963e6827e51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/uploads/classified/2e3b75a672791994d07a8b7d5d4df05c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/classified/6be28d4a5c13c1b1a03ba17333601864.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/classified_category_tumbnail/09c1b75ba88e135e10f807c5e02cd14a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/classified_category_tumbnail/6793f0664ce47632b257fabffdbd5287.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/classified_category_tumbnail/79da95ba61f1c8c19caf2921b88e0fd8.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Frontend_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Frontend_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/classified_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/classified_categories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/backend/admin/classifieds.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/classifieds_edit_wiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/classifieds_edit_wiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/addlisting.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/addlisting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/js/map/listing-geojson.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +107,9 @@
       <workItem from="1590940464086" duration="6463000" />
       <workItem from="1591020350750" duration="1173000" />
       <workItem from="1591254273336" duration="2493000" />
-      <workItem from="1591273770024" duration="4649000" />
+      <workItem from="1591273770024" duration="4704000" />
+      <workItem from="1591286189723" duration="1374000" />
+      <workItem from="1591293424887" duration="2430000" />
     </task>
     <servers />
   </component>
@@ -128,18 +136,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1590813861308" />
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1591276009928">
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1591293425445">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591276009928" />
+    <state x="359" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591293425445" />
     <state x="580" y="29" key="ftp.server.browser" timestamp="1589377869189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="580" y="29" key="ftp.server.browser/0.0.1366.728@0.0.1366.728" timestamp="1589377869189" />
-    <state x="553" y="262" key="publish.login" timestamp="1590326321018">
+    <state x="553" y="262" key="publish.login" timestamp="1591293966866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1590326321018" />
+    <state x="553" y="262" key="publish.login/0.0.1366.728@0.0.1366.728" timestamp="1591293966866" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1589552602915">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

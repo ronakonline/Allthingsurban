@@ -98,7 +98,7 @@ if (!isset($user_id)) {
 
                                             <li><a href="<?php echo site_url('admin/classifieds_form/edit/'.$listing['id']); ?>"><?php echo get_phrase('edit'); ?></a></li>
                                             <li class="divider"></li>
-                                            <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a>
+                                            <li><a href="javascript::" onclick="confirm_modal('<?php echo site_url('admin/classifieds_form/delete/'.$listing['id']); ?>');"><?php echo get_phrase('delete'); ?></a>
                                             </li>
                                         </ul>
                                     </div>
