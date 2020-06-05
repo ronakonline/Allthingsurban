@@ -5,7 +5,7 @@
 			<div class="box_account">	
 				<form class="" action="<?php echo site_url('Home/insert_list'); ?>" method="post" enctype="multipart/form-data">
 					<div class="form_container">
-						<div class="divider"><span><?php echo "Business Details"; ?></span></div>
+						<div class="divider"><span><?php echo "Listing Details"; ?></span></div>
 						<div class="form-group">
 							<label>Title</label>
 							<input type="web" class="form-control" name="business_name" id="name" placeholder="Business Name">

@@ -23,66 +23,44 @@
                         </div>
                     </div>
                     <h1>
-                        <?php echo $listing_details['name']; ?>
-
-                        <?php $claiming_status = $this->db->get_where('claimed_listing', array('listing_id' => $listing_id))->row('status'); ?>
-                        <?php if($claiming_status == 1): ?>
-                            <span style="font-size: 20px;"><i class='icon-check text-success'></i></span>
-                        <?php endif; ?>
+                        <?php echo $listing_details['business_name']; ?>
                     </h1>
-                    <?php if ($listing_details['latitude'] != "" && $listing_details['longitude'] != ""): ?>
-                        <a class="address" href="http://maps.google.com/maps?q=<?php echo $listing_details['latitude']; ?>,<?php echo $listing_details['longitude']; ?>" target="_blank"><?php echo $listing_details['address']; ?></a>
-                    <?php endif; ?>
+
+                        <a class="address" href="#" target="_blank"><?php echo $listing_details['business_address']; ?></a>
+
                 </div>
 
-                <div class="add_bottom_15">
-                    <?php
-                    $categories = json_decode($listing_details['categories']);
-                    for ($i = 0; $i < sizeof($categories); $i++):
-                        $this->db->where('id',$categories[$i]);
-                        $category_name = $this->db->get('category')->row()->name;
-                        ?>
-                        <span class="loc_open mr-2">
-						<a href="<?php echo site_url('home/filter_listings?category='.slugify($category_name).'&&status=all'); ?>"
-                           style="color: #32a067;">
-							<?php echo $category_name;?>
-							>
-						</a>
-					</span>
-                    <?php
-                    endfor;
-                    ?>
-                </div>
+
 
                 <h5><?php echo get_phrase('about'); ?></h5>
                 <p>
                     <?php echo $listing_details['description']; ?>
                 </p>
                 <!-- Photo Gallery -->
-                <?php if (count(json_decode($listing_details['photos'])) > 0): ?>
-                    <h5 class="add_bottom_15"><?php echo get_phrase('photo_gallery'); ?></h5>
-                    <div class="grid-gallery">
-                        <ul class="magnific-gallery">
-                            <?php foreach (json_decode($listing_details['photos']) as $key => $photo): ?>
-                                <?php if (file_exists('uploads/listing_images/'.$photo)): ?>
-                                    <li>
-                                        <figure>
-                                            <img src="<?php echo base_url('uploads/listing_images/'.$photo); ?>" alt="">
-                                            <figcaption>
-                                                <div class="caption-content">
-                                                    <a href="<?php echo base_url('uploads/listing_images/'.$photo); ?>" title="" data-effect="mfp-zoom-in">
-                                                        <i class="pe-7s-plus"></i>
-
-                                                    </a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
+<!--                --><?php //if (count(json_decode($listing_details['photos'])) > 0): ?>
+<!--                    <h5 class="add_bottom_15">--><?php //echo get_phrase('photo_gallery'); ?><!--</h5>-->
+<!--                    <div class="grid-gallery">-->
+<!--                        <ul class="magnific-gallery">-->
+<!--                            --><?php //foreach (json_decode($listing_details['photos']) as $key => $photo): ?>
+<!--                                --><?php //if (file_exists('uploads/listing_images/'.$photo)): ?>
+<!--                                    <li>-->
+<!--                                        <figure>-->
+<!--                                            <img src="--><?php //echo base_url('uploads/listing_images/'.$photo); ?><!--" alt="">-->
+<!--                                            <figcaption>-->
+<!--                                                <div class="caption-content">-->
+<!--                                                    <a href="--><?php //echo base_url('uploads/listing_images/'.$photo); ?><!--" title="" data-effect="mfp-zoom-in">-->
+<!--                                                        <i class="pe-7s-plus"></i>-->
+<!---->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </figcaption>-->
+<!--                                        </figure>-->
+<!--                                    </li>-->
+<!--                                --><?php //endif; ?>
+<!--                            --><?php //endforeach; ?>
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                --><?php //endif; ?>
 
                 <hr>
                 <?php include 'contact_and_social.php'; ?>

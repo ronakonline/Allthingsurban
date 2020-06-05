@@ -268,9 +268,6 @@ function get_classified_category() {
 }
 
 function get_parent_category(){
-  if (strtolower($this->session->userdata('role')) != 'admin') {
-    $this->db->where('user_id', $this->session->userdata('user_id'));
-  }
   return $this->db->get('classified_categorie');
 }
 
@@ -384,15 +381,8 @@ function add_classifieds() {
     }
 
 function add_list(){
-        $data['business_name'] = sanitizer($this->input->post('business_name'));
-        $data['address'] = sanitizer($this->input->post('address'));
-        $data['business_telephone'] = sanitizer($this->input->post('business_telephone'));
-        $data['business_email'] = sanitizer($this->input->post('business_email'));
-        $data['description'] = sanitizer($this->input->post('description'));
-        $data['category'] = sanitizer($this->input->post('category'));
-        $data['picture1'] = sanitizer($this->input->post('picture1'));
-        $data['price'] = sanitizer($this->input->post('price'));
-        
+        $data = $this->input->post();
+       // print_r($data);
         $count = count($_FILES['picture1']['name']);
         for ($i=0; $i <$count ; $i++) { 
           if ($_FILES['picture1']['name'][$i] == "") {

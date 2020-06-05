@@ -1,16 +1,16 @@
 <div class="row mb-3">
 	<div class="col-12">
 		<h5 class="mb-3"><?php echo get_phrase('contact'); ?></h5>
-		<?php if($listing_details['website'] != ""){ ?>
-			<a href="<?php echo $listing_details['website']; ?>" target="blank" class="btn_1 full-width outline wishlist social-button" id = "btn-wishlist-social"><i class="icon-globe-6 mr-2"></i>Visit website</a>
+		<?php if($listing_details['business_website'] != ""){ ?>
+			<a href="<?php echo $listing_details['business_website']; ?>" target="blank" class="btn_1 full-width outline wishlist social-button" id = "btn-wishlist-social"><i class="icon-globe-6 mr-2"></i>Visit website</a>
 		<?php } ?>
 
-		<?php if($listing_details['email'] != ""){ ?>
-			<a href="mailto:<?php echo $listing_details['email']; ?>" target="" class="btn_1 full-width outline wishlist social-button" id = "btn-wishlist-social"><i class="icon-email mr-2"></i>Email Us</a>
+		<?php if($listing_details['business_email'] != ""){ ?>
+			<a href="mailto:<?php echo $listing_details['business_email']; ?>" target="" class="btn_1 full-width outline wishlist social-button" id = "btn-wishlist-social"><i class="icon-email mr-2"></i>Email Us</a>
 		<?php } ?>
 
-		<?php if($listing_details['phone'] != ""){ ?>
-			<a href="tel:<?php echo $listing_details['phone']; ?>" target="" class="btn_1 full-width outline wishlist social-button" id = "btn-wishlist-social"><i class="icon-phone mr-2"></i>Call Now</a>
+		<?php if($listing_details['business_telephone'] != ""){ ?>
+			<a href="tel:<?php echo $listing_details['business_phone']; ?>" target="" class="btn_1 full-width outline wishlist social-button" id = "btn-wishlist-social"><i class="icon-phone mr-2"></i>Call Now</a>
 		<?php } ?>
 
 

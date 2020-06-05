@@ -65,7 +65,7 @@ class Home extends CI_Controller {
 
     public function insert_list(){
         $this->crud_model->add_list();
-        // redirect(site_url('Home'), 'refresh');
+         redirect(site_url('Home'), 'refresh');
     }
 
     public function addlisting($id){
@@ -294,9 +294,9 @@ class Home extends CI_Controller {
     function classified($slug = "", $listing_id) {
         $listing_details = $this->crud_model->get_classifieds_details($listing_id)->row_array();
 
-        $page_data['geo_json']  = $this->make_geo_json_for_map($this->db->get_where('classifieds', array('id' => $listing_id))->result_array()); // Result array is needed for geo json
+
         $page_data['page_name']  = 'class_listing';
-        $page_data['title']      = $listing_details['name'];
+        $page_data['title']      = $listing_details['business_name'];
         $page_data['listing_id'] = $listing_id;
         $page_data['slug'] = $slug;
         $page_data['listing_details'] = $listing_details;
