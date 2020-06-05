@@ -29,6 +29,65 @@
                     ""
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "4.856175",
+                    "45.773751"
+                ]
+            },
+            "properties": {
+                "id": "5cf86c8cc502141626f4ac470d7cb824",
+                "index": 1,
+                "isActive": true,
+                "logo": "fd45eb065edf52ec94f8aef20ce5e0eb.jpg",
+                "image": "fd45eb065edf52ec94f8aef20ce5e0eb.jpg",
+                "link": "http://localhost/DABD/beauty/the-beauty-shop/2",
+                "url": "http://yourcompany.com",
+                "name": "The Beauty Shop",
+                "category": "beauty",
+                "email": "yourbusiness@example.com",
+                "stars": "0.0",
+                "phone": "+48929485960",
+                "address": "Lyon, France",
+                "about": "The Beauty Shop\r\n",
+                "tags": [
+                    ""
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    "4564564",
+                    "5454545"
+                ]
+            },
+            "properties": {
+                "id": "0aa6ddb76307a69b8a9136c248c407a7",
+                "index": 2,
+                "isActive": true,
+                "logo": "6ac7dcb212dc1136862bbda4029ef319.jpg",
+                "image": "6ac7dcb212dc1136862bbda4029ef319.jpg",
+                "link": "http://localhost/DABD/restaurant/food/4",
+                "url": "foodforlife.com",
+                "name": "food",
+                "category": "restaurant",
+                "email": "daiyayash1218@gmail.com",
+                "stars": "0.0",
+                "phone": "07990775917",
+                "address": "52, PART-2, SHREENATH BANGLOWS, CHANDKHEDA",
+                "about": "Food is everyth\r\n",
+                "tags": [
+                    "yrtytry",
+                    "ututut"
+                ]
+            }
         }
     ]
 }
