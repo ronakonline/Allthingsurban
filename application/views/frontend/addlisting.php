@@ -21,7 +21,7 @@
                 <div class="highlights">
                     <ul class="menu-list" style="margin-bottom: 0px;">
                         <li>
-                            <a href="<?php echo base_url('Home/addlisting/1'); ?>" title="">
+                            <a href="<?php echo base_url('Home'); ?>" title="">
                                 <i class="fa fa-briefcase fa-2x"></i>
                                 <span>Businesses</span>
                             </a>
@@ -96,7 +96,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 item-mb">
                 <div class="service-box1 bg-body text-center">
                     <img src="<?php echo base_url('uploads/classified_category_tumbnail/').$row->banner;?>" alt="service" class="img-fluid" height="50px" width="50px">
-                    <h3 class="title-medium-dark mb-none"><a href="<?php if($row->id==9) {echo base_url('home/add/').$row->id;}else{echo base_url('home/add_form/').$row->id;} ?>" class="cardlink"><?php echo $row->sub_name; ?></a></h3>
+                    <h3 class="title-medium-dark mb-none"><a href="<?php if($row->id==12) {echo base_url('home/add/').$row->id;}else{echo base_url('home/add_form/').$row->id;} ?>" class="cardlink"><?php echo $row->sub_name; ?></a></h3>
                     <div class="view">&nbsp;</div>
                 </div>
             </div>
