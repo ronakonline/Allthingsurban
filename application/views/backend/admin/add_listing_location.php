@@ -14,7 +14,7 @@
 <div class="form-group">
   <label class="col-sm-3 control-label" for="city_id"> <?php echo get_phrase('city'); ?></label>
   <div class="col-sm-7">
-    <select class="form-control" name="city_id" id="city_id">
+    <select class="form-control" name="city_id" id="city_id" required>
       <option value=""><?php echo get_phrase('select_city'); ?></option>
     </select>
   </div>
@@ -23,7 +23,7 @@
 <div class="form-group">
   <label class="col-sm-3 control-label" for="address"><?php echo get_phrase('address'); ?></label>
   <div class="col-sm-7">
-    <textarea name="address" rows="5" class="form-control" id = "address"></textarea>
+    <textarea name="address" rows="5" class="form-control" id = "address" required></textarea>
   </div>
 </div>
 

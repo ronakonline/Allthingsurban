@@ -14,9 +14,9 @@
 <div class="form-group">
   <label class="col-sm-3 control-label" for="city_id"> <?php echo get_phrase('city'); ?></label>
   <div class="col-sm-7">
-    <select class="form-control" name="city_id" id="city_id">
+    <select class="form-control" name="city_id" id="city_id" required>
       <?php foreach ($this->crud_model->get_cities_by_country_id($listing_details['country_id'])->result_array() as $city): ?>
-          <option value="<?php echo $city['id']; ?>" <?php if($listing_details['city_id'] == $city['id']): ?> selected <?php endif;?>><?php echo $city['name']; ?></option>
+          <option value="<?php echo $city['id']; ?>" <?php if($listing_details['city_id'] == $city['id']): ?>  <?php endif;?>><?php echo $city['name']; ?></option>
       <?php endforeach; ?>
     </select>
   </div>

@@ -124,8 +124,14 @@ if (!isset($user_id)) {
                 <td>
                   <?php
                   $country_details = $this->crud_model->get_countries($listing['country_id'])->row_array();
-                  $city_details = $this->crud_model->get_cities($listing['city_id'])->row_array();
-                  echo $city_details['name'].', '.$country_details['name'];
+                  if (empty($listing['city_id'])) {
+                    echo $country_details['name'];
+                  }
+                  else{
+                    $city_details = $this->crud_model->get_cities($listing['city_id'])->row_array();
+                    echo $city_details['name'].', '.$country_details['name'];
+                  }
+                  
                   ?>
                 </td>
                 <td class="text-center">
