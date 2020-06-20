@@ -12,6 +12,19 @@
             }
         })
     }
+    function fetchdata_by_city(name) {
+        // alert(id);
+        // alert('hi');
+        $.ajax({
+            url:"<?php echo base_url('Home/listingbycity'); ?>",
+            type:"post",
+            data : {name:name},
+            success: function (response) {
+                $('#default').remove();
+                $('#newcat').html(response);
+            }
+        })
+    }
 </script>
 <section class="hero_single version_2" style="background: #222 url(<?php echo base_url('uploads/system/home_banner.jpg'); ?>) center center no-repeat; background-size: cover;">
 	<div class="wrapper">
@@ -48,12 +61,11 @@
 	</div>
 </section>
 <div class="row">
-    <div class="col-sm" style="text-align: center">Houston</div>
-    <div class="col-sm" style="text-align: center">San Antonio</div>
-    <div class="col-sm" style="text-align: center">Dallas Fort Worth</div>
-    <div class="col-sm" style="text-align: center">Austin</div>
-    <div class="col-sm" style="text-align: center">El Paso</div>
-
+    <div class="col-sm" style="text-align: center"><a href="javascript:fetchdata_by_city(<?php echo '\'Houston\'' ?>);">Houston</a></div>
+    <div class="col-sm" style="text-align: center"><a href="javascript:fetchdata_by_city(<?php echo '\'San Antonio\'' ?>);">San Antonio</a></div>
+    <div class="col-sm" style="text-align: center"><a href="javascript:fetchdata_by_city(<?php echo '\'Dallas Fort Worth\'' ?>);">Dallas Fort Worth</a></div>
+    <div class="col-sm" style="text-align: center"><a href="javascript:fetchdata_by_city(<?php echo '\'Austin\'' ?>);">Austin</a></div>
+    <div class="col-sm" style="text-align: center"><a href="javascript:fetchdata_by_city(<?php echo '\'El Paso\'' ?>);">El Paso</a></div>
 
 </div>
 <!-- /hero_single -->

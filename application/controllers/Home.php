@@ -600,4 +600,61 @@ class Home extends CI_Controller {
         }
         echo $response;
     }
+
+    function listingbycity(){
+        $name = $_POST['name'];
+        $id = $this->db->where('name',$name)->get('city')->result();
+        if(empty($id)){
+            $response = '<p style="text-align: center; font-size: 18px;">No Listing Found</p>';
+            echo $response;
+            return;
+        }
+        $op = $this->frontend_model->listingbycity($id[0]->id);
+        $response =" <div class=\"row\">";
+
+        foreach ($op as $listing){
+            $city =  $this->db->get_where('city', array('id' =>  $listing->city_id))->row_array();
+            $country = $this->db->get_where('country', array('id' =>  $listing->country_id))->row_array();
+            $response .= '
+                 
+                 <div class="col-4 card " data-marker-id="'.$listing->code.'" id = "'.$listing->code.'">
+
+                            <div class="strip grid">
+                                <figure>
+
+                                    <a href="javascript::" class="wishlist-icon" onclick="addToWishList(this, \''.$listing->id.'\')">
+                                        <i class="fas fa-heart "></i>
+                                    </a>
+                                
+                                    <a href="'.get_listing_url($listing->id).'"  id = "listing-banner-image-for-'.$listing->code.'"  class="d-block h-100 img" style="background-image:url('.base_url('uploads/listing_thumbnails/').$listing->listing_thumbnail.')">
+                                        <!-- <img src="<?php echo base_url(\'uploads/listing_thumbnails/\'.$listing[\'listing_thumbnail\']); ?>" class="img-fluid" alt=""> -->
+                                        <div class="read_more"><span>Watch Details</span></div>
+                                    </a>
+                                  
+                                </figure>
+                                <div class="wrapper">
+                                    <h3 class="ellipsis"><a href="'. get_listing_url($listing->id) .'">'.$listing->name.'</a></h3>
+                                    <small>
+                                        '.$city['name'].','.$country['name'].'
+                                    </small>
+                                    <p class="ellipsis">
+                                       '.$listing->description.'
+                                    </p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+      
+                
+          ';
+
+        }
+        $response .=' </div>';
+        if(count($op)==0){
+            $response = '<p style="text-align: center; font-size: 18px;">No Listing Found</p>';
+        }
+        echo $response;
+    }
 }

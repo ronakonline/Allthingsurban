@@ -424,4 +424,8 @@ class Frontend_model extends CI_Model {
         $q = $this->db->like('categories',$id)->get('listing');
         return $q->result();
     }
+    public function listingbycity($id){
+        $q = $this->db->where('city_id',$id)->get('listing');
+        return $q->result();
+    }
 }
